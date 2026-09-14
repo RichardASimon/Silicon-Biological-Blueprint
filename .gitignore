@@ -1,0 +1,27 @@
+# ============================================================
+# Silico-Biological-Blueprint — 只推核心设计 .md
+# 原则:设计文档进 git;文献原文(含付费全文)不进 git(版权 + 体积 388MB)
+# ============================================================
+
+# 1. 文献库不进 git(99 PDF + 69 TXT,含大量期刊付费全文,版权 + 388MB)
+Reference Documentation/
+
+# 2. 误标隔离区(审计中间产物)
+_MISLABELED/
+**/_MISLABELED/
+
+# 3. 工具/临时文件(不进 git)
+_audit_pdf.sh
+stderr.txt
+ax1.xml
+skills-lock.json
+
+# 4. Claude Code 本地配置 / 临时区(个人环境,不该进库)
+.claude/
+.agents/
+*.tmp
+*.log
+
+# 5. OS 杂项
+.DS_Store
+Thumbs.db
