@@ -1,22 +1,26 @@
 # ============================================================
-# Silico-Biological-Blueprint — 只推核心设计 .md
-# 原则:设计文档进 git;文献原文(含付费全文)不进 git(版权 + 体积 388MB)
+# Silico-Biological-Blueprint — 只推核心设计文件,其余一律不推
+# 策略:黑名单显式排除所有非设计内容
 # ============================================================
 
-# 1. 文献库不进 git(99 PDF + 69 TXT,含大量期刊付费全文,版权 + 388MB)
+# 1. 文献库不进 git(99 PDF + 69 TXT,含付费全文,版权 + 388MB)
 Reference Documentation/
-
-# 2. 误标隔离区(审计中间产物)
 _MISLABELED/
 **/_MISLABELED/
 
-# 3. 工具/临时文件(不进 git)
+# 2. 调研/整合/报告类素材(非当前 12 册核心设计,不进库)
+硅基DNA设计_调研报告.md
+硅基DNA设计文档.md
+硅基DNA设计_第三方方案评估与整合.md
+references.md
+
+# 3. 工具 / 临时 / 审计中间文件
 _audit_pdf.sh
 stderr.txt
 ax1.xml
 skills-lock.json
 
-# 4. Claude Code 本地配置 / 临时区(个人环境,不该进库)
+# 4. Claude Code 本地配置 / 个人环境
 .claude/
 .agents/
 *.tmp
@@ -25,3 +29,14 @@ skills-lock.json
 # 5. OS 杂项
 .DS_Store
 Thumbs.db
+
+# 6. 早期调研/评估/大纲稿(非当前 12 册核心设计,不进库)
+工作原则.md
+承重假设决策清单.md
+数值溯源清单.md
+硅基DNA设计_第三方方案评估与整合.md
+硅基DNA设计文档.md
+硅基DNA设计调研报告.md
+硅基生命_哲学层.md
+硅基生命_总大纲.md
+硅基生命_系统完整性评估.md
