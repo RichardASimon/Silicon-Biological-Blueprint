@@ -19,6 +19,7 @@ _audit_pdf.sh
 stderr.txt
 ax1.xml
 skills-lock.json
+.cache_refs/
 
 # 4. Claude Code 本地配置 / 个人环境
 .claude/
