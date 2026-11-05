@@ -1,27 +1,13 @@
-# ============================================================
-# Silicon-Based Life Blueprint — 白名单：仅推双语设计报告、规范与归档原稿
-# 策略：默认忽略一切，按目录放行现行文档
-# ============================================================
+# Only the 24 bilingual design reports and the entry README are published.
+# Everything else is kept local and ignored.
 
 *
 
-# ---- 入口与版本库配置 ----
 !.gitignore
-!README.md
+!/README.md
 
-# ---- 中文组 ----
 !zh-CN/
-!zh-CN/**
+!zh-CN/[0-9][0-9]_*.md
 
-# ---- 英文组 ----
 !en-US/
-!en-US/**
-
-# ---- 原始稿件归档（仅 12 册 + 旧 README）----
-!archive/
-!archive/original-zh/
-!archive/original-zh/*.md
-
-# ---- 规范与工具 ----
-!tools/
-!tools/**
+!en-US/[0-9][0-9]-*.md
