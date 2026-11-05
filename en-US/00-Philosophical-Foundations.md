@@ -1,16 +1,29 @@
 # 00 · Philosophical Foundations (Axioms, Two-Layer Rules and Time-Scale Mapping)
 
 | Item | Value |
-|---|---|
+| --- | --- |
 | Module | Philosophical foundations: axioms, two-layer rules and time-scale mapping |
 | Document type | Design report (English edition) |
 | Version | v2.1 |
 | Dependencies | Upstream of all volumes; no dependencies |
 | Language | English (Chinese edition: `../zh-CN/00_哲学层_设计.md`) |
 
-> **Evidence categories**: `[Ref:…]` literature or data; `[Design decision]` project setting without external evidence, with adjustability stated; `[Logical derivation]` derived from listed premises and formulae; `[To be verified]` unvalidated values or methods, placeholder only, with the value provider named. Every key assertion carries one of these categories.
+> **Evidence categories**: `[Ref:…]` literature or data; `[Design decision]` project setting; `[Logical derivation]` derived from listed premises; `[To be verified]` unvalidated placeholder.
 
 ---
+
+**Figure 0-1: Axioms, two-layer rules and time-scale mapping**
+
+```mermaid
+flowchart TB
+    A["Axioms A1-A5<br/>Cooperation fitness term A6"] --> B["Φ-L1/L2/L3 philosophical layer<br/>non-evolvable"]
+    B --> C["Axiomatic rule layer<br/>evolvable"]
+    C --> D["Time-scale mapping<br/>carbon-based life history → silicon time scale"]
+    B -.constrains.-> C
+    B -.constrains.-> D
+```
+
+> Note: The top-down relations are constraints; Φ-L1/L2/L3 form the non-evolvable layer, and the axiomatic rule layer may evolve under these constraints.
 
 ## 1. Design Objectives
 
@@ -51,7 +64,7 @@ Answers four questions more fundamental than "instinct" and turns them into **ad
 ### 2.3 Four Features of the "Criteria of Life" (Operationalising the §2.1 Primary Criterion)
 
 | Criterion | Meaning | Silicon-based implementation |
-|------|------|---------|
+| ------ | ------ | --------- |
 | **C1 Organizational closure** | Actively produces the components that define its own identity (material openness + causally self-contained) | S1 DNA record + S6 replication = self-produced information; S4 boundary = causally self-contained |
 | **C2 Dissipation (negentropy)** | Non-equilibrium state, exports entropy | S3 energy metabolism (§03) |
 | **C3 Internalized goal** | Orientation towards its own survival (teleonomy) | A2 persistence axiom + instinct I0d reproduction |
@@ -146,7 +159,7 @@ Layer 2 · Axiomatic rule layer (below the philosophical layer, evolvable but co
 ## 5. Axiom → Lower-Layer Mapping (Design Principles 8/9/10 + S Subsystems)
 
 | Axiom | Behaviour-layer projection (Design Principle 8) | Tool layer (Design Principles 9/10 + S) | Volume |
-|------|---------------------|---------------------|------|
+| ------ | --------------------- | --------------------- | ------ |
 | **A1 Organizational closure** | I3 homeostasis (self-protection) | S4 boundary (causally self-contained) | 04 |
 | **A2 Persistence** | I0a reflex / I2 approach–avoidance | S3 energy | 03 + 09 |
 | **A3 Replication** | I0d reproduction / I0e maternal instinct | S1 + S6 | 01 + 10 |
@@ -164,14 +177,18 @@ Layer 2 · Axiomatic rule layer (below the philosophical layer, evolvable but co
 > **Alternative options (wording and stance category, no external literature required)**:
 
 | Option | Content | Consequence | Applicability conditions |
-|------|------|------|--------|
+| ------ | ------ | ------ | -------- |
 | **A. Retain the "necessary projection" wording** (current baseline) | Insist on "axioms → I0 necessarily" | Retains strength of wording, but logically an assertion rather than an inference, as pointed out by the consistency check | Accepts "design stance = philosophical presupposition", emphasises strength of wording |
-| **B. Downgrade to "design presupposition" (scientific wording)** | Change to "the I0 group is a **design-presupposed** minimal set at the behaviour layer, not a logical necessity of the axioms; the axioms guarantee 'the existence of approach–avoidance/replication-type behaviours', but **which specific instincts exist is determined by design choice**" | Evidence is explicit (the axioms entail only "there must be approach–avoidance/replication/learning", not "maternal instinct/conditioned reflex") | Applicable where logical auditability is required |
-| **C. Split into two layers: hard core + soft extension** | "I0 hard core = approach–avoidance + replication (genuinely entailed by the axioms, necessity retained)" + "I0 soft extension = conditioned reflex/maternal instinct/CPG (design choice, evolvable/addable/removable)" | Logical division is explicit: distinguishes axiom-derivable items from design-selected items; removing the soft extension does not affect system integrity | Applicable where defensibility and tailorability are required |
+| **B. Downgrade to "design presupposition" (scientific wording)** | Change to "the I0 group is a design-presupposed minimal set at the behaviour layer, not a… See note 1 | Evidence is explicit (the axioms entail only "there must be approach–avoidance/replication/learning", not "maternal instinct/conditioned reflex") | Applicable where logical auditability is required |
+| **C. Split into two layers: hard core + soft extension** | "I0 hard core = approach–avoidance + replication (genuinely entailed by the axioms, necess… See note 2 | Logical division is explicit: distinguishes axiom-derivable items from design-selected items; removing the soft extension does not affect system integrity | Applicable where defensibility and tailorability are required |
+
+**Full evidence for table cells**
+
+1. **B. Downgrade to "design presupposition" (scientific wording) · Content** — Change to "the I0 group is a design-presupposed minimal set at the behaviour layer, not a logical necessity of the axioms; the axioms guarantee 'the existence of approach–avoidance/replication-type behaviours', but which specific instincts exist is determined by design choice"
+2. **C. Split into two layers: hard core + soft extension · Content** — "I0 hard core = approach–avoidance + replication (genuinely entailed by the axioms, necessity retained)" + "I0 soft extension = conditioned reflex/maternal instinct/CPG (design choice, evolvable/addable/removable)"
 
 > **Baseline option = C (hard core retains "necessity", soft extension explicitly marked "design choice")** — this retains the strength of the axiom wording while not writing unargued items as axiom corollaries.
 > **Design decision (S3): the I0 group is divided into a hard core (approach–avoidance, replication, derived from the axioms, fixed and non-evolvable) and a soft extension (locomotion CPG, conditioned reflex, maternal instinct, belonging to design choices, addable/removable and evolvable). The remaining stances are retained as alternatives.**
-
 
 ---
 
@@ -200,18 +217,24 @@ Evolvable zone (below Layer 2, subject to the Φ-L2 bottom-layer constraint)
 
 **Baseline: chimpanzee** (an intermediate carbon-based intelligent life form; project setting: the evolutionary starting point should not be set too low).
 
-**Carbon-based time scales (source given item by item, Design Principle 24)**:
+**Carbon-based time scales (source given, Design Principle 24)**:
 
 | Carbon-based time scale (chimpanzee) | Carbon-based value | Source | Silicon-based mapping | Silicon-based value |
-|------------------|--------|------|---------|--------|
-| Lifespan | Wild ~32.8 years (Ngogo cohort) → captive maximum 62 years / estimated 78 years | `05/Wood_2017_Ngogo_Chimp_Life_Expectancy...PMC5526083` (measured) | **÷ ~1.2×10⁴ (`single compression ratio set by the project, lifespan-anchored`)** | ~1 day (= baseline) |
+| ------------------ | -------- | ------ | --------- | -------- |
+| Lifespan | Wild ~32.8 years (Ngogo cohort) → captive maximum 62 years / estimated 78 years | `05/Wood_2017_Ngogo_Chimp_Life_Expectancy...PMC5526083` (measured) | ÷ ~1.2×10⁴ (`single compression ratio set by the project, lifespan-anchored`) | ~1 day (= baseline) |
 | Weaning | ~5 years | `05/Smith_2013_First_Molar_Eruption_Weaning...PMC3581971` (measured) | ÷ ~1.2×10⁴ (uniform) | ~1 hour (5 years ≈ 4.4×10⁷ s ÷ 1.2×10⁴ ≈ 3.7×10³ s ≈ 1 h, order of magnitude only, not exact) |
 | First birth | ~14 years | `05/Hawkes_Smith_Robson_2009...Gompertz...PMC6121812` (measured) | ÷ ~1.2×10⁴ (uniform) | ~10 hours (14 years ≈ 4.4×10⁸ s ÷ 1.2×10⁴ ≈ 3.7×10⁴ s ≈ 10 h, order of magnitude only, not exact) |
-| Interbirth interval | 5–6 years | `05/Hawkes_2009` (same as above) | ÷ ~1.2×10⁴ (uniform) | **~1 day (5–6 years = 4.4–5.3×10⁷ s ÷ 1.2×10⁴ ≈ 3.6–4.4×10³ s ≈ 1 day; the original "8–10 hours" coefficient 5.4×10³ was inconsistent and has been corrected using the uniform compression ratio)** |
+| Interbirth interval | 5–6 years | `05/Hawkes_2009` (same as above) | ÷ ~1.2×10⁴ (uniform) | ~1 day (5–6 years = 4.4–5.3×10⁷ s ÷ 1.2×10⁴ ≈ 3.6–4.4×10³ s ≈ 1 day; the original "8–10 hours" coefficient 5.4×10³ was inconsistent and has been corrected using the uniform compression ratio) |
 | M1 eruption | ~3 years | `05/Smith_2013` (same as above) | ÷ ~1.2×10⁴ (uniform) | ~2 hours (3 years ÷ ~1.2×10⁴; the original "4 hours" coefficient 6.6×10³ was too low, corrected) |
-| Daily rhythm | 1 day | **[Design setting, unverified; the 24 h circadian rhythm awaits a circadian literature reference]** (the original "physiological common knowledge" was not a Design Principle 24-compliant anchor; the 2026-09-16 consistency check changed it to an explicit label) | **÷ ~410 (independent coefficient: 1 day 86400 s ÷ 210 s [3.5 min]; the daily rhythm uses the "day/minute" tier and is not mixed with the lifespan 1.2×10⁴; the original "÷2190" calculation was erroneous)** | ~3.5 minutes |
-| Learning consolidation (sleep-like) | Several hours | `07/Rasch_Born_2013` (SWS system consolidation, to be verified · excerpt, specific SWS stage durations to be checked against the original text) | ÷ ~1.2×10⁴ (uniform) | **~1–4 seconds (several hours 1–4 h = 3.6×10³–1.4×10⁴ s ÷ 1.2×10⁴ ≈ 0.3–1.2 s; the original "10 seconds" coefficient ~1.4×10³ differs from the lifespan 1.2×10⁴ by 10×, corrected)** |
-| Reflex | ~100 ms order of magnitude (to be verified · specific value to be confirmed) | `09/Withdrawal_Reflex_Nociceptive_Neuromorphic_Model_Wang_Cheng_arXiv2505.17724.pdf`, `09/Reflexive_BrainInspired_Embodied_Robotics_Control_Guo_arXiv2601.14628.pdf` (to be verified · the original `Muacevic_2022` is a history of reflex-hammer tools, not a time-course basis, and has been excluded) | ns-µs (neural-layer pulses, `Design setting`, not a compression-ratio conversion) | nanoseconds–microseconds |
+| Daily rhythm | 1 day | See note 1 | ÷ ~410 (independent coefficient: 1 day 86400 s ÷ 210 s [3.5 min]; the daily rhythm uses th… See note 2 | ~3.5 minutes |
+| Learning consolidation (sleep-like) | Several hours | `07/Rasch_Born_2013` (SWS system consolidation, to be verified · excerpt, specific SWS stage durations to be checked against the original text) | ÷ ~1.2×10⁴ (uniform) | ~1–4 seconds (several hours 1–4 h = 3.6×10³–1.4×10⁴ s ÷ 1.2×10⁴ ≈ 0.3–1.2 s; the original "10 seconds" coefficient ~1.4×10³ differs from the lifespan 1.2×10⁴ by 10×, corrected) |
+| Reflex | ~100 ms order of magnitude (to be verified · specific value to be confirmed) | See note 3 | ns-µs (neural-layer pulses, `Design setting`, not a compression-ratio conversion) | nanoseconds–microseconds |
+
+**Full evidence for table cells**
+
+1. **Daily rhythm · Source** — [Design setting, unverified; the 24 h circadian rhythm awaits a circadian literature reference] (the original "physiological common knowledge" was not a Design Principle 24-compliant anchor; the 2026-09-16 consistency check changed it to an explicit label)
+2. **Daily rhythm · Silicon-based mapping** — ÷ ~410 (independent coefficient: 1 day 86400 s ÷ 210 s [3.5 min]; the daily rhythm uses the "day/minute" tier and is not mixed with the lifespan 1.2×10⁴; the original "÷2190" calculation was erroneous)
+3. **Reflex · Source** — `09/Withdrawal_Reflex_Nociceptive_Neuromorphic_Model_Wang_Cheng_arXiv2505.17724.pdf`, `09/Reflexive_BrainInspired_Embodied_Robotics_Control_Guo_arXiv2601.14628.pdf` (to be verified · the original `Muacevic_2022` is a history of reflex-hammer tools, not a time-course basis, and has been excluded)
 
 **Mapping notes (Design Principle 24)**:
 - **The carbon-based values have sources** (each row of the table above carries a literature source), **but the "÷ ~1.2×10⁴" compression ratio is a design choice set by the project, not a literature value** (design decision (2026-09-13) "early acceleration"; **the 2026-09-16 consistency check converged: the original "1 year → 1 hour" convention was abandoned and unified into the single compression ratio "lifespan 32.8 years → 1 day = ÷ ~1.2×10⁴"**, with all lifespan/development rows recalculated accordingly)
@@ -227,7 +250,7 @@ Evolvable zone (below Layer 2, subject to the Φ-L2 bottom-layer constraint)
 ## 8. Relations with Other Parts (Interfaces)
 
 | Interface | Direction | Description |
-|------|------|------|
+| ------ | ------ | ------ |
 | → 01 DNA | Axioms + I0 written into DNA | A1-A6 fixed region + axiom checksum (ECC fidelity) |
 | → 09 Instincts | Axioms → instinct projection | A1-A6 yield the I0 group (§5) |
 | → 03 Energy | A2 implementation | S3 = concretisation of the A2 persistence axiom |
@@ -243,22 +266,26 @@ Evolvable zone (below Layer 2, subject to the Φ-L2 bottom-layer constraint)
 ### 9.1 Design Decision Records
 
 | # | Decision | Decision conclusion | Status |
-|---|------|---------|------|
-| Φ1 | Number of axioms | **5 + A6 coexistence term** | Determined (A1-A5 axioms + A6 fitness term, Φ-L philosophical layer) |
-| Φ2 | A5 world model | **Mandatory + minimum precision (predict next step)** | Determined |
-| Φ3 | Evolution boundary | **Broad, but subject to Φ-L2 + A6 bottom-layer constraints** | Determined (Layer 2 broad, Layer 1 narrow) |
-| Φ4 | Axiom carrier | **DNA fixed segment (axiom checksum)** | Determined |
-| Φ5 | A5 precision lower bound | **Minimum: predict the next-step environment state** | Determined |
-| Φ6 | Coexistence with carbon-based life | **Two-layer rule structure (philosophical description + fitness term)** | Determined (Design Principle 19) |
-| Φ7 | Single individual vs community | **Community cooperation + no presupposition of omniscience and omnipotence** (Design Principle 20: the world model releases multiple individuals with identical DNA but different experiences; community cooperation at the bottom layer; living agents are not omniscient or omnipotent) | Determined |
-| Φ8 | Time-scale mismatch | **Mapping table provided (Design Principle 15, chimpanzee baseline); the trade-off is covered by "early acceleration"** | Determined (Design Principles 15 + 20) |
+| --- | ------ | --------- | ------ |
+| Φ1 | Number of axioms | 5 + A6 coexistence term | Determined (A1-A5 axioms + A6 fitness term, Φ-L philosophical layer) |
+| Φ2 | A5 world model | Mandatory + minimum precision (predict next step) | Determined |
+| Φ3 | Evolution boundary | Broad, but subject to Φ-L2 + A6 bottom-layer constraints | Determined (Layer 2 broad, Layer 1 narrow) |
+| Φ4 | Axiom carrier | DNA fixed segment (axiom checksum) | Determined |
+| Φ5 | A5 precision lower bound | Minimum: predict the next-step environment state | Determined |
+| Φ6 | Coexistence with carbon-based life | Two-layer rule structure (philosophical description + fitness term) | Determined (Design Principle 19) |
+| Φ7 | Single individual vs community | See note 1 | Determined |
+| Φ8 | Time-scale mismatch | Mapping table provided (Design Principle 15, chimpanzee baseline); the trade-off is covered by "early acceleration" | Determined (Design Principles 15 + 20) |
+
+**Full evidence for table cells**
+
+1. **Φ7 · Decision conclusion** — Community cooperation + no presupposition of omniscience and omnipotence (Design Principle 20: the world model releases multiple individuals with identical DNA but different experiences; community cooperation at the bottom layer; living agents are not omniscient or omnipotent)
 
 ### 9.2 Literature Evidence to Be Supplemented
 
 | # | Item | Current status | To be supplemented |
-|---|---|------|------|
+| --- | --- | ------ | ------ |
 | T1 | Chimpanzee lifespan/growth/maturation time scales | Design Principle 15 used ~40–50 years/~12–14 years/~8 years; literature anchoring is needed | Search the chimpanzee life history |
-| T2 | Baseline species | **Determined: chimpanzee** (the evolutionary starting point should not be set too low) | Determined; only T1 anchoring of its time scales is needed |
+| T2 | Baseline species | Determined: chimpanzee (the evolutionary starting point should not be set too low) | Determined; only T1 anchoring of its time scales is needed |
 | T3 | Concrete form of the A6 carbon-based coexistence term | The concept exists, the functional form does not | To be designed in Volume 10 (evolutionary selection) |
 | T4 | Implementation of the autopoietic "metabolic boundary" in silicon-based systems | `Autocatalysis 2024` provides the theory; none for silicon-based systems | To be implemented in Volumes 01/04 |
 

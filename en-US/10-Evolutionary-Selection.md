@@ -1,14 +1,14 @@
 # 10 · Evolutionary Selection (S6)
 
 | Item | Value |
-|---|---|
+| --- | --- |
 | Module | Evolutionary selection (S6): fitness function, selection pressure and generation transfer |
 | Document type | Design report (English edition) |
 | Version | v4.1 |
 | Dependencies | 01 mutation source, 03 replication energy cost, 06 selection-pressure simulation, 00 axiomatic layer |
 | Language | English (Chinese edition: `../zh-CN/10_演化选择_设计.md`) |
 
-> **Evidence categories**: `[Ref:…]` literature or data; `[Design decision]` project setting without external evidence, with adjustability stated; `[Logical derivation]` derived from listed premises and formulae; `[To be verified]` unvalidated values or methods, placeholder only, with the value provider named. Every key assertion carries one of these categories.
+> **Evidence categories**: `[Ref:…]` literature or data; `[Design decision]` project setting; `[Logical derivation]` derived from listed premises; `[To be verified]` unvalidated placeholder.
 
 ---
 
@@ -18,24 +18,30 @@
 > - **Option A (conceptual option, retaining the current = original Option A)**: **six-term weighting** (organizational closure / energy surplus / replication rate / learning degree / world-model accuracy / cooperation + A6) as the judge, with priority to critical integrity
 > - **Option B (based on the project reference library = original Option C, selected option)**: **phased minimal judge** — A6 cooperation-term lower bound (Φ-L2 fixed, with axiomatic basis) + hard survival threshold, priority on obtaining a runnable prototype, six terms as P2
 > - **Option C (based on published research practice, including external investigation + original Option B)**: ① **Quality-Diversity / MAP-Elites** (multiple measurable descriptors, forcing each of the "six terms" to be measurable) ② **Reward shaping + prevention of reward hacking** (measurable sub-terms + adversarial validation) ③ **two-factor scalar** (survival duration × resource efficiency, aligned with the evaluation volume)
-> The three are parallel and not mutually exclusive. For the key selection, see §3.2 + Appendix S1 on key assumptions and design decisions.
+> For the key selection, see §3.2 + Appendix S1 on key assumptions and design decisions.
 
 ### 0.1 Option A: Conceptual Option (Six-Term Weighting, Baseline Option)
 
 | Step | Specific practice | Nature of evidence |
-|------|---------|---------|
-| Judge | F = Σwᵢ·[closure/energy/replication/learning/world model/cooperation] − w_penalty | [Design decision]; values of each wᵢ + measurement methods **not given anywhere in the volume** [To be computed and experimentally verified, critical] |
+| ------ | --------- | --------- |
+| Judge | F = Σwᵢ·[closure/energy/replication/learning/world model/cooperation] − w_penalty | [Design decision]; values of each wᵢ + measurement methods not given anywhere in the volume [To be computed and experimentally verified, critical] |
 | Cooperation | A6 lower bound fixed (Φ-L2) + upper bound free | [Ref:00 Φ-L2 + 10 §3.3] |
 
 **Feasibility + risks**: for the six terms, "how to measure them into scalars + normalisation + weight values" has no path; treating it as a "directly runnable judge" is a key assumption; moreover it contradicts the evaluation volume's two factors. [Design decision]
 
 ### 0.2 Option B: Based on the Project Reference Library (Phased Minimal Judge, Selected Option)
 
-| Step | Literature paradigm | Nature of evidence |
-|------|---------|---------|
-| Minimal judge | A6 cooperation lower bound (Φ-L2 has an axiomatic basis) + hard survival threshold (A2 persistence), run first; six terms as P2 | [Ref:00 Φ-L2/A2 + 10 §3.3]; measurement paths for the six terms [To be verified] |
-| Mutation | 01 Option B controllable mismatch + 07 generation | [Ref:01 replication + 07] |
-| Open-ended evolution | open-ended CA (non-convergent) | [Ref:`10/Large_Scale_Simulations_Open_Ended_Evolution_Cellular_Automata_arXiv2304.05639`, §Large-scale open-ended evolution CA, "2023 Large-scale open-ended evolution cellular automata (arXiv2304.05639)"] |
+| Step | Literature paradigm |
+| ------ | --------- |
+| Minimal judge | A6 cooperation lower bound (Φ-L2 has an axiomatic basis) + hard survival threshold (A2 persistence), run first; six terms as P2 |
+| Mutation | 01 Option B controllable mismatch + 07 generation |
+| Open-ended evolution | open-ended CA (non-convergent) |
+
+**Evidence and notes (in table row order)**
+
+1. **Minimal judge** — [Ref:00 Φ-L2/A2 + 10 §3.3]; measurement paths for the six terms [To be verified]
+2. **Mutation** — [Ref:01 replication + 07]
+3. **Open-ended evolution** — [Ref:`10/Large_Scale_Simulations_Open_Ended_Evolution_Cellular_Automata_arXiv2304.05639`, §Large-scale open-ended evolution CA, "2023 Large-scale open-ended evolution cellular automata (arXiv2304.05639)"]
 
 **Key point**: first secure "no extermination of carbon-based life (Φ-L2) + survival (hard survival threshold)", obtain a runnable prototype as quickly as possible, and resolve the current blockage that "the six terms cannot be measured".
 
@@ -45,21 +51,29 @@
 
 > To be verified · **The evidence in this section consists of results of a published-literature investigation and is distinguished from the design claims of this project.**
 
-| External paradigm | Mechanisms transferable into 10 | Nature of evidence |
-|---------|----------------|---------|
-| Quality-Diversity / MAP-Elites | split the "six terms" into multiple measurable descriptors in an archive, forcing measurement to be completed (ceiling of Option A) | [Ref:`10/B_EVOLUTIONARY_QD_REWARD_2026-09-15.md`, §QD/reward verified, "Q1' Seeking_QD_2021 (anchor verified)/Q2 Cully2025 Dominated Novelty Search (GECCO, DOI 10.1145/3712256.3726310); original Q1/Q2 deprecated"] Q1' `10/Seeking_Quality_Diversity_2021` in the reference library (QD 2021 anchor verified) + **Q2 Cully 2025 *Dominated Novelty Search* (GECCO, DOI 10.1145/3712256.3726310, arXiv:2502.00593, full text archived)**; citations of original Q1 (arXiv:2407.04106) + original Q2 (Vassileva/Lehmann) are deprecated, not to be cited] |
-| Reward shaping + hacking prevention | measurable reward sub-terms + adversarial validation to prevent loophole exploitation (ceiling of Option C) | [Ref: same verification record file as above, §reward hacking verified, "R1 Karwowski/Skalse2023 Goodhart's Law in RL (ICLR2024 peer-reviewed, arXiv2310.09144)/R1b Skalse2023 Defining Reward Hacking (NeurIPS, DOI 10.52202/068431-0687); original R2 deprecated"] **R1 Karwowski/Skalse 2023 *Goodhart's Law in RL* (arXiv:2310.09144 (ICLR 2024 peer-reviewed), full text archived) + R1b Skalse/Howe/Krasheninnikov/Krueger 2023 *Defining and Characterizing Reward Hacking* (NeurIPS, DOI 10.52202/068431-0687, OA, full text archived)**; original R2 (Metz/Amodei OpenAI 2017) has no written publication, covered by R1+R1b] |
-| Two-factor scalar | survival duration × resource efficiency (aligned with the evaluation volume, most runnable) | [Ref:`10/2022_EvoJAX_arXiv2202.05008`, §EvoJAX evolution benchmark, "2022 EvoJAX evolution benchmark (arXiv2202.05008), start with 1-2 measurable quantities"] |
+| External paradigm | Mechanisms transferable into 10 |
+| --------- | ---------------- |
+| Quality-Diversity / MAP-Elites | split the "six terms" into multiple measurable descriptors in an archive, forcing measurement to be completed (ceiling of Option A) |
+| Reward shaping + hacking prevention | measurable reward sub-terms + adversarial validation to prevent loophole exploitation (ceiling of Option C) |
+| Two-factor scalar | survival duration × resource efficiency (aligned with the evaluation volume, most runnable) |
 
-**10 §0.3 reference upgrade note**: the original "MAP-Elites 2020+ [external investigation, to be verified]" is upgraded to `[Ref:10/B_EVOLUTIONARY_QD_REWARD_2026-09-15.md · Q1' (Seeking_Quality_Diversity_2021 in the reference library) + Q2 (Cully 2025, DOI 10.1145/3712256.3726310, full text archived)]`; the original "Reward shaping + prevention of hacking [Ref · external investigation, to be verified]" is upgraded to `[Ref: same as above · R1 (arXiv:2310.09144) + R1b (DOI 10.52202/068431-0687, full text archived)]` (original R2 Metz/Amodei has no written publication and is deprecated, covered by R1+R1b); the two-factor scalar row retains `[Ref:10/2022_EvoJAX]` (verified in the reference library).
+**Evidence and notes (in table row order)**
+
+1. **Quality-Diversity / MAP-Elites** — [Ref:`10/B_EVOLUTIONARY_QD_REWARD_2026-09-15.md`, §QD/reward verified, "Q1' Seeking_QD_2021 (anchor verified)/Q2 Cully2025 Dominated Novelty Search (GECCO, DOI 10.1145/3712256.3726310); original Q1/Q2 deprecated"] Q1' `10/Seeking_Quality_Diversity_2021` in the reference library (QD 2021 anchor verified) + Q2 Cully 2025 *Dominated Novelty Search* (GECCO, DOI 10.1145/3712256.3726310, arXiv:2502.00593); citations of original Q1 (arXiv:2407.04106) + original Q2 (Vassileva/Lehmann) are deprecated, not to be cited]
+2. **Reward shaping + hacking prevention** — [Ref: same reference library as above, §reward hacking verified, "R1 Karwowski/Skalse2023 Goodhart's Law in RL (ICLR2024 peer-reviewed, arXiv2310.09144)/R1b Skalse2023 Defining Reward Hacking (NeurIPS, DOI 10.52202/068431-0687); original R2 deprecated"] R1 Karwowski/Skalse 2023 *Goodhart's Law in RL* (arXiv:2310.09144 (ICLR 2024 peer-reviewed)) + R1b Skalse/Howe/Krasheninnikov/Krueger 2023 *Defining and Characterizing Reward Hacking* (NeurIPS, DOI 10.52202/068431-0687, OA); original R2 (Metz/Amodei OpenAI 2017) has no written publication, covered by R1+R1b]
+3. **Two-factor scalar** — [Ref:`10/2022_EvoJAX_arXiv2202.05008`, §EvoJAX evolution benchmark, "2022 EvoJAX evolution benchmark (arXiv2202.05008), start with 1-2 measurable quantities"]
 
 ### 0.4 Option Combinations and Baseline Configuration
 
 | Strategy | Content | Suitable for |
-|------|------|------|
+| ------ | ------ | ------ |
 | **A. Pure Option A** | six-term weighting as the judge, marked "measurement to be designed" (retains the complete structure, not runnable at this stage) | critical integrity, accepting the status quo |
-| **B. Option B + QD measurability constraint** | run A6 + hard survival threshold first, **the six terms split into measurable descriptors according to QD** and then completed | priority on obtaining a minimal prototype + completing measurement (originally selected option, design decision S1=C; in substance this is the phased approach of C, the "selected option" mark in the §0.4 B row has been removed) |
+| **B. Option B + QD measurability constraint** | run A6 + hard survival threshold first, the six terms split into measurable descriptors according to QD and then completed | priority on obtaining a minimal prototype + completing measurement (originally selected op… See note 1 |
 | **C. Option C two-factor bottom-layer constraint** | reduced to survival duration × resource efficiency (aligned with the evaluation volume, currently runnable) | most conservative alignment with the evaluation volume |
+
+**Full evidence for table cells**
+
+1. **B. Option B + QD measurability constraint · Suitable for** — priority on obtaining a minimal prototype + completing measurement (originally selected option, design decision S1=C; in substance this is the phased approach of C, the "selected option" mark in the §0.4 B row has been removed)
 
 > **Baseline option = C** (run the minimal judge of A6 + hard survival threshold first; the six terms use the "measurable descriptors" of Quality-Diversity to complete the measurement path, while eliminating the contradiction with the evaluation volume) — that is, the §0.4 B row "Option B + QD measurability constraint" in substance = §3.2 C "phased: A6 runs first + six terms as P2"; after design decision S1=C the baseline is aligned with C, and the "(selected option)" label in the §0.4 B row is downgraded. **This selection is a design stance, confirmed by design review** (S1 determines C, 2026-09-16).
 
@@ -69,13 +83,21 @@
 
 **Axis 1: the 5 loops of the evolutionary cycle (from mutation to generation, "how one generation completes a cycle")**
 
-| Loop | What it is | What it does | Nature of evidence |
-|----|--------|--------|---------|
-| **① Mutation (VARY)** | 01 Option B replication mismatch (strict fidelity in the core region + open variable region) + 07 memory generation (epigenetic) | produces **next-generation candidates** (mutation = random, no direction specified) | mutation source [Ref:01 §5 replication + 07 §0 Option B epigenetic]; "core region ε→0 / variable region left high" [Ref:01 §7] |
-| **② Trial-and-error (SIMULATE)** | candidate individuals conduct trial-and-error in the 06 world model (selection pressure = environmental constraints + A6) | **run fitness in the virtual field** (no real replication, paying the 03 rollout energy cost) | trial-and-error [Ref:06 §3 rollout + 10 §3.5 selection pressure]; rollout energy cost [Ref:03 W3] |
-| **③ Judging (FITNESS)** | fitness function F (§3.2, Option B: A6 lower bound Φ-L2 + hard survival threshold, six terms as P2 according to QD measurable descriptors) | **quantify "who lives well" into a measurable scalar** (judge, not director) | judge structure [Logical derivation:00 A4/A6 + QD]; measurement of the six terms [Ref:`10/Seeking_Quality_Diversity_2021`, §Seeking QD 2021, "2021 Seeking Quality Diversity (arXiv), QD measurable descriptors"] |
-| **④ Retention (RETAIN)** | retention/elimination interface (§3.4, Design Principle 23): automatic ranking → manual designation of the retention set → Φ-L2/A6 two-layer hard validation | **human retention/elimination** (no direction specified, only designating "which remain"; Φ-L2 bottom-layer constraint) | retention/elimination interface [Logical derivation: Design Principle 23 + A6 two-layer]; "Φ-L2 cannot be breached" [Ref:00 Φ-L2] |
-| **⑤ Generation (GENERATE)** | retention set that passes validation → 01 Option B replication (paying 03 energy) → next-generation phenotypes | **replicate the retained "good individuals" into the next generation** | generation [Ref:01 §5 replication + 03 energy supply]; generation time scale [Ref: Design Principle 15 + `10/G_LaBar_2017`, §Avida digital evolution, "LaBar 2017 Avida digital evolution time scale"] Avida] |
+| Loop | What it is | What it does |
+| ---- | -------- | -------- |
+| **① Mutation (VARY)** | 01 Option B replication mismatch (strict fidelity in the core region + open variable region) + 07 memory generation (epigenetic) | produces next-generation candidates (mutation = random, no direction specified) |
+| **② Trial-and-error (SIMULATE)** | candidate individuals conduct trial-and-error in the 06 world model (selection pressure = environmental constraints + A6) | run fitness in the virtual field (no real replication, paying the 03 rollout energy cost) |
+| **③ Judging (FITNESS)** | fitness function F (§3.2, Option B: A6 lower bound Φ-L2 + hard survival threshold, six terms as P2 according to QD measurable descriptors) | quantify "who lives well" into a measurable scalar (judge, not director) |
+| **④ Retention (RETAIN)** | retention/elimination interface (§3.4, Design Principle 23): automatic ranking → manual designation of the retention set → Φ-L2/A6 two-layer hard validation | human retention/elimination (no direction specified, only designating "which remain"; Φ-L2 bottom-layer constraint) |
+| **⑤ Generation (GENERATE)** | retention set that passes validation → 01 Option B replication (paying 03 energy) → next-generation phenotypes | replicate the retained "good individuals" into the next generation |
+
+**Evidence and notes (in table row order)**
+
+1. **① Mutation (VARY)** — mutation source [Ref:01 §5 replication + 07 §0 Option B epigenetic]; "core region ε→0 / variable region left high" [Ref:01 §7]
+2. **② Trial-and-error (SIMULATE)** — trial-and-error [Ref:06 §3 rollout + 10 §3.5 selection pressure]; rollout energy cost [Ref:03 W3]
+3. **③ Judging (FITNESS)** — judge structure [Logical derivation:00 A4/A6 + QD]; measurement of the six terms [Ref:`10/Seeking_Quality_Diversity_2021`, §Seeking QD 2021, "2021 Seeking Quality Diversity (arXiv), QD measurable descriptors"]
+4. **④ Retention (RETAIN)** — retention/elimination interface [Logical derivation: Design Principle 23 + A6 two-layer]; "Φ-L2 cannot be breached" [Ref:00 Φ-L2]
+5. **⑤ Generation (GENERATE)** — generation [Ref:01 §5 replication + 03 energy supply]; generation time scale [Ref: Design Principle 15 + `10/G_LaBar_2017`, §Avida digital evolution, "LaBar 2017 Avida digital evolution time scale"] Avida]
 
 **Relations among the loops (the cycle from left to right in the diagram)**:
 ```
@@ -86,11 +108,22 @@
 
 **Axis 2: three mechanism lines (passing through the 5 loops, "how to mutate / how to judge / how to retain")**
 
-| Mechanism | Which loop it passes through | What it does | Nature of evidence |
-|------|---------|--------|---------|
-| **Mutation (MUTATE)** | ① | 01 Option B controllable mismatch (strict core / open variable) + 07 memory generation (epigenetic expression state); "mutation is random" | [Ref:01 §5 + 07 §0]; "variable region deliberately left with high mismatch" [Logical derivation: Design Principle 4 spontaneous mutation + 01 §7] |
-| **Judging (JUDGE)** | ③ | fitness F quantifies "living well": **Option B minimal = A6 lower bound (Φ-L2) + hard survival threshold**, six terms completed according to QD measurable descriptors; **no direction specified** (judge, not director) | judge structure [Logical derivation:00 A4/A6]; QD measurability [Ref:`10/Seeking_Quality_Diversity_2021`, §Seeking QD 2021, "2021 Seeking Quality Diversity (arXiv), QD measurable descriptors"] |
-| **Retention (RETAIN)** | ④ | human retention/elimination (Design Principle 23): manual designation of the retention set, **no direction written**; Φ-L2/A6 two-layer hard validation bottom-layer constraint (those harming carbon-based life are removed, even with high fitness) | retention/elimination interface [Logical derivation: Design Principle 23 + A6 two-layer]; "Φ-L2 cannot be breached" [Ref:00 Φ-L2] |
+| Mechanism | Which loop it passes through | What it does |
+| ------ | --------- | -------- |
+| **Mutation (MUTATE)** | ① | 01 Option B controllable mismatch (strict core / open variable) + 07 memory generation (epigenetic expression state); "mutation is random" |
+| **Judging (JUDGE)** | ③ | fitness F quantifies "living well": Option B minimal = A6 lower bound (Φ-L2) + hard surviv… See note 1 |
+| **Retention (RETAIN)** | ④ | See note 2 |
+
+**Full evidence for table cells**
+
+1. **Judging (JUDGE) · What it does** — fitness F quantifies "living well": Option B minimal = A6 lower bound (Φ-L2) + hard survival threshold, six terms completed according to QD measurable descriptors; no direction specified (judge, not director)
+2. **Retention (RETAIN) · What it does** — human retention/elimination (Design Principle 23): manual designation of the retention set, no direction written; Φ-L2/A6 two-layer hard validation bottom-layer constraint (those harming carbon-based life are removed, even with high fitness)
+
+**Evidence and notes (in table row order)**
+
+1. **Mutation (MUTATE)** — [Ref:01 §5 + 07 §0]; "variable region deliberately left with high mismatch" [Logical derivation: Design Principle 4 spontaneous mutation + 01 §7]
+2. **Judging (JUDGE)** — judge structure [Logical derivation:00 A4/A6]; QD measurability [Ref:`10/Seeking_Quality_Diversity_2021`, §Seeking QD 2021, "2021 Seeking Quality Diversity (arXiv), QD measurable descriptors"]
+3. **Retention (RETAIN)** — retention/elimination interface [Logical derivation: Design Principle 23 + A6 two-layer]; "Φ-L2 cannot be breached" [Ref:00 Φ-L2]
 
 **The "random + non-random + manual selection" relationship** (why this design can "both evolve and remain orderly"):
 - **Mutation (①) = random** (no direction specified, Design Principle 23);
@@ -104,7 +137,7 @@
 ---
 
 ## 1. Design Objectives
-Make the silicon-based community **variable across generations and subject to natural selection** — mutation (§01 replication mismatch) + selection (fitness in this volume) = evolution. **Without selection, mutation is only random noise.**
+Make the silicon-based community **variable across generations and subject to natural selection** — mutation (§01 replication mismatch) + selection (fitness in this volume) = evolution. Without selection, mutation is only random noise.
 **Key boundaries (Design Principles 23 + 19)**:
 - The fitness function **does not specify "which direction to evolve in"** (judge, not director)
 - But it contains a **"human retention/elimination" interface** (human retention authority, analogous to artificial selection/breeding)
@@ -115,14 +148,19 @@ Make the silicon-based community **variable across generations and subject to na
 ## 2. Related Research Status + Different Implementation Approaches (Design Principle 2)
 
 | Route | Status | Literature anchor | Trade-off |
-|------|------|---------|------|
+| ------ | ------ | --------- | ------ |
 | **Fitness landscape navigation** | Available | `10/2024_Srivastava_Evolution_as_Fitness_Landscape_Navigation_arXiv2604.17036.pdf` | Verified · fitness definition |
 | **Stabilizing selection → emergence of robustness** | Available | `10/RohlfWinkler_2008_Emergence_Robustness_Stabilizing_Selection_arXiv0804.4714.pdf` | Verified · robustness mechanism |
 | **Open-ended evolution (open-ended)** | Frontier | `10/Large_Scale_Simulations_Open_Ended_Evolution_Cellular_Automata_arXiv2304.05639.pdf` | Not converged |
 | **Quality-diversity (co-design)** | Available | `10/Seeking_Quality_Diversity_Evolutionary_CoDesign_arXiv2104.12175.pdf` | Verified · diversity maintenance |
 | **Balancing adaptive/diversifying pressures** | Available | `10/2021_Selecting_for_Selection_Balancing_Adaptive_Diversifying_arXiv2106.09153.pdf` | Verified · pressure tuning |
-| **Neuroevolution** | Available | `10/2022_EvoJAX_Hardware_Accelerated_Neuroevolution_arXiv2202.05008.pdf`, `10/2022_Pontes-Filho_Towards_Neuroevolution_of_LowLevel_AGI_arXiv2207.13583.pdf`, `10/2024_Cicirello_Open_Source_Evolutionary_Computation_arXiv2412.02004.pdf`, `10/2020_Alam_Qamar_Dixit_Genetic_Algorithm_Reviews_arXiv2007.12673.pdf` | NN evolution |
-| **Community cooperation (Design Principle 20)** | Frontier | `10/2026_AI_Agents_Reshape_Consensus_Formation_Human_Groups_Chen_arXiv2609.02122.pdf`, `10/2026_A2ABreak_Security_Analysis_Agent-to-Agent_Protocol_Lotfi_Bertino_arXiv2609.10871.pdf`, `10/2026_Emergent_Behavior_Robust_Communication_Delays_Jeong_Shim_arXiv2608.09038.pdf`, `10/2026_Emergent_Cheating_Whistleblowing_Autonomous_Research_Swarms_Paglieri_Leibo_arXiv2609.04170.pdf` | Cooperation interface |
+| **Neuroevolution** | Available | See note 1 | NN evolution |
+| **Community cooperation (Design Principle 20)** | Frontier | See note 2 | Cooperation interface |
+
+**Full evidence for table cells**
+
+1. **Neuroevolution · Literature anchor** — `10/2022_EvoJAX_Hardware_Accelerated_Neuroevolution_arXiv2202.05008.pdf`, `10/2022_Pontes-Filho_Towards_Neuroevolution_of_LowLevel_AGI_arXiv2207.13583.pdf`, `10/2024_Cicirello_Open_Source_Evolutionary_Computation_arXiv2412.02004.pdf`, `10/2020_Alam_Qamar_Dixit_Genetic_Algorithm_Reviews_arXiv2007.12673.pdf`
+2. **Community cooperation (Design Principle 20) · Literature anchor** — `10/2026_AI_Agents_Reshape_Consensus_Formation_Human_Groups_Chen_arXiv2609.02122.pdf`, `10/2026_A2ABreak_Security_Analysis_Agent-to-Agent_Protocol_Lotfi_Bertino_arXiv2609.10871.pdf`, `10/2026_Emergent_Behavior_Robust_Communication_Delays_Jeong_Shim_arXiv2608.09038.pdf`, `10/2026_Emergent_Cheating_Whistleblowing_Autonomous_Research_Swarms_Paglieri_Leibo_arXiv2609.04170.pdf`
 
 ---
 
@@ -133,17 +171,17 @@ Make the silicon-based community **variable across generations and subject to na
 ```mermaid
 flowchart TB
     subgraph VAR["Mutation (random, §01)"]
-        V["01 Option B controllable mismatch<br/>strict fidelity in core / open variable region<br/>[Ref:01 replication]"]
+        V["01 Option B controllable mismatch<br/>strict fidelity in core / open variable region<br/>"]
         VM["07 memory generation (epigenetic)<br/>[Option B epigenetic, 07 §0]"]
     end
 
     subgraph SIM["World-model trial-and-error (§06)"]
-        W["individuals conduct trial-and-error in 06<br/>selection pressure = 06 environmental constraints + A6<br/>[Ref:06 world model]"]
+        W["individuals conduct trial-and-error in 06<br/>selection pressure = 06 environmental constraints + A6<br/>"]
     end
 
     subgraph FIT["Fitness judge (§3.2, Option B minimal)"]
-        F["A6 cooperation lower bound (Φ-L2 fixed) + hard survival threshold<br/>[Ref:00 Φ-L2/A2]"]
-        F2["six-term weighting (QD measurable descriptors, P2)<br/>[Ref:10/Seeking_Quality_Diversity_2021, §Seeking QD 2021, "2021 QD measurable descriptors"]"]
+        F["A6 cooperation lower bound (Φ-L2 fixed) + hard survival threshold<br/>"]
+        F2["six-term weighting (QD measurable descriptors, P2)<br/>"]
         F --> F2
     end
 
@@ -157,6 +195,8 @@ flowchart TB
     F --> R
     R -->|retention set passing validation → 01 Option B replication (paying 03 energy)| V
 ```
+
+> Note: Mutation generates phenotypes, the fitness function adjudicates retention or elimination, and intergenerational transfer closes the loop.
 
 > **Legend**: mutation (01 replication mismatch + 07 memory generation) → world-model trial-and-error (06, selection pressure = environmental constraints + A6) → **fitness judge** (Option B: A6 lower bound Φ-L2 + hard survival threshold, six terms as P2 according to QD measurable descriptors) → **retention/elimination interface** (manual designation + Φ-L2/A6 two-layer hard validation, no direction specified) → those that pass enter the next generation via 01 Option B replication (paying 03 energy).
 
@@ -188,10 +228,10 @@ Fitness F(individual) =
 > **Option space (stance category, no literature search required, a design judgement)**:
 
 | Option | Content | Consequence | Applicable conditions |
-|------|------|------|--------|
+| ------ | ------ | ------ | -------- |
 | **A. Retain the six-term weighting, but mark each term "measurement method to be designed"** (current baseline) | maintain 6 terms + A6, acknowledging "measurement undetermined" | the key assumption is made explicit (no longer treated as resolved), and the wording "directly runnable" is removed | intention to retain the complete fitness structure and accept that it is not runnable at this stage |
-| **B. Reduce to two factors (aligned with the evaluation volume)** | fitness = `survival duration × resource acquisition efficiency`, with the six terms as "sub-indicators" rather than a weighted judge | eliminates the 10 vs evaluation volume contradiction, more measurable (two quantities are easy to measure), but the "judge" becomes simpler | intention to have a **minimal evolution that is runnable now** |
-| **C. Phased: A6 lower bound locked first, six terms added later** | the first phase uses only A6 (cooperation lower bound Φ-L2, with axiomatic basis) + hard survival threshold; the six-term weighting is deepened as P2 | most pragmatic, first securing "no extermination of carbon-based life + survival", then addressing "living better" | intention to **obtain a runnable prototype as quickly as possible** |
+| **B. Reduce to two factors (aligned with the evaluation volume)** | fitness = `survival duration × resource acquisition efficiency`, with the six terms as "sub-indicators" rather than a weighted judge | eliminates the 10 vs evaluation volume contradiction, more measurable (two quantities are easy to measure), but the "judge" becomes simpler | intention to have a minimal evolution that is runnable now |
+| **C. Phased: A6 lower bound locked first, six terms added later** | the first phase uses only A6 (cooperation lower bound Φ-L2, with axiomatic basis) + hard survival threshold; the six-term weighting is deepened as P2 | most pragmatic, first securing "no extermination of carbon-based life + survival", then addressing "living better" | intention to obtain a runnable prototype as quickly as possible |
 
 > **Baseline option = C (first run through the "minimal judge" of A6 + hard survival threshold, with the six-term weighting marked as P2)** — this both resolves the infeasibility of measurement and aligns with the simple form of the evaluation volume. However, if priority is given to the complete fitness structure, Option A can be chosen.
 > **Design decision (S1): adopt Option C (phased implementation: the A6 and hard survival threshold minimal judge goes first, the six-term weighting is listed as P2 and completed according to Quality-Diversity measurable descriptors); Options A/B serve as alternatives.**
@@ -201,10 +241,10 @@ Fitness F(individual) =
 > The best-developed practice for "fitness/reward function design" in current published research — **the reference ceiling for each S1 option**.
 
 | Published practice | Practice | Reference value | Corresponding option for S1 | Status |
-|-------------|------|-------------|------------------|------|
-| **Quality-Diversity (MAP-Elites, 2020+)** | not only optimising a single fitness, but exploring over "multiple measurable descriptors" (archive stores each local optimum) | each descriptor **must be measurable/computable**, requiring "fitness" to be split into **measurable sub-terms**, directly resolving "how to measure the six terms" | **scientific solution for Option A** — the six-term weighting can be mapped to QD's "multi-objective + descriptors", with each objective measurable | Verified · `10/Seeking_Quality_Diversity_2021` in the reference library + supplementary search for MAP-Elites 2023 to be added |
-| **Reward shaping + prevention of reward hacking** | designing measurable reward sub-terms and using **adversarial validation** to prevent proxy objectives from being exploited | makes the "fitness judge" runnable + non-degenerate, a mature practice in modern representation alignment/RL | **scientific solution for Option C** — "loophole-exploitation prevention" validation can be added to the A6 lower bound + survival threshold | supplementary search to be added |
-| **2-factor scalar fitness (runnable minimal judge)** | product of **two directly measurable quantities** such as survival duration × resource efficiency | the simplest runnable form; many current evolutionary algorithms/RL start from 1-2 measurable quantities | **reference ceiling for Option B** — the most runnable minimal judge | Verified · `10/EvoJAX_2022` in the reference library |
+| ------------- | ------ | ------------- | ------------------ | ------ |
+| **Quality-Diversity (MAP-Elites, 2020+)** | not only optimising a single fitness, but exploring over "multiple measurable descriptors" (archive stores each local optimum) | each descriptor must be measurable/computable, requiring "fitness" to be split into measurable sub-terms, directly resolving "how to measure the six terms" | scientific solution for Option A — the six-term weighting can be mapped to QD's "multi-objective + descriptors", with each objective measurable | Verified · `10/Seeking_Quality_Diversity_2021` in the reference library + supplementary search for MAP-Elites 2023 to be added |
+| **Reward shaping + prevention of reward hacking** | designing measurable reward sub-terms and using adversarial validation to prevent proxy objectives from being exploited | makes the "fitness judge" runnable + non-degenerate, a mature practice in modern representation alignment/RL | scientific solution for Option C — "loophole-exploitation prevention" validation can be added to the A6 lower bound + survival threshold | supplementary search to be added |
+| **2-factor scalar fitness (runnable minimal judge)** | product of two directly measurable quantities such as survival duration × resource efficiency | the simplest runnable form; many current evolutionary algorithms/RL start from 1-2 measurable quantities | reference ceiling for Option B — the most runnable minimal judge | Verified · `10/EvoJAX_2022` in the reference library |
 
 ### 3.3 A6 Cooperation Fitness Term (Fixed Lower Bound + Free Upper Bound, Design Decision (2026-09-13))
 
@@ -217,9 +257,9 @@ A6(cooperation term) =
 
 **Implementation of "fixed lower bound + free upper bound"** (the Φ-L2 form is fixed, **the specific value is to be determined** — 00 §3 Φ-L2 gives only the form "harming carbon-based life → large negative / cooperation → positive", without a numerical lower bound; the §5 V2 statement "given by the 00 axioms" is in fact a **placeholder**, and the value requires a project-defined judgement value. Before the Φ-L2 numerical lower bound is filled in, the `w_damage` lower bound is a **formal constraint, not an executable value**, and the A6 cooperation term is temporarily an empty constraint):
 | Weight | Lower bound (Φ-L2 form locked, numerical value to be determined) | Upper bound (free evolution) |
-|------|----------------|----------------|
-| `w_damage` | **has a lower bound locked by the Φ-L2 form** (cannot be adjusted to 0, otherwise Φ-L2 would be breached; **the specific value is to be supplied jointly by 00/10 V2**) | can be raised (stricter) |
-| `w_synergy_*` | lower bound = 0 (cooperation may be weak) | **can evolve freely** (different worlds/different individuals develop different cooperation strengths) |
+| ------ | ---------------- | ---------------- |
+| `w_damage` | has a lower bound locked by the Φ-L2 form (cannot be adjusted to 0, otherwise Φ-L2 would be breached; the specific value is to be supplied jointly by 00/10 V2) | can be raised (stricter) |
+| `w_synergy_*` | lower bound = 0 (cooperation may be weak) | can evolve freely (different worlds/different individuals develop different cooperation strengths) |
 | Cost term | — | evolves with the cooperation mode |
 
 **Implications**:
@@ -293,19 +333,21 @@ graph LR
     class P00,D01,M02,N03,I04,N05,WM06,MEM07,L08,I0_09,INT11 node
 ```
 
+> Note: The source of an arrow is the value provider and the target is the receiver; measurable quantities are defined by the interface contracts of the respective volumes.
+
 | Interface | Data flow (physical/informational quantities, not concepts) | Invariants (measurable) | Nature of evidence |
-|------|---------------------------|-------------|---------|
-| **↔ 00 Philosophy** | **A4 adaptation + A6 cooperation axioms** (Φ-L2 locks the A6 lower bound) | A6 lower bound ∈ Φ-L2 | [Ref:00 A4/A6] |
-| **↔ 01 DNA** | **mutation source = 01 replication mismatch + Option B replication** | replication fidelity [Ref:01 ECC] | [Ref:01 replication] |
-| **↔ 02 Materials** | **physical process + energy domain of fabrication/replication** | the replication process holds | [Ref:02 process] |
-| **↔ 03 Energy** | **replication/selection energy cost; cooperation budget (§03 3.5)** | cooperation net benefit = benefit−cost [To be computed and verified:03 E5] | [Ref:03 3.5] |
-| **↔ 04 Individuality** | **individual C1-C4 closure degree = fitness input** (organizational closure feeds 10 S1) | closure degree enters fitness [To be computed and verified:04 B1] | [Logical derivation:10 S1 + 04 C1-C4] |
-| **↔ 05 Neural** | **the neural network itself can self-extend/self-evolve** | network fitness input [To be verified] | [Logical derivation:05 evolvable] |
-| **↔ 06 World model** | **selection pressure simulated in 06** (trial-and-error) | simulated fitness [Ref:06] | [Ref:06 world model] |
-| **↔ 07 Memory** | **intergenerational experience = fitness input** (07 Option B epigenetic) | intergenerational tendency feeds 10 [To be computed and verified:07 G4] | [Logical derivation:07 Option B] |
-| **→ 08 Logic** | **fitness evaluation = logical reasoning result** | reasoning result serves as judge [Design] | [Logical derivation:08 judge] |
-| **↔ 09 Instinct** | **peripheral instincts I1-I8 can evolve** (core I0 fixed (non-evolvable) does not evolve) | evolvable items ∈ I1-I8 [Design] | [Ref:09 + 10] |
-| **↔ 11 Integration** | **community cooperation (silicon-based × silicon-based / carbon-based) + 5 loops ⑤** | cooperation term ∈ A6 [Ref:10 §3.5] | [Ref:10 A6 + 11] |
+| ------ | --------------------------- | ------------- | --------- |
+| **↔ 00 Philosophy** | A4 adaptation + A6 cooperation axioms (Φ-L2 locks the A6 lower bound) | A6 lower bound ∈ Φ-L2 | [Ref:00 A4/A6] |
+| **↔ 01 DNA** | mutation source = 01 replication mismatch + Option B replication | replication fidelity [Ref:01 ECC] | [Ref:01 replication] |
+| **↔ 02 Materials** | physical process + energy domain of fabrication/replication | the replication process holds | [Ref:02 process] |
+| **↔ 03 Energy** | replication/selection energy cost; cooperation budget (§03 3.5) | cooperation net benefit = benefit−cost [To be computed and verified:03 E5] | [Ref:03 3.5] |
+| **↔ 04 Individuality** | individual C1-C4 closure degree = fitness input (organizational closure feeds 10 S1) | closure degree enters fitness [To be computed and verified:04 B1] | [Logical derivation:10 S1 + 04 C1-C4] |
+| **↔ 05 Neural** | the neural network itself can self-extend/self-evolve | network fitness input [To be verified] | [Logical derivation:05 evolvable] |
+| **↔ 06 World model** | selection pressure simulated in 06 (trial-and-error) | simulated fitness [Ref:06] | [Ref:06 world model] |
+| **↔ 07 Memory** | intergenerational experience = fitness input (07 Option B epigenetic) | intergenerational tendency feeds 10 [To be computed and verified:07 G4] | [Logical derivation:07 Option B] |
+| **→ 08 Logic** | fitness evaluation = logical reasoning result | reasoning result serves as judge [Design] | [Logical derivation:08 judge] |
+| **↔ 09 Instinct** | peripheral instincts I1-I8 can evolve (core I0 fixed (non-evolvable) does not evolve) | evolvable items ∈ I1-I8 [Design] | [Ref:09 + 10] |
+| **↔ 11 Integration** | community cooperation (silicon-based × silicon-based / carbon-based) + 5 loops ⑤ | cooperation term ∈ A6 [Ref:10 §3.5] | [Ref:10 A6 + 11] |
 
 **Contract principle**: interface "data" must be **physically/informationally measurable quantities** (closure degree / replication fidelity / cooperation net benefit / fitness), not concepts; those without measured values are marked "values to be supplied by Volume 10 / other volumes via DFT".
 
@@ -321,12 +363,12 @@ graph LR
 ## 5. To Be Experimentally Verified / DFT (Each Item: Formula + Window + Value Provider, with Quantitative Conditions)
 
 | # | Open item | Formula/inequality to be satisfied | Parameter window (design setting) | Value provider |
-|---|--------|---------------------|--------------------|----------|
-| V1 | specific values of each weight wᵢ of the fitness function | Σwᵢ = 1 (normalisation); each wᵢ ∈ [0,1]; weights can evolve | weights [Design · to be tuned, evolvable]; measurement paths for the six terms [To be computed and verified, critical] | **10 parameter tuning + DFT of the respective volumes** (scalarisation of the six terms) |
-| V2 | lower bound of the A6 cooperation-term weights (Φ-L2 locked value) | w_damage ≥ Φ-L2 lower bound (cannot be adjusted to 0); w_synergy lower bound = 0 | Φ-L2 lower bound [given by the 00 axioms, specific value to be set by the project] | **00 + 10** (judgement value, Design Principle 24 without conjecture) |
-| V3 | operational form of the retention/elimination interface (mechanism for manually designating the retention set) | `retain(S) = S ∩ {Φ-L2 compliant}`; judgement threshold (what counts as "harming carbon-based life", what F qualifies for retention) | §3.4 gives the three-segment skeleton; threshold [to be set by project-defined judgement values + DFT] | **10 + first-principles calculation** |
-| V4 | verification that open-ended evolution does not converge (the system does not degenerate) | after N generations of evolution, diversity/fitness does not degenerate (open-ended maintained) | carbon-based open-ended CA [Ref:`10/Large_Scale_Simulations_Open_Ended_Evolution_Cellular_Automata_arXiv2304.05639`]; silicon-based [to be experimentally verified] | **10 experiment** (N-generation open-ended verification of the silicon-based community) |
-| V5 | end-to-end fidelity of generation transfer (S1+M+S6) | generation fidelity ε_gen ∈ 01 ECC window (§01 §3.2); full chain of memory burning + replication + selection | ε_gen [To be experimentally verified]; ε of each segment see 01/07 | **10 + 01 + 07 cooperation** |
+| --- | -------- | --------------------- | -------------------- | ---------- |
+| V1 | specific values of each weight wᵢ of the fitness function | Σwᵢ = 1 (normalisation); each wᵢ ∈ [0,1]; weights can evolve | weights [Design · to be tuned, evolvable]; measurement paths for the six terms [To be computed and verified, critical] | 10 parameter tuning + DFT of the respective volumes (scalarisation of the six terms) |
+| V2 | lower bound of the A6 cooperation-term weights (Φ-L2 locked value) | w_damage ≥ Φ-L2 lower bound (cannot be adjusted to 0); w_synergy lower bound = 0 | Φ-L2 lower bound [given by the 00 axioms, specific value to be set by the project] | 00 + 10 (judgement value, Design Principle 24 without conjecture) |
+| V3 | operational form of the retention/elimination interface (mechanism for manually designating the retention set) | `retain(S) = S ∩ {Φ-L2 compliant}`; judgement threshold (what counts as "harming carbon-based life", what F qualifies for retention) | §3.4 gives the three-segment skeleton; threshold [to be set by project-defined judgement values + DFT] | 10 + first-principles calculation |
+| V4 | verification that open-ended evolution does not converge (the system does not degenerate) | after N generations of evolution, diversity/fitness does not degenerate (open-ended maintained) | carbon-based open-ended CA [Ref:`10/Large_Scale_Simulations_Open_Ended_Evolution_Cellular_Automata_arXiv2304.05639`]; silicon-based [to be experimentally verified] | 10 experiment (N-generation open-ended verification of the silicon-based community) |
+| V5 | end-to-end fidelity of generation transfer (S1+M+S6) | generation fidelity ε_gen ∈ 01 ECC window (§01 §3.2); full chain of memory burning + replication + selection | ε_gen [To be experimentally verified]; ε of each segment see 01/07 | 10 + 01 + 07 cooperation |
 
 **Note**: each of V1-V5 gives "**what to compute + threshold/window + value provider**"; **for the six-term weighting, "how to measure into scalars + normalisation + weight values" is not given anywhere in the volume** (S1 key assumption), and Option B reduces it to "A6 + hard survival threshold run first, six terms as P2"; **all weights/thresholds await 10 parameter tuning + project-defined judgement values + DFT of the respective volumes**, and this layer does not set baseline values (Design Principle 24).
 

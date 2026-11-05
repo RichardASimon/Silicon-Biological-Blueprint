@@ -1,14 +1,14 @@
 # 05 · Neural Network (S2)
 
 | Item | Value |
-|---|---|
+| --- | --- |
 | Module | Neural network (S2): perception, decision-making, learning and affective modulation |
 | Document type | Design report (English edition) |
 | Version | v4.1 |
 | Dependencies | 02 physical substrate, 03 energy supply, 06 world model, 07 memory, 08 logic |
 | Language | English (Chinese edition: `../zh-CN/05_神经网络_设计.md`) |
 
-> **Evidence categories**: `[Ref:…]` literature or data; `[Design decision]` project setting without external evidence, with adjustability stated; `[Logical derivation]` derived from listed premises and formulae; `[To be verified]` unvalidated values or methods, placeholder only, with the value provider named. Every key assertion carries one of these categories.
+> **Evidence categories**: `[Ref:…]` literature or data; `[Design decision]` project setting; `[Logical derivation]` derived from listed premises; `[To be verified]` unvalidated placeholder.
 
 ---
 
@@ -18,17 +18,25 @@
 > - **Option A (conceptual option, baseline option)**: PEDOT electrocrystallisation (self-growing synaptic substrate) + Ga-In liquid-metal microchannels (reconfigurable connections) + Hebbian short-term plasticity + long-term burn-back into the 01 DNA variable region
 > - **Option B (based on the project reference library)**: the most mature neuromorphic paradigm in the reference library (PEDOT synapses + measured Ga-In surface tension + DNA molecular neural networks + local protein synthesis as a biological reference)
 > - **Option C (based on published research practice)**: the most transferable approaches for "reconfigurable / self-extending neural networks" in the external survey (solid-state memristor arrays / liquid-metal soft neural networks / spiking neuromorphics)
-> The three are parallel and not mutually exclusive; they can be combined (§0.4). Key choices are given in §3 + the appendix on key assumptions and design decisions.
+> ; they can be combined (§0.4). Key choices are given in §3 + the appendix on key assumptions and design decisions.
 
 ### 0.1 Option A: Conceptual Option (PEDOT + Ga-In, Baseline Option)
 
-| Mechanism | Implementation | Evidence category |
-|------|---------|---------|
-| Synaptic substrate | PEDOT pulsed electrocrystallisation (electric-field-driven precursor deposition, duty factor controls branching / self-growth) | [Ref:`05/PEDOT_pulsed_electropolymerization_Eickenscheidt_2019_FULLTEXT`, §Pulsed electropolymerisation, "Eickenscheidt 2019 pulsed electropolymerisation PEDOT self-growing synapse (FULLTEXT)"], `05/PEDOT_PESS_film_growth_kinetics_Mousavi_2023_ABSTRACT`, §Growth kinetics, "Mousavi 2023 PEDOT growth-rate kinetics (to be verified · ABSTRACT only, full text to be supplied)"] |
-| Long-range connections | Ga-In liquid-metal microchannels (surface tension 509→2 mN/m, ~250:1, voltage-tunable → connection "extend/retract") | [Ref:`05/Khan_2014_PNAS_..._fulltext`, §Giant switchable surface tension, "Khan 2014 PNAS giant switchable surface tension of liquid-metal oxide (509→2 mN/m, retrieval workflow checked against the PNAS original)"]; **509 mN/m = literature value; 2 mN/m = low-temperature-alloy estimation extrapolation [To be verified: DFT/estimation] (not directly measured in PNAS; an estimated value)**, `05/R4_GaIn_surface_tension_KEY_NUMBERS` |
-| Learning | Short-term = Hebbian plastic bonding state (synaptic strengthening / degradation) / long-term = burn-back into the 01 DNA variable region | [Ref:`05/Hebbian_2023_Fast_Hebbian_Platicity_Working_Memory`, §Fast Hebbian working-memory plasticity, "Hebbian 2023 fast Hebbian plasticity supporting working memory"], `05/Khacef_2022_Spike_Local_Synaptic_Plasticity_Neuromorphic_Survey`, §Review of spike-based local synaptic plasticity, "Khacef 2022 review of spike-based local synaptic plasticity"]; "long-term burn-back to 01" [Design decision] |
-| Self-extension | Environmental stimuli + minimisation of energy dissipation (slime-mould-like); the living individual does not use threshold control | [Logical derivation: §3 growth control]; upper bound on synaptic density [To be verified] |
-| Affective modulation | Prefrontal cortex → amygdala inhibition pathway; logic can apply a "Boolean-switch" hard cut-off | [Ref: carbon-based `05/Denny_2015`, §Emotion regulation reduces amygdala, "Denny 2015 reappraisal reduces amygdala activation", `05/Jacob_2019`, §Reappraisal brain network, "Jacob 2019 reappraisal social-anxiety brain network", `05/Dore_2017`, §Cognitive control of emotion prediction, "Dore 2017 cognitive control of emotion prediction"]; "Boolean hard cut-off = silicon-based advantage" [Design decision] |
+| Mechanism | Implementation |
+| ------ | --------- |
+| Synaptic substrate | PEDOT pulsed electrocrystallisation (electric-field-driven precursor deposition, duty factor controls branching / self-growth) |
+| Long-range connections | Ga-In liquid-metal microchannels (surface tension 509→2 mN/m, ~250:1, voltage-tunable → connection "extend/retract") |
+| Learning | Short-term = Hebbian plastic bonding state (synaptic strengthening / degradation) / long-term = burn-back into the 01 DNA variable region |
+| Self-extension | Environmental stimuli + minimisation of energy dissipation (slime-mould-like); the living individual does not use threshold control |
+| Affective modulation | Prefrontal cortex → amygdala inhibition pathway; logic can apply a "Boolean-switch" hard cut-off |
+
+**Evidence and notes (in table row order)**
+
+1. **Synaptic substrate** — [Ref:`05/PEDOT_pulsed_electropolymerization_Eickenscheidt_2019_FULLTEXT`, §Pulsed electropolymerisation, "Eickenscheidt 2019 pulsed electropolymerisation PEDOT self-growing synapse (FULLTEXT)"], `05/PEDOT_PESS_film_growth_kinetics_Mousavi_2023_ABSTRACT`, §Growth kinetics, "Mousavi 2023 PEDOT growth-rate kinetics (to be verified · ABSTRACT only, full text to be supplied)"]
+2. **Long-range connections** — [Ref:`05/Khan_2014_PNAS_..._fulltext`, §Giant switchable surface tension, "Khan 2014 PNAS giant switchable surface tension of liquid-metal oxide (509→2 mN/m, retrieval workflow checked against the PNAS original)"]; 509 mN/m = literature value; 2 mN/m = low-temperature-alloy estimation extrapolation [To be verified: DFT/estimation] (not directly measured in PNAS; an estimated value), `05/R4_GaIn_surface_tension_KEY_NUMBERS`
+3. **Learning** — [Ref:`05/Hebbian_2023_Fast_Hebbian_Platicity_Working_Memory`, §Fast Hebbian working-memory plasticity, "Hebbian 2023 fast Hebbian plasticity supporting working memory"], `05/Khacef_2022_Spike_Local_Synaptic_Plasticity_Neuromorphic_Survey`, §Review of spike-based local synaptic plasticity, "Khacef 2022 review of spike-based local synaptic plasticity"]; "long-term burn-back to 01" [Design decision]
+4. **Self-extension** — [Logical derivation: §3 growth control]; upper bound on synaptic density [To be verified]
+5. **Affective modulation** — [Ref: carbon-based `05/Denny_2015`, §Emotion regulation reduces amygdala, "Denny 2015 reappraisal reduces amygdala activation", `05/Jacob_2019`, §Reappraisal brain network, "Jacob 2019 reappraisal social-anxiety brain network", `05/Dore_2017`, §Cognitive control of emotion prediction, "Dore 2017 cognitive control of emotion prediction"]; "Boolean hard cut-off = silicon-based advantage" [Design decision]
 
 **Feasibility + risk**: PEDOT growth kinetics + Ga-In surface tension **both have measured anchors**, but **"whether synaptic self-growth in a soft gel can reach sufficient density / fidelity" has not been verified** [To be verified] — "self-extending neural network" is a key assumption. [Design decision]
 
@@ -36,13 +44,25 @@
 
 > The most mature line for the "neural layer" in the reference library is **PEDOT synapses + Ga-In connections + DNA molecular neural networks + local protein synthesis** (synapses have measurements; connections have a measured 250:1).
 
-| Mechanism | Literature paradigm | Evidence category |
-|------|---------|---------|
-| Synaptic substrate | PEDOT pulsed electropolymerisation self-growth (growth rate measured) | [Ref:`05/PEDOT_pulsed_electropolymerization_Eickenscheidt_2019_FULLTEXT`, `05/PEDOT_PESS_film_growth_kinetics_Mousavi_2023_ABSTRACT`] |
-| Long-range connections | Ga-In surface tension 509→2 mN/m (~250:1, <1 V, <1 s, reversible; **509 = literature value, 2 mN/m = low-temperature-alloy estimation extrapolation [To be verified: DFT/estimation], not directly measured in PNAS**) | [Ref:`05/Khan_2014_PNAS_..._fulltext` (retrieval workflow checked against the PNAS original), `05/R4_GaIn_surface_tension_KEY_NUMBERS`] |
-| Molecular neural network | DNA molecular neural network (soft-matter reference, not the silicon-based main route) | [Ref:`05/Qianlab_2011_DNA_Seeseesaw_Neural_Networks`, `05/teVrugt_2024_DNA_Neural_Networks_arXiv2501`] |
-| Synaptic execution mechanism | Local protein synthesis (construction according to blueprint, biological reference) | [Ref:`05/Stout_2001_Protein_Synthesis_Synaptic_Sites_Dendrites_Caltech`] |
-| Learning | Hebbian short-term plasticity / spike-based local plasticity | [Ref:`05/Hebbian_2023`, `05/Khacef_2022`] |
+| Mechanism | Literature paradigm |
+| ------ | --------- |
+| Synaptic substrate | PEDOT pulsed electropolymerisation self-growth (growth rate measured) |
+| Long-range connections | Ga-In surface tension 509→2 mN/m (~250:1, <1 V, <1 s, reversible; 509 = literature value,… See note 1 |
+| Molecular neural network | DNA molecular neural network (soft-matter reference, not the silicon-based main route) |
+| Synaptic execution mechanism | Local protein synthesis (construction according to blueprint, biological reference) |
+| Learning | Hebbian short-term plasticity / spike-based local plasticity |
+
+**Full evidence for table cells**
+
+1. **Long-range connections · Literature paradigm** — Ga-In surface tension 509→2 mN/m (~250:1, <1 V, <1 s, reversible; 509 = literature value, 2 mN/m = low-temperature-alloy estimation extrapolation [To be verified: DFT/estimation], not directly measured in PNAS)
+
+**Evidence and notes (in table row order)**
+
+1. **Synaptic substrate** — [Ref:`05/PEDOT_pulsed_electropolymerization_Eickenscheidt_2019_FULLTEXT`, `05/PEDOT_PESS_film_growth_kinetics_Mousavi_2023_ABSTRACT`]
+2. **Long-range connections** — [Ref:`05/Khan_2014_PNAS_..._fulltext` (retrieval workflow checked against the PNAS original), `05/R4_GaIn_surface_tension_KEY_NUMBERS`]
+3. **Molecular neural network** — [Ref:`05/Qianlab_2011_DNA_Seeseesaw_Neural_Networks`, `05/teVrugt_2024_DNA_Neural_Networks_arXiv2501`]
+4. **Synaptic execution mechanism** — [Ref:`05/Stout_2001_Protein_Synthesis_Synaptic_Sites_Dendrites_Caltech`]
+5. **Learning** — [Ref:`05/Hebbian_2023`, `05/Khacef_2022`]
 
 **Key point**: the synaptic substrate and the connections **both have measured values** (PEDOT growth rate, Ga-In 250:1), but **"neural-grade" density / fidelity / lifetime have not been verified** — soft-gel self-extension is a gap.
 
@@ -51,20 +71,24 @@
 > To be verified · **The evidence in this section consists of results of a published-literature survey and is distinguished from the design claims of this project.**
 > **Key conclusion (survey direction)**: the three most mature classes of "reconfigurable / self-extending neural networks" worldwide: ① solid-state memristor synaptic arrays (density / reconfigurability at production scale) ② liquid-metal soft neural networks (more systemic than a single Ga-In channel) ③ spiking neuromorphics (SNN, low power, close to the 05 learning layer).
 
-| External paradigm | Mechanism transferable into 05 | Evidence category |
-|---------|----------------|---------|
-| Solid-state memristor synaptic array | Engineering reference for synaptic "density + reconfigurability ceiling" (more controllable than soft-gel self-growth) | [Ref:`05/D_NEURAL_SYNAPSE_WBP_2026-09-15.md` S1 Govoreanu 2011 IMEC 10×10nm² Hf/HfOx RRAM (615 citations), S2 Woo 2016 AlOx/HfO2 bilayer RRAM STDP array (514 citations), S3 Ielmini 2018 RRAM full-chain review (open access, full text archived)] |
-| Liquid-metal soft neural network | Feasibility of routing multi-channel Ga-In networks (not a single microchannel) in soft bodies | [Ref: same verification-record file above, L1 Markvicka 2018 Nat. Mater. LM–elastomer self-healing multichannel (1060 citations), L2 Wan 2025 Nat. Electron. biomimetic LM synapse (**open access, full text archived**), L3 Park 2019 Sci. Adv. 3D reconfigurable LM (**open access, full text archived**), L4 Wen 2019 flexible LM probe (**open access, full text archived**)] [Design Principle 13: liquid-metal self-healing body = feasibility unverified / frontier, not implemented for the time being, used only as a neural reference] |
-| Spiking neuromorphics (SNN) | Learning layer uses spikes + local plasticity (close to 05 short-term Hebbian, low power) | [Ref: same verification-record file above, N1 Furber 2014 SpiNNaker (**bronze OA, full text archived**, 1361 citations), N2 Akopyan 2015 TrueNorth **65 mW/1M neurons (≈65 pW/neuron, citable)**, N3 Lin 2018 Loihi on-chip STDP (135 citations), N4 Wu 2019 STT-MRAM integrate-and-fire (35 citations), N5 Zhang 2018 SNN review (31 citations)] |
+| External paradigm | Mechanism transferable into 05 |
+| --------- | ---------------- |
+| Solid-state memristor synaptic array | Engineering reference for synaptic "density + reconfigurability ceiling" (more controllable than soft-gel self-growth) |
+| Liquid-metal soft neural network | Feasibility of routing multi-channel Ga-In networks (not a single microchannel) in soft bodies |
+| Spiking neuromorphics (SNN) | Learning layer uses spikes + local plasticity (close to 05 short-term Hebbian, low power) |
 
-**05 §0.3 reference-upgrade note**: the original 3 rows `[Ref·external survey, to be checked]` were all upgraded to `[Ref:05/D_NEURAL_SYNAPSE_WBP_2026-09-15.md · A(S1/S2/S3)]` / `[· B(L1/L2/L3/L4)]` / `[· C(N1/N2/N3/N4/N5)]`; the 3 items whose primary sources were genuinely not locked down (23,040-array quantification / energy-per-spike quantification / liquid-metal e-nose line) are listed by name in the "unverified" section of the verification-record file and are not written into the 05 main text as verified values.
+**Evidence and notes (in table row order)**
+
+1. **Solid-state memristor synaptic array** — [Ref:`05/D_NEURAL_SYNAPSE_WBP_2026-09-15.md` S1 Govoreanu 2011 IMEC 10×10nm² Hf/HfOx RRAM (615 citations), S2 Woo 2016 AlOx/HfO2 bilayer RRAM STDP array (514 citations), S3 Ielmini 2018 RRAM full-chain review ]
+2. **Liquid-metal soft neural network** — [Ref: the reference library, L1 Markvicka 2018 Nat. Mater. LM–elastomer self-healing multichannel (1060 citations), L2 Wan 2025 Nat. Electron. biomimetic LM synapse, L3 Park 2019 Sci. Adv. 3D reconfigurable LM, L4 Wen 2019 flexible LM probe ] [Design Principle 13: liquid-metal self-healing body = feasibility unverified / frontier, not implemented for the time being, used only as a neural reference]
+3. **Spiking neuromorphics (SNN)** — [Ref: the reference library, N1 Furber 2014 SpiNNaker (bronze OA, 1361 citations), N2 Akopyan 2015 TrueNorth 65 mW/1M neurons (≈65 pW/neuron, citable), N3 Lin 2018 Loihi on-chip STDP (135 citations), N4 Wu 2019 STT-MRAM integrate-and-fire (35 citations), N5 Zhang 2018 SNN review (31 citations)]
 
 ### 0.4 Option Combination and Baseline Configuration
 
 | Strategy | Content | Applicable conditions |
-|------|------|------|
+| ------ | ------ | ------ |
 | **A. Pure Option A** | PEDOT + Ga-In, self-growth, no external density reference | Closest to "self-extension", but "whether density is sufficient" is critical |
-| **B. A + C hybrid (selected option)** | PEDOT synapses + **solid-state memristor array as the underlying constraint for the density / reconfigurability reference** (Option C) | Self-growth dominant; when density is insufficient, memristors compensate; high feasibility |
+| **B. A + C hybrid (selected option)** | PEDOT synapses + solid-state memristor array as the underlying constraint for the density / reconfigurability reference (Option C) | Self-growth dominant; when density is insufficient, memristors compensate; high feasibility |
 | **C. III dominant** | Solid-state memristors + SNN dominate the neural layer | Most quantifiable, but sacrifices the "self-extension / soft-body" characteristics |
 
 > **Baseline option = B** (PEDOT self-growing synapses + solid-state memristor array as the underlying density / reconfigurability constraint + SNN spike-based learning layer) — the fragility of "uncertain soft-gel self-growth density" is compensated by "the quantifiable density ceiling of solid-state memristors". **This choice is a design position, confirmed by design review** (appendix on key assumptions and design decisions, T-05).
@@ -76,13 +100,26 @@
 
 **Axis 1: the five segments of the physical carrier (from perception to action, "where information comes from and where it goes")**
 
-| Segment | What it is | What it does | Evidence category |
-|----|--------|--------|---------|
-| **Segment 1 Perception (HARVEST-IN)** | Environmental stimuli (light / heat / force / chemical / sound + super-carbon-based: full electromagnetic spectrum / quantum states / magnetic fields) enter the network via the 02 sensory substrate (Design Principle 17, five senses or more, super-carbon-based capability possible) | Bring **environmental physical quantities** into the neural network (sensing end = 02 devices; 05 handles only "signal routing", Design Principle 17) | [Ref:02 sensory substrate; 05 §4 ↔ 02] |
-| **Segment 2 Synaptic substrate (CONNECT)** | PEDOT pulsed electrocrystallisation (self-growing synapses) + Ga-In liquid-metal microchannels (long-range connections); when density is insufficient, **solid-state RRAM array underlying constraint** (Option C) | **Connect perceptual signals to decision nodes** (short-range = PEDOT synapses, long-range = Ga-In surface tension 250:1 tunable; density = RRAM underlying constraint) | Synapses [Ref:`05/PEDOT_pulsed_electropolymerization_Eickenscheidt_2019`, §Pulsed electropolymerisation, "Eickenscheidt 2019 pulsed electropolymerisation PEDOT self-growing synapse"]; connections [Ref:`05/Khan_2014_PNAS_Giant_Switchable_Surface_Activity`, §Giant switchable surface tension, "Khan 2014 PNAS liquid metal 509→2 mN/m, ~250:1"] (509→2 mN/m, ~250:1); density underlying constraint [Ref:`05/D_NEURAL_SYNAPSE_WBP_2026-09-15.md`, §Solid-state memristive synaptic arrays, "S1 IMEC 10×10nm² Hf/HfOx RRAM / S2 bilayer STDP array"] S1/S2/S3 (IMEC 10×10nm² Hf/HfOx RRAM / bilayer STDP array)] |
-| **Segment 3 Learning (LEARN)** | Short-term = Hebbian plastic bonding state (synaptic strengthening / degradation); long-term = burn-back into the 01 DNA variable region | Precipitate "recent experience" into **long-term weights** (short-term in synapses; long-term burned into 01 after 07 memory consolidation) | Short-term [Ref:`05/Hebbian_2023_Fast_Hebbian_Platicity`, `05/Khacef_2022_Spike_Local_Synaptic_Plasticity`]; long-term burn-back to 01 [Design decision] |
-| **Segment 4 Decision-making (DECIDE)** | Logic gates (08) + affective modulation (Segment 5) synthesise a decision | **Integrate "signals + learning + affective tendency" into a decision** (logical conclusion = 08; affect = Segment 5 adjusts tendency only, not correctness) | [Ref:08 logic layer] |
-| **Segment 5 Affective modulation (EMODULATE)** | Amygdala / HPA analogy (anxiety modulates tendency) + prefrontal cortex → amygdala inhibition (Boolean hard cut-off) | Give decisions "tendency weights" (affect), but **can be zeroed instantaneously by a logic instruction** (Design Principle 21) | Affective pathway [Ref:`05/Odonovan_2012`, §Threat neurobiological sensitivity, "Odonovan 2012 neurobiological sensitivity to threat", `05/Maniscalco_Rinaman_2017`, §HPA-axis stress, "Maniscalco/Rinaman 2017 HPA-axis stress", `05/Denny_2015`, §Reappraisal reduces amygdala, "Denny 2015 reappraisal reduces amygdala"]; "Boolean hard cut-off = silicon-based advantage" [Design decision] |
+| Segment | What it is | What it does |
+| ---- | -------- | -------- |
+| **Segment 1 Perception (HARVEST-IN)** | See note 1 | Bring environmental physical quantities into the neural network (sensing end = 02 devices; 05 handles only "signal routing", Design Principle 17) |
+| **Segment 2 Synaptic substrate (CONNECT)** | PEDOT pulsed electrocrystallisation (self-growing synapses) + Ga-In liquid-metal microchan… See note 2 | Connect perceptual signals to decision nodes (short-range = PEDOT synapses, long-range = Ga-In surface tension 250:1 tunable; density = RRAM underlying constraint) |
+| **Segment 3 Learning (LEARN)** | Short-term = Hebbian plastic bonding state (synaptic strengthening / degradation); long-term = burn-back into the 01 DNA variable region | Precipitate "recent experience" into long-term weights (short-term in synapses; long-term burned into 01 after 07 memory consolidation) |
+| **Segment 4 Decision-making (DECIDE)** | Logic gates (08) + affective modulation (Segment 5) synthesise a decision | Integrate "signals + learning + affective tendency" into a decision (logical conclusion = 08; affect = Segment 5 adjusts tendency only, not correctness) |
+| **Segment 5 Affective modulation (EMODULATE)** | Amygdala / HPA analogy (anxiety modulates tendency) + prefrontal cortex → amygdala inhibition (Boolean hard cut-off) | Give decisions "tendency weights" (affect), but can be zeroed instantaneously by a logic instruction (Design Principle 21) |
+
+**Full evidence for table cells**
+
+1. **Segment 1 Perception (HARVEST-IN) · What it is** — Environmental stimuli (light / heat / force / chemical / sound + super-carbon-based: full electromagnetic spectrum / quantum states / magnetic fields) enter the network via the 02 sensory substrate (Design Principle 17, five senses or more, super-carbon-based capability possible)
+2. **Segment 2 Synaptic substrate (CONNECT) · What it is** — PEDOT pulsed electrocrystallisation (self-growing synapses) + Ga-In liquid-metal microchannels (long-range connections); when density is insufficient, solid-state RRAM array underlying constraint (Option C)
+
+**Evidence and notes (in table row order)**
+
+1. **Segment 1 Perception (HARVEST-IN)** — [Ref:02 sensory substrate; 05 §4 ↔ 02]
+2. **Segment 2 Synaptic substrate (CONNECT)** — Synapses [Ref:`05/PEDOT_pulsed_electropolymerization_Eickenscheidt_2019`, §Pulsed electropolymerisation, "Eickenscheidt 2019 pulsed electropolymerisation PEDOT self-growing synapse"]; connections [Ref:`05/Khan_2014_PNAS_Giant_Switchable_Surface_Activity`, §Giant switchable surface tension, "Khan 2014 PNAS liquid metal 509→2 mN/m, ~250:1"] (509→2 mN/m, ~250:1); density underlying constraint [Ref:`05/D_NEURAL_SYNAPSE_WBP_2026-09-15.md`, §Solid-state memristive synaptic arrays, "S1 IMEC 10×10nm² Hf/HfOx RRAM / S2 bilayer STDP array"] S1/S2/S3 (IMEC 10×10nm² Hf/HfOx RRAM / bilayer STDP array)]
+3. **Segment 3 Learning (LEARN)** — Short-term [Ref:`05/Hebbian_2023_Fast_Hebbian_Platicity`, `05/Khacef_2022_Spike_Local_Synaptic_Plasticity`]; long-term burn-back to 01 [Design decision]
+4. **Segment 4 Decision-making (DECIDE)** — [Ref:08 logic layer]
+5. **Segment 5 Affective modulation (EMODULATE)** — Affective pathway [Ref:`05/Odonovan_2012`, §Threat neurobiological sensitivity, "Odonovan 2012 neurobiological sensitivity to threat", `05/Maniscalco_Rinaman_2017`, §HPA-axis stress, "Maniscalco/Rinaman 2017 HPA-axis stress", `05/Denny_2015`, §Reappraisal reduces amygdala, "Denny 2015 reappraisal reduces amygdala"]; "Boolean hard cut-off = silicon-based advantage" [Design decision]
 
 **Relations among segments (the information-flow chain from left to right in the diagram)**:
 ```
@@ -94,11 +131,22 @@ Segment 1 Perception (environment enters the network) → Segment 2 Synaptic sub
 
 **Axis 2: three mechanism lines (passing through the five segments, "how it grows / how it learns / how it suppresses")**
 
-| Mechanism | Which segments it passes through | What it does | Evidence category |
-|------|---------|--------|---------|
-| **Growth (GROW)** | Segment 2 | PEDOT self-growing synapses (environmental stimuli + minimisation of energy dissipation, slime-mould-like) + Ga-In reconfigurable connections (surface tension 250:1 voltage-tuned); the living individual does not use threshold control; only master-copy recording uses "local current threshold + global cap" (Design Principle 7) | Self-growth [Logical derivation: growth control]; threshold control [Ref:05 §3]; master-copy vs living-individual split [Design Principle 7] |
-| **Learning (LEARN)** | Segment 3 | Short-term Hebbian plastic bonding state (synaptic strengthening / degradation, `Hebbian_2023` / `Khacef_2022`) + long-term burn-back into the 01 variable region (via 07 memory consolidation) | Short-term [Ref:05 Hebbian/Khacef]; long-term burn-back [Design decision] |
-| **Suppression (SUPPRESS)** | Segment 4 / Segment 5 | Affective pathway = modulator; prefrontal cortex → amygdala inhibition + **Boolean-switch hard cut-off** (C-a individual self-determination + C-b external instruction; both sources can trigger "inhibition driven to maximum"); what is suppressed is "tendency", not "logical correctness" | [Ref:05/Denny_2015/Dore_2017/Jacob_2019 (prefrontal inhibition)] + [Design decision] |
+| Mechanism | Which segments it passes through | What it does |
+| ------ | --------- | -------- |
+| **Growth (GROW)** | Segment 2 | See note 1 |
+| **Learning (LEARN)** | Segment 3 | Short-term Hebbian plastic bonding state (synaptic strengthening / degradation, `Hebbian_2023` / `Khacef_2022`) + long-term burn-back into the 01 variable region (via 07 memory consolidation) |
+| **Suppression (SUPPRESS)** | Segment 4 / Segment 5 | Affective pathway = modulator; prefrontal cortex → amygdala inhibition + Boolean-switch ha… See note 2 |
+
+**Full evidence for table cells**
+
+1. **Growth (GROW) · What it does** — PEDOT self-growing synapses (environmental stimuli + minimisation of energy dissipation, slime-mould-like) + Ga-In reconfigurable connections (surface tension 250:1 voltage-tuned); the living individual does not use threshold control; only master-copy recording uses "local current threshold + global cap" (Design Principle 7)
+2. **Suppression (SUPPRESS) · What it does** — Affective pathway = modulator; prefrontal cortex → amygdala inhibition + Boolean-switch hard cut-off (C-a individual self-determination + C-b external instruction; both sources can trigger "inhibition driven to maximum"); what is suppressed is "tendency", not "logical correctness"
+
+**Evidence and notes (in table row order)**
+
+1. **Growth (GROW)** — Self-growth [Logical derivation: growth control]; threshold control [Ref:05 §3]; master-copy vs living-individual split [Design Principle 7]
+2. **Learning (LEARN)** — Short-term [Ref:05 Hebbian/Khacef]; long-term burn-back [Design decision]
+3. **Suppression (SUPPRESS)** — [Ref:05/Denny_2015/Dore_2017/Jacob_2019 (prefrontal inhibition)] + [Design decision]
 
 **Relationship of "fixed (non-evolvable) + dynamic" in growth / learning** (why this design can "both self-extend and learn"):
 - **The self-growth topology of the Segment 2 synaptic substrate = dynamic** (environmental stimuli + dissipation minimisation, no hard setting);
@@ -114,21 +162,27 @@ Segment 1 Perception (environment enters the network) → Segment 2 Synaptic sub
 ---
 
 ## 1. Design Objectives
-Enable the individual to **perceive the environment → decide → act**, with **self-extension** (synaptic self-connection, spontaneous network growth) + **learnability** (Hebbian plasticity) + **affective modulation that can be suppressed by logic** (Design Principle 21).
+Enable the individual to **perceive the environment → decide → act**, with self-extension (synaptic self-connection, spontaneous network growth) + learnability (Hebbian plasticity) + affective modulation that can be suppressed by logic (Design Principle 21).
 
 ## 2. State of Related Research + Different Implementation Approaches (Design Principle 2)
 
 | Route | Status | Literature anchor | Trade-off | Evidence category |
-|------|------|---------|------|---------|
-| **PEDOT electrocrystallisation (synaptic substrate)** | Mature | [Ref:`05/PEDOT_pulsed_electropolymerization_Eickenscheidt_2019_FULLTEXT` (pulsed electropolymerisation, duty factor controls branching), `05/PEDOT_PESS_film_growth_kinetics_Mousavi_2023_ABSTRACT` (growth rate measured)] | Verified · self-growing synapse | [Ref] growth rate measured; "soft-gel self-growth density sufficient" [To be verified] |
-| **Ga-In liquid metal (reconfigurable connections)** | Frontier | [Ref:`05/Khan_2014_PNAS_Giant_Switchable_Surface_Activity_Liquid_Metal_Oxidation_fulltext` (surface tension 509→2 mN/m, ~250:1, <1 V, <1 s, retrieval workflow checked against the PNAS original; **2 mN/m = low-temperature-alloy estimation extrapolation [To be verified: DFT/estimation], not directly measured in PNAS**); `05/R4_GaIn_surface_tension_KEY_NUMBERS`] (numerical extract) | Verified · neural connection "extend/retract" | [Ref] 250:1 measured; "network-level multi-channel routing" [To be verified] |
+| ------ | ------ | --------- | ------ | --------- |
+| **PEDOT electrocrystallisation (synaptic substrate)** | Mature | See note 1 | Verified · self-growing synapse | [Ref] growth rate measured; "soft-gel self-growth density sufficient" [To be verified] |
+| **Ga-In liquid metal (reconfigurable connections)** | Frontier | See note 2 | Verified · neural connection "extend/retract" | [Ref] 250:1 measured; "network-level multi-channel routing" [To be verified] |
 | **Hebbian plasticity (learning)** | Mature | [Ref:`05/Hebbian_2023_Fast_Hebbian_Platicity_Working_Memory_arXiv`, `05/Khacef_2022_Spike_Local_Synaptic_Plasticity_Neuromorphic_Survey_arXiv2209`] | Verified · synaptic strengthening / degradation | [Ref] short-term plasticity; long-term burn-back into 01 [Design decision] |
 | **DNA neural network** | Frontier | [Ref:`05/Qianlab_2011_DNA_Seeseesaw_Neural_Networks`, `05/teVrugt_2024_DNA_Neural_Networks_arXiv2501`] | Soft-matter neural network reference | [Ref] molecular neural network; used as reference only, not migrated to the silicon-based carrier [Design Principle 24] |
 | **Local protein synthesis (construction according to blueprint)** | Biological reference | [Ref:`05/Stout_2001_Protein_Synthesis_Synaptic_Sites_Dendrites_Caltech`] | Synaptic execution mechanism | [Ref] carbon-based execution mechanism reference |
 | **PEDOT bioelectronics** | Mature | [Ref:`05/DONAHUE_2020_PEDOT_bioelectronics_TAILORING_FULLTEXT`] | Biological interface | [Ref] PEDOT biological interface |
-| **Affective inhibition pathway (prefrontal cortex → amygdala)** | Mature (carbon-based) | [Ref:`05/Denny_2015_Getting_Over_It_Emotion_Regulation_Amygdala_PMC4567486_FULLTEXT` (reappraisal reduces amygdala), `05/Dore_2017_Neural_Predictors_Decisions_Cognitively_Control_Emotion_PMC5354318_FULLTEXT` (volitional prediction), `05/Jacob_2019_Reappraisal_Social_Anxiety_Brain_Network_PMC6611456_FULLTEXT` (network hierarchy)] | Verified · **neural basis for affect being suppressible by logic** | [Ref] carbon-based prefrontal–amygdala; "silicon-based Boolean hard cut-off" [Design decision] |
+| **Affective inhibition pathway (prefrontal cortex → amygdala)** | Mature (carbon-based) | See note 3 | Verified · neural basis for affect being suppressible by logic | [Ref] carbon-based prefrontal–amygdala; "silicon-based Boolean hard cut-off" [Design decision] |
 | **Anxiety / survival stress (HPA axis)** | Mature (carbon-based) | [Ref:`05/Odonovan_2012_Exaggerated_Neurobiological_Sensitivity_to_Threat_PMC4361087_FULLTEXT`, `05/Maniscalco_Rinaman_2017_Interoceptive_Neuroendocrine_HPA_Stress_PMC5433881_FULLTEXT`] | Anxiety / stress mechanism reference | [Ref] HPA-axis reference |
 | **Learned helplessness vs active coping (coping phenotype)** | Mature (carbon-based) | [Ref:`05/Maier_2016_Learned_Helplessness_at_Fifty_PMC4920136_FULLTEXT`, `05/Tafet_2025_Learned_Helplessness_Controllability_PMC12417506_FULLTEXT`] | Neural differentiation of the three manifestations of anxiety (passive / active / indifferent) | [Ref] differentiation by stressor controllability |
+
+**Full evidence for table cells**
+
+1. **PEDOT electrocrystallisation (synaptic substrate) · Literature anchor** — [Ref:`05/PEDOT_pulsed_electropolymerization_Eickenscheidt_2019_FULLTEXT` (pulsed electropolymerisation, duty factor controls branching), `05/PEDOT_PESS_film_growth_kinetics_Mousavi_2023_ABSTRACT` (growth rate measured)]
+2. **Ga-In liquid metal (reconfigurable connections) · Literature anchor** — [Ref:`05/Khan_2014_PNAS_Giant_Switchable_Surface_Activity_Liquid_Metal_Oxidation_fulltext` (surface tension 509→2 mN/m, ~250:1, <1 V, <1 s, retrieval workflow checked against the PNAS original; 2 mN/m = low-temperature-alloy estimation extrapolation [To be verified: DFT/estimation], not directly measured in PNAS); `05/R4_GaIn_surface_tension_KEY_NUMBERS`] (numerical extract)
+3. **Affective inhibition pathway (prefrontal cortex → amygdala) · Literature anchor** — [Ref:`05/Denny_2015_Getting_Over_It_Emotion_Regulation_Amygdala_PMC4567486_FULLTEXT` (reappraisal reduces amygdala), `05/Dore_2017_Neural_Predictors_Decisions_Cognitively_Control_Emotion_PMC5354318_FULLTEXT` (volitional prediction), `05/Jacob_2019_Reappraisal_Social_Anxiety_Brain_Network_PMC6611456_FULLTEXT` (network hierarchy)]
 
 **Selection conclusion** [Design decision]: **synaptic substrate = PEDOT electrocrystallisation** (growth rate measured [Ref], self-growth) "connected" via **Ga-In liquid-metal microchannels** (250:1 surface tension tunable [Ref], reconfigurable connections); **learning = short-term Hebbian (plastic bonding state) / long-term burn-back into the 01 DNA variable region** (burn-back to 01 [Design decision]); **affect = prefrontal cortex → amygdala inhibition + Boolean-switch hard cut-off** (carbon-based inhibition measured [Ref], Boolean cut-off is a silicon-based advantage [Design decision]). Where density / reconfigurability is uncertain, a solid-state memristor array underlying constraint is used (Option C, §0.4).
 
@@ -139,25 +193,25 @@ Enable the individual to **perceive the environment → decide → act**, with *
 ```mermaid
 flowchart LR
     subgraph IN["Perception"]
-        S["Environmental stimuli<br/>(light / heat / force / chemical / sound + super-carbon-based)<br/>[Ref:02 sensory substrate, Design Principle 17]"]
+        S["Environmental stimuli<br/>(light / heat / force / chemical / sound + super-carbon-based)<br/>"]
     end
 
     subgraph NET["Neural network (PEDOT synaptic substrate)"]
-        T1["Synaptic self-growth<br/>PEDOT pulsed electrocrystallisation<br/>[Ref:05/PEDOT_pulsed_Eickenscheidt_2019]"]
-        T2["Long-range connections<br/>Ga-In surface tension 250:1<br/>[Ref:05/Khan_2014_PNAS]"]
-        T3["Short-term learning<br/>Hebbian plastic bonding state<br/>[Ref:05/Hebbian_2023]"]
+        T1["Synaptic self-growth<br/>PEDOT pulsed electrocrystallisation<br/>"]
+        T2["Long-range connections<br/>Ga-In surface tension 250:1<br/>"]
+        T3["Short-term learning<br/>Hebbian plastic bonding state<br/>"]
         T1 --> T2
         T1 --> T3
     end
 
     subgraph EMOD["Affective modulation pathway (Design Principle 21)"]
-        E1["Affect (anxiety / HPA analogy)<br/>modulates tendency weights<br/>[Ref:05/Odonovan_2012, Maniscalco_2017]"]
+        E1["Affect (anxiety / HPA analogy)<br/>modulates tendency weights<br/>"]
         E2["Prefrontal cortex → amygdala inhibition<br/>Boolean-switch hard cut-off<br/>[Design decision]"]
         E1 --> E2
     end
 
     subgraph OUT["Decision-making + action"]
-        D["Decision-making (logic 08 + affective modulation)<br/>[Ref:08 logic layer]"]
+        D["Decision-making (logic 08 + affective modulation)<br/>"]
         A["Action<br/>[I0a reflex / I0b locomotion, 09]"]
         D --> A
     end
@@ -176,6 +230,8 @@ flowchart LR
     classDef box fill:transparent,stroke:currentColor,color:currentColor
     class S,T1,T2,T3,E1,E2,D,A,L box
 ```
+
+> Note: Perception reaches decision nodes through the synaptic matrix; the affective pathway is a modulatory branch. Short- and long-range connections use different physical implementations.
 
 > **Legend**: environmental stimuli → **PEDOT synaptic self-growth** (synaptic substrate) + **Ga-In connections** (250:1 tunable) + **short-term Hebbian learning** → decision-making + action. **The affective pathway (modulator) adjusts tendency weights without changing logical correctness**; prefrontal cortex → amygdala inhibition + a Boolean switch can **hard cut-off** affective modulation (Design Principle 21). Short-term plastic bonding states are **burned back into the 01 DNA variable region after consolidation** (long-term). Energy side: pulses / plasticity / rollouts all pay 03 energy currency.
 
@@ -248,19 +304,21 @@ graph LR
     class P00,D01,M02,E03,I04,WM06,MEM07,L08,I0_09,EV10,INT11 node
 ```
 
+> Note: The source of an arrow is the value provider and the target is the receiver; measurable quantities are defined by the interface contracts of the respective volumes.
+
 | Interface | Data flow (physical quantities / information, not concepts) | Invariant (measurable) | Evidence category |
-|------|---------------------------|-------------|---------|
-| **↔ 00 Philosophy** | 05 = **operational carrier** of the A5 learning axiom (A5 is realised through the 05 learning layer) | Learning layer = physical implementation of A5 | [Ref:00 A5] |
-| **↔ 01 DNA** | **Long-term learning = burn-back into the 01 DNA variable region** (synaptic consolidation → DNA) | Long-term weights ∈ 01 variable region | [Design decision] |
-| **↔ 02 Materials** | **Physical substrate / sensory substrate** (PEDOT / Ga-In grow on the 02 soft-gel host) | Device attachment to the substrate holds | [Ref:02 carrier; pending calculation and verification] |
-| **↔ 03 Energy** | **Pulses / plasticity / rollouts all pay energy currency** | Neural-layer energy consumption [To be verified] | [Ref:03 A2 order (learning attached to 03)] |
-| **↔ 04 Individuality** | **Carrier of the information structure of causal closure C4** (05+07+08 constitute 04 C4) | Closure degree of information structure [To be verified by calculation: B1] | [Logical derivation: 04 C4 + 05] |
-| **→ 06 World model** | **Prediction head attached to the 05 network**, rollout of the 06 model | Energy consumption / value of N rollout actions [To be verified by calculation: 06 W3] | [Logical derivation: 06 prediction head attached to 05] |
-| **↔ 07 Memory** | **Synaptic weights = physical substrate of memory** (7 memory read/write = 5 synaptic plasticity) | Synaptic fidelity / lifetime [To be verified] | [Logical derivation: 07 attached to 05 synapses] |
-| **↔ 08 Logic** | **08 issues a "suppression" instruction → 05 affective pathway de-energised** (Boolean hard cut-off) | Suppression response time [To be verified] | [Ref:08 + 05 affective pathway] |
-| **↔ 09 Instinct** | **Neural implementation of I0a reflex / I0b locomotion + three manifestations of affect** | Reflex-loop latency [To be verified] | [Ref:09 I0a/I0b] |
-| **↔ 10 Evolution** | **C4 closure degree feeds fitness; the network itself can self-extend / self-evolve** | Network fitness input [To be verified] | [Logical derivation: 10 network evolvable] |
-| **→ 11 Integration** | **Neural node of loop ③ learning / ⑤ adaptation** (learning occurs in 05) | Closure of loops ③⑤ requires 05 to be operational | [Ref:11 §5 loops] |
+| ------ | --------------------------- | ------------- | --------- |
+| **↔ 00 Philosophy** | 05 = operational carrier of the A5 learning axiom (A5 is realised through the 05 learning layer) | Learning layer = physical implementation of A5 | [Ref:00 A5] |
+| **↔ 01 DNA** | Long-term learning = burn-back into the 01 DNA variable region (synaptic consolidation → DNA) | Long-term weights ∈ 01 variable region | [Design decision] |
+| **↔ 02 Materials** | Physical substrate / sensory substrate (PEDOT / Ga-In grow on the 02 soft-gel host) | Device attachment to the substrate holds | [Ref:02 carrier; pending calculation and verification] |
+| **↔ 03 Energy** | Pulses / plasticity / rollouts all pay energy currency | Neural-layer energy consumption [To be verified] | [Ref:03 A2 order (learning attached to 03)] |
+| **↔ 04 Individuality** | Carrier of the information structure of causal closure C4 (05+07+08 constitute 04 C4) | Closure degree of information structure [To be verified by calculation: B1] | [Logical derivation: 04 C4 + 05] |
+| **→ 06 World model** | Prediction head attached to the 05 network, rollout of the 06 model | Energy consumption / value of N rollout actions [To be verified by calculation: 06 W3] | [Logical derivation: 06 prediction head attached to 05] |
+| **↔ 07 Memory** | Synaptic weights = physical substrate of memory (7 memory read/write = 5 synaptic plasticity) | Synaptic fidelity / lifetime [To be verified] | [Logical derivation: 07 attached to 05 synapses] |
+| **↔ 08 Logic** | 08 issues a "suppression" instruction → 05 affective pathway de-energised (Boolean hard cut-off) | Suppression response time [To be verified] | [Ref:08 + 05 affective pathway] |
+| **↔ 09 Instinct** | Neural implementation of I0a reflex / I0b locomotion + three manifestations of affect | Reflex-loop latency [To be verified] | [Ref:09 I0a/I0b] |
+| **↔ 10 Evolution** | C4 closure degree feeds fitness; the network itself can self-extend / self-evolve | Network fitness input [To be verified] | [Logical derivation: 10 network evolvable] |
+| **→ 11 Integration** | Neural node of loop ③ learning / ⑤ adaptation (learning occurs in 05) | Closure of loops ③⑤ requires 05 to be operational | [Ref:11 §5 loops] |
 
 **Contract principle**: interface "data" must be **physically / informationally measurable quantities** (synaptic fidelity / lifetime / energy consumption / closure degree), not concepts; where no measured value is given, it is marked "value pending DFT in Volume 05 / other volumes".
 
@@ -278,12 +336,12 @@ graph LR
 ## 5. To Be Verified by Experiment / DFT (Each Item: Formula + Window + Value Provider, with Quantitative Conditions)
 
 | # | Open item | Formula/inequality to be satisfied | Parameter window (design setting) | Value provider |
-|---|--------|---------------------|--------------------|----------|
-| N1 | Upper bound on PEDOT synaptic density (soft-gel self-growth) | Synaptic density ρ ≥ lower bound on decision-node connectivity C_min (the network must be "dense enough" for effective decision-making) | ρ target [Design decision]; growth rate already measured [Ref:`05/Mousavi_2023`] | **05 first-principles calculation and experiment** (whether self-growth in the soft gel can reach ρ) |
-| N2 | Number of reversible Ga-In surface-tension cycles (lifetime) | Number of reversible cycles N_rev ≥ total network rewiring demand | 250:1 measured for a single cycle [Ref:`05/Khan_2014_PNAS`, `05/R4_GaIn_surface_tension_KEY_NUMBERS`]; cycle lifetime [To be verified by experiment] | **05 experiment** (surface-tension decay of Ga-In after N cycles) |
-| N3 | Solid-state memristor synaptic array density (underlying constraint) | Number of array synapses N_syn ≥ demand when soft-gel self-growth is insufficient (Option C underlying constraint) | Order of magnitude of device count (e.g. 23,040-cell class) [Ref: to be verified in the §0.3 retrieval workflow] | **05/§0.3 external verification** (memristor-array density SOTA) |
-| N4 | Affective pathway modulation strength + logical suppression response time | After suppression, modulation weight w_emo → 0, response time t_sup ≪ decision period | Carbon-based prefrontal inhibition measured [Ref:`05/Denny_2015`, `05/Dore_2017`]; silicon-based Boolean hard cut-off t_sup [To be verified] | **05 DFT + 08 coordination** (physical implementation of the Boolean switch) |
-| N5 | Differentiation of the three manifestations of anxiety (passive / active / indifferent) in silicon-based plasticity | Stressor controllability C_ctrl → thresholds of the three manifestations | Carbon-based differentiation exists [Ref:`05/Maier_2016`, `05/Tafet_2025`]; silicon-based thresholds [To be designed] | **05 + 09 Instinct** (three manifestations attached to the 09 I group) |
+| --- | -------- | --------------------- | -------------------- | ---------- |
+| N1 | Upper bound on PEDOT synaptic density (soft-gel self-growth) | Synaptic density ρ ≥ lower bound on decision-node connectivity C_min (the network must be "dense enough" for effective decision-making) | ρ target [Design decision]; growth rate already measured [Ref:`05/Mousavi_2023`] | 05 first-principles calculation and experiment (whether self-growth in the soft gel can reach ρ) |
+| N2 | Number of reversible Ga-In surface-tension cycles (lifetime) | Number of reversible cycles N_rev ≥ total network rewiring demand | 250:1 measured for a single cycle [Ref:`05/Khan_2014_PNAS`, `05/R4_GaIn_surface_tension_KEY_NUMBERS`]; cycle lifetime [To be verified by experiment] | 05 experiment (surface-tension decay of Ga-In after N cycles) |
+| N3 | Solid-state memristor synaptic array density (underlying constraint) | Number of array synapses N_syn ≥ demand when soft-gel self-growth is insufficient (Option C underlying constraint) | Order of magnitude of device count (e.g. 23,040-cell class) [Ref: to be verified in the §0.3 retrieval workflow] | 05/§0.3 external verification (memristor-array density SOTA) |
+| N4 | Affective pathway modulation strength + logical suppression response time | After suppression, modulation weight w_emo → 0, response time t_sup ≪ decision period | Carbon-based prefrontal inhibition measured [Ref:`05/Denny_2015`, `05/Dore_2017`]; silicon-based Boolean hard cut-off t_sup [To be verified] | 05 DFT + 08 coordination (physical implementation of the Boolean switch) |
+| N5 | Differentiation of the three manifestations of anxiety (passive / active / indifferent) in silicon-based plasticity | Stressor controllability C_ctrl → thresholds of the three manifestations | Carbon-based differentiation exists [Ref:`05/Maier_2016`, `05/Tafet_2025`]; silicon-based thresholds [To be designed] | 05 + 09 Instinct (three manifestations attached to the 09 I group) |
 
 **Note**: each of N1–N5 gives "**what to compute + threshold/window + value provider**"; growth rate, Ga-In 250:1 and carbon-based affective inhibition are all **literature measurements** (attached to `05/`, files can be opened), but **the silicon-based side** (soft-gel density, reversible lifetime, Boolean hard cut-off, thresholds of the three manifestations) **awaits 05 first-principles calculation and experiment**; this layer fixes no baseline values (Design Principle 24).
 

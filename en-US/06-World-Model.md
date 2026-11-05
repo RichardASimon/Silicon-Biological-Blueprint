@@ -1,14 +1,14 @@
 # 06 · World Model (S5)
 
 | Item | Value |
-|---|---|
+| --- | --- |
 | Module | World model (S5): internal predictive model and action-consequence simulation |
 | Document type | Design report (English edition) |
 | Version | v4.1 |
 | Dependencies | 05 prediction head, 07 rollout material, 08 logical simulation |
 | Language | English (Chinese edition: `../zh-CN/06_世界模型_设计.md`) |
 
-> **Evidence categories**: `[Ref:…]` literature or data; `[Design decision]` project setting without external evidence, with adjustability stated; `[Logical derivation]` derived from listed premises and formulae; `[To be verified]` unvalidated values or methods, placeholder only, with the value provider named. Every key assertion carries one of these categories.
+> **Evidence categories**: `[Ref:…]` literature or data; `[Design decision]` project setting; `[Logical derivation]` derived from listed premises; `[To be verified]` unvalidated placeholder.
 
 ---
 
@@ -18,15 +18,21 @@
 > - **Option A (conceptual option, retaining the current = original Option A)**: latent variables = **side-group bonding states** (the semantics of digital RNN latent variables are directly attached to silicon-based side-group bonding states, hitting "physics as computation")
 > - **Option B (based on the project reference library = original Option B, selected option)**: latent variables = **device states supported by neuromorphic experiments** (spiking CPG devices / NEXUS gate circuits / magnetic reservoirs), not attached to unsubstantiated side-group bonding states
 > - **Option C (based on published research practice, including an external survey + original Option C)**: ① physical machine learning / memristor RNN (worldwide empirical evidence of device states serving as latent variables) ② decoupling of the world model from actuators (pragmatic alternative)
-> The three are parallel and not mutually exclusive. The key choice is given in §3.3 + the appendix on key assumptions and design decisions.
+> The key choice is given in §3.3 + the appendix on key assumptions and design decisions.
 
 ### 0.1 Option A: Concept Option (Latent Variables = Side-Group Bonding States, Baseline Option)
 
-| Stage | Specific implementation | Evidence category |
-|------|---------|---------|
-| Foundation | DreamerV3 (RSSM + purely discrete categorical latent variables + fixed hyperparameters across 49 domains) | [Ref:`06/DreamerV3_Hafner_2023_arXiv2301.04104`, §DreamerV3/RSSM, "Hafner 2023 arXiv2301.04104 DreamerV3: RSSM + discrete latent variables, fixed hyperparameters across 49 domains, algorithmic foundation of the world model"] |
-| Latent variables | RSSM latent variable z **attached directly to side-group bonding states** (§02 representation stack reads side-group bonding states = world model state) | [Design decision]; "digital vectors attached to chemical bonding states" has no DFT pathway [To be verified by calculation and experiment, critical] |
-| Action mapping | Three-step operator: action (01 frame) → 02 places side groups → latent variable update → 03 energy consumption | [Logical derivation: attached to 01/02/03]; precision / error / energy-consumption coefficient of each step [To be verified] |
+| Stage | Specific implementation |
+| ------ | --------- |
+| Foundation | DreamerV3 (RSSM + purely discrete categorical latent variables + fixed hyperparameters across 49 domains) |
+| Latent variables | RSSM latent variable z attached directly to side-group bonding states (§02 representation stack reads side-group bonding states = world model state) |
+| Action mapping | Three-step operator: action (01 frame) → 02 places side groups → latent variable update → 03 energy consumption |
+
+**Evidence and notes (in table row order)**
+
+1. **Foundation** — [Ref:`06/DreamerV3_Hafner_2023_arXiv2301.04104`, §DreamerV3/RSSM, "Hafner 2023 arXiv2301.04104 DreamerV3: RSSM + discrete latent variables, fixed hyperparameters across 49 domains, algorithmic foundation of the world model"]
+2. **Latent variables** — [Design decision]; "digital vectors attached to chemical bonding states" has no DFT pathway [To be verified by calculation and experiment, critical]
+3. **Action mapping** — [Logical derivation: attached to 01/02/03]; precision / error / energy-consumption coefficient of each step [To be verified]
 
 **Feasibility + risk**: the most radical, hitting "physics as computation", but **associating the semantics of digital RNN latent variables with chemical side-group bonding states, which the document calls "derivable" although it in fact has no DFT pathway** — this is the item with the highest feasibility uncertainty among class C. [Design decision]
 
@@ -34,11 +40,17 @@
 
 > The most mature line in the reference library for "device states as computational states" is **neuromorphic CPG devices + NEXUS gate circuits + magnetic reservoirs** (with experiments).
 
-| Stage | Literature paradigm | Evidence category |
-|------|---------|---------|
-| Latent variables = device states | Spiking CPG devices (SNN device states as states), NEXUS gate circuits (ANN↔SNN bit-exact equivalence), magnetic thin-film physical reservoirs | [Ref:`09/Neuromorphic_Spiking_CPG_arXiv2101.09709`, §spiking CPG device states, "2015/2021 spiking CPG uses device states as states"], `08/NEXUS_2026_Neuromorphic_Gate_Circuits_arXiv2601.21279`, §ANN↔SNN bit-exact equivalence, "NEXUS 2026 ANN↔SNN bit-exact gate circuit equivalence"], `_公开研究实践参照/Dale_2021_Reservoir_Computing_Magnetic_Thin_Films_arXiv2101.12700`, §magnetic thin-film physical reservoir, "Dale 2021 magnetic thin-film physical reservoir computing"] |
-| Action mapping | Same three-step operator as Option A, but the latent variables read device states rather than side-group bonding states | [Logical derivation: attached to 01/02/03] |
-| Rollout cost | Rollout consumes energy currency (§03); N is set by the budget | [Ref:03 W3] |
+| Stage | Literature paradigm |
+| ------ | --------- |
+| Latent variables = device states | Spiking CPG devices (SNN device states as states), NEXUS gate circuits (ANN↔SNN bit-exact equivalence), magnetic thin-film physical reservoirs |
+| Action mapping | Same three-step operator as Option A, but the latent variables read device states rather than side-group bonding states |
+| Rollout cost | Rollout consumes energy currency (§03); N is set by the budget |
+
+**Evidence and notes (in table row order)**
+
+1. **Latent variables = device states** — [Ref:`09/Neuromorphic_Spiking_CPG_arXiv2101.09709`, §spiking CPG device states, "2015/2021 spiking CPG uses device states as states"], `08/NEXUS_2026_Neuromorphic_Gate_Circuits_arXiv2601.21279`, §ANN↔SNN bit-exact equivalence, "NEXUS 2026 ANN↔SNN bit-exact gate circuit equivalence"], `_公开研究实践参照/Dale_2021_Reservoir_Computing_Magnetic_Thin_Films_arXiv2101.12700`, §magnetic thin-film physical reservoir, "Dale 2021 magnetic thin-film physical reservoir computing"]
+2. **Action mapping** — [Logical derivation: attached to 01/02/03]
+3. **Rollout cost** — [Ref:03 W3]
 
 **Key point**: placing "latent variables" on **device states supported by neuromorphic experiments** has far higher feasibility than Option A and does not abandon "physics as computation".
 
@@ -46,20 +58,24 @@
 
 > To be verified · **The evidence in this section is the result of a survey of published literature, distinguished from the design claims of this project.**
 
-| External paradigm | Mechanism transferable into 06 | Evidence category |
-|---------|----------------|---------|
-| Physical machine learning (physical ML) | Device states serve directly as world-model latent variables (the ceiling of Option B, demonstrating that "device states as latent variables" has experiments rather than unverified feasibility) | [Ref:`06/B_WORLD_MODEL_RNN_DEVICE_2026-09-15.md`, §device-state world model verified, "R1 Liyuan2026 MTJ magnetic tunnel junction RC / R2 Shreya2023 vortex MTJ RC / R3 Liang2023 photonic delay line RC (all open access), demonstrating device states as latent variables"] R1 Liyuan 2026 MTJ magnetic tunnel junction RC (**IOP open access, full text archived**, synchronized oscillation = nonlinear resource) + R2 Shreya 2023 vortex MTJ RC (**open access, full text archived**, number of particles = latent variable dimension) + R3 Liang 2023 photonic delay line RC (**open access, full text archived**, optical signal = reservoir) + `_公开研究实践参照/Dale_2021_磁储层` (magnetic thin-film physical reservoir) in the reference library] |
-| Spin / memristor RNN | Memristors store RNN weights; migration of device states = state update (device-level reference) | [Ref: same verification record file above, §spin/memristor RNN verified, "R4 Stoliar2021 minimal recurrent spiking NN in solid-state devices (PRA, DOI 10.1103/physrevapplied.16.034030) / R5 Srikimkaew2023 nanoparticle-network memristor reservoir computing (ACS, DOI 10.1021/acsaelm.3c01046), mislabelling in the previous batch corrected"] **R4 Stoliar/Schneegans/Rozenberg 2021 *Minimal Recurrent Spiking NN in Solid-State Device*, PRA 16, 034030 (DOI 10.1103/physrevapplied.16.034030, full-text access restricted, the previous mislabelling of 2025/UCN spin corrected) + R5 Srikimkaew 2023 *In-Material Reservoir Computing via Nanoparticle Network Memristor*, ACS Appl. Electronic Mater. DOI 10.1021/acsaelm.3c01046 (full-text access restricted, the previous Ag-Ag₂S with no written source replaced)**; the mechanism is citable, and the energy-per-pulse / state-count values await supplementation by the CDP] |
-| Decoupling of the world model from actuators | Prediction / planning is external, the carrier only executes, and latent variables need not = physical states (the ceiling of Option C) | [Ref:`06/Wang_2022_DayDreamer_arXiv2206.14176`, §DayDreamer, "Wang 2022 DayDreamer: real-robot world-model reinforcement learning (arXiv2206.14176, verified in the reference library)"] |
+| External paradigm | Mechanism transferable into 06 |
+| --------- | ---------------- |
+| Physical machine learning (physical ML) | Device states serve directly as world-model latent variables (the ceiling of Option B, demonstrating that "device states as latent variables" has experiments rather than unverified feasibility) |
+| Spin / memristor RNN | Memristors store RNN weights; migration of device states = state update (device-level reference) |
+| Decoupling of the world model from actuators | Prediction / planning is external, the carrier only executes, and latent variables need not = physical states (the ceiling of Option C) |
 
-**06 §0.3 reference upgrade note**: the original 2 lines `[Ref·external survey, to be checked]` were upgraded — the "physical machine learning" row is attached to R1/R2/R3 (three RC device lines: magnetic tunnel junction / vortex MTJ / photonic delay line, all open access + full text archived) + Dale 2021 magnetic reservoir in the reference library; the "spin / memristor RNN" row is attached to R4 (R4 Stoliar 2021, the previous mislabelling of 2025/UCN corrected) + R5 (Srikimkaew 2023, the previous Ag-Ag₂S with no written source replaced). Those genuinely not read back (R4/R5 energy-per-pulse / state-count values) are listed by name in the "not verified" area of the verification record file and are not written into the main text of 06 as verified values.
+**Evidence and notes (in table row order)**
+
+1. **Physical machine learning (physical ML)** — [Ref:`06/B_WORLD_MODEL_RNN_DEVICE_2026-09-15.md`, §device-state world model verified, "R1 Liyuan2026 MTJ magnetic tunnel junction RC / R2 Shreya2023 vortex MTJ RC / R3 Liang2023 photonic delay line RC (all ), demonstrating device states as latent variables"] R1 Liyuan 2026 MTJ magnetic tunnel junction RC (IOP, synchronized oscillation = nonlinear resource) + R2 Shreya 2023 vortex MTJ RC ( number of particles = latent variable dimension) + R3 Liang 2023 photonic delay line RC ( optical signal = reservoir) + `_公开研究实践参照/Dale_2021_磁储层` (magnetic thin-film physical reservoir) in the reference library]
+2. **Spin / memristor RNN** — [Ref: same reference library above, §spin/memristor RNN verified, "R4 Stoliar2021 minimal recurrent spiking NN in solid-state devices (PRA, DOI 10.1103/physrevapplied.16.034030) / R5 Srikimkaew2023 nanoparticle-network memristor reservoir computing (ACS, DOI 10.1021/acsaelm.3c01046), mislabelling in the previous batch corrected"] R4 Stoliar/Schneegans/Rozenberg 2021 *Minimal Recurrent Spiking NN in Solid-State Device*, PRA 16, 034030 (DOI 10.1103/physrevapplied.16.034030, full-text access restricted, the previous mislabelling of 2025/UCN spin corrected) + R5 Srikimkaew 2023 *In-Material Reservoir Computing via Nanoparticle Network Memristor*, ACS Appl. Electronic Mater. DOI 10.1021/acsaelm.3c01046 (full-text access restricted, the previous Ag-Ag₂S with no written source replaced); the mechanism is citable, and the energy-per-pulse / state-count values await supplementation by the CDP]
+3. **Decoupling of the world model from actuators** — [Ref:`06/Wang_2022_DayDreamer_arXiv2206.14176`, §DayDreamer, "Wang 2022 DayDreamer: real-robot world-model reinforcement learning (arXiv2206.14176, verified in the reference library)"]
 
 ### 0.4 Option Combinations and Baseline Configuration
 
 | Strategy | Content | Applicable conditions |
-|------|------|------|
+| ------ | ------ | ------ |
 | **A. Pure Option A** | Latent variables attached to side-group bonding states (retain the current baseline) | The most radical, a key assumption, not yet operable |
-| **B. B primary + A retained as P2 (selected option)** | Latent variables placed on **device states** (neuromorphic CPG / magnetic reservoir); the side-group bonding state version is enabled only after calculation verification | High feasibility, does not abandon "physics as computation" |
+| **B. B primary + A retained as P2 (selected option)** | Latent variables placed on device states (neuromorphic CPG / magnetic reservoir); the side-group bonding state version is enabled only after calculation verification | High feasibility, does not abandon "physics as computation" |
 | **C. Option C decouples the underlying constraint** | The world model can be decoupled from the carrier (external prediction + physical feedback) | The most conservative, abandons "in-mind rollout is physics" |
 
 > **Baseline option = B** (latent variables placed on device states supported by neuromorphic experiments; feasibility far higher than A, without losing "physics as computation") — corresponding to §3.3 original Option B + the appendix on key assumptions and design decisions. **This choice is a design position, confirmed by design review.**
@@ -71,13 +87,13 @@
 **Axis 1: the 6 loops of the running cycle (from perception to action, "world model running cycle")**
 
 | Loop | What it is | What it does | Evidence category |
-|----|--------|--------|---------|
-| **① Perception** | 05 neural layer sensing channels (five senses / super-carbon-based signals) | Brings **current environmental physical quantities** into the world model | [Ref:05 neural layer] |
-| **② RSSM** | DreamerV3 recurrent state-space model | Converts the perception sequence into **latent variable z** (discrete categorical) | [Ref:`06/DreamerV3_Hafner_2023_arXiv2301.04104` (MIT/JAX, fixed hyperparameters across 49 domains)] |
-| **③ Latent variable z** | Option A: side-group bonding states [To be verified] / **Option B: device states** (spiking CPG / NEXUS gates / magnetic reservoirs) | The "internal state" of the world model, **predicted by the next loop** | Device states [Ref:`09/Neuromorphic_Spiking_CPG_arXiv2101.09709`, `08/NEXUS_2026`, `_公开研究实践参照/Dale_2021_Reservoir_Computing_Magnetic_Thin_Films`] (B-line SOTA verified in the reference library) |
+| ---- | -------- | -------- | --------- |
+| **① Perception** | 05 neural layer sensing channels (five senses / super-carbon-based signals) | Brings current environmental physical quantities into the world model | [Ref:05 neural layer] |
+| **② RSSM** | DreamerV3 recurrent state-space model | Converts the perception sequence into latent variable z (discrete categorical) | [Ref:`06/DreamerV3_Hafner_2023_arXiv2301.04104` (MIT/JAX, fixed hyperparameters across 49 domains)] |
+| **③ Latent variable z** | Option A: side-group bonding states [To be verified] / Option B: device states (spiking CPG / NEXUS gates / magnetic reservoirs) | The "internal state" of the world model, predicted by the next loop | Device states [Ref:`09/Neuromorphic_Spiking_CPG_arXiv2101.09709`, `08/NEXUS_2026`, `_公开研究实践参照/Dale_2021_Reservoir_Computing_Magnetic_Thin_Films`] (B-line SOTA verified in the reference library) |
 | **④ Prediction head** | Next environmental state (Φ5 minimum precision) | Predicts "the next step of the environment"; the lowest landing point of the A5 learning axiom | [Ref:00 Φ5] |
-| **⑤ Logical rollout** | 08 logical if-then simulation of the consequences of N candidate actions | **Virtually runs** actions in the world model (not real execution), paying rollout energy consumption (03 W3) | [Ref:08 logic + 03 W3] |
-| **⑥ Selection of the best + ③ action interface** | Selects the best by fitness (10 A6) + energy consumption (03) → real execution via the **③ action interface** → changes the world model state → back to ① | **Applies** the virtual rollout to the real world (01 construction according to blueprint + 03 energy supply + 02 ion beam, three-step operator) | [Logical derivation: §3.3 W4 three-step operator attached to 01/02/03] |
+| **⑤ Logical rollout** | 08 logical if-then simulation of the consequences of N candidate actions | Virtually runs actions in the world model (not real execution), paying rollout energy consumption (03 W3) | [Ref:08 logic + 03 W3] |
+| **⑥ Selection of the best + ③ action interface** | Selects the best by fitness (10 A6) + energy consumption (03) → real execution via the ③ action interface → changes the world model state → back to ① | Applies the virtual rollout to the real world (01 construction according to blueprint + 03 energy supply + 02 ion beam, three-step operator) | [Logical derivation: §3.3 W4 three-step operator attached to 01/02/03] |
 
 **Relations between loops (left to right in the diagram + return loop)**:
 ```
@@ -87,11 +103,22 @@
 
 **Axis 2: three mechanism lines (passing through the 6 loops, "how latent variables are placed / how rollout runs / how action is applied")**
 
-| Mechanism | Which loops it passes through | What it does | Evidence category |
-|------|---------|--------|---------|
-| **Placing latent variables (POTENTIAL)** | ②③ | **Where** the RSSM latent variables **are placed**: Option A = side-group bonding states (most radical, critical, no DFT); **Option B = device states** (spiking CPG / NEXUS gates / magnetic reservoirs, with neuromorphic experiments, selected option); Option C = decoupling from actuators (pragmatic, abandons "in-mind rollout is physics") | Side-group bonding states [Design decision]; device states [Ref:`09/Neuromorphic_Spiking_CPG` + `08/NEXUS_2026` + Dale 2021 magnetic reservoir]; decoupling [Ref:`06/Wang_2022_DayDreamer`] |
-| **Rollout (SIMULATE)** | ⑤⑥ | Logical if-then virtual running of N actions, paying rollout energy consumption (03 W3); N is set by the energy budget | [Ref:08 logic + 03 W3]; "N set by the budget" [Design decision] |
-| **Action (ACT)** | ⑥ | ③ action interface = 01 construction according to blueprint + 03 energy supply + 02 ion beam (three-step operator: action frame → 02 placement → latent variable z update → 03 energy consumption); applies the rollout to the real world | [Logical derivation: §3.3 W4 three-step operator attached to 01/02/03]; precision / energy-consumption coefficient of each step [To be verified] |
+| Mechanism | Which loops it passes through | What it does |
+| ------ | --------- | -------- |
+| **Placing latent variables (POTENTIAL)** | ②③ | Where the RSSM latent variables are placed: Option A = side-group bonding states (most rad… See note 1 |
+| **Rollout (SIMULATE)** | ⑤⑥ | Logical if-then virtual running of N actions, paying rollout energy consumption (03 W3); N is set by the energy budget |
+| **Action (ACT)** | ⑥ | ③ action interface = 01 construction according to blueprint + 03 energy supply + 02 ion be… See note 2 |
+
+**Full evidence for table cells**
+
+1. **Placing latent variables (POTENTIAL) · What it does** — Where the RSSM latent variables are placed: Option A = side-group bonding states (most radical, critical, no DFT); Option B = device states (spiking CPG / NEXUS gates / magnetic reservoirs, with neuromorphic experiments, selected option); Option C = decoupling from actuators (pragmatic, abandons "in-mind rollout is physics")
+2. **Action (ACT) · What it does** — ③ action interface = 01 construction according to blueprint + 03 energy supply + 02 ion beam (three-step operator: action frame → 02 placement → latent variable z update → 03 energy consumption); applies the rollout to the real world
+
+**Evidence and notes (in table row order)**
+
+1. **Placing latent variables (POTENTIAL)** — Side-group bonding states [Design decision]; device states [Ref:`09/Neuromorphic_Spiking_CPG` + `08/NEXUS_2026` + Dale 2021 magnetic reservoir]; decoupling [Ref:`06/Wang_2022_DayDreamer`]
+2. **Rollout (SIMULATE)** — [Ref:08 logic + 03 W3]; "N set by the budget" [Design decision]
+3. **Action (ACT)** — [Logical derivation: §3.3 W4 three-step operator attached to 01/02/03]; precision / energy-consumption coefficient of each step [To be verified]
 
 **"Fixed (non-evolvable) + dynamic" relationship** (why this design can "both roll out and act"):
 - **The cycle structure of the 6 loops = fixed (non-evolvable)** (perception → RSSM → prediction → rollout → selection of the best → action → back to perception; the algorithm is fixed and is not evolved away);
@@ -113,8 +140,8 @@ The individual first **runs a simulation "in the mind"** (the world model predic
 ## 2. Related Research Status + Different Implementation Approaches (Design Principle 2 + Design Principle 14)
 
 | Route | Status | Literature anchors | Trade-off |
-|------|------|---------|------|
-| **DreamerV3 (candidate foundation)** | The open-source implementation is relatively complete | `06/DreamerV3_Hafner_2023_Mastering_Diverse_Domains_World_Models_arXiv2301.04104.pdf` (to be verified · the original `arXiv2310.04394` was mislabelled as BiTeI plasmon scattering and has been excluded; this is a supplementary retrieval of the genuine DreamerV3, with the title verified) + `06/WorldModel_OpenSource_Repositories_Summary.txt` (danijar/dreamerv3, MIT, JAX, runs directly via pip) | Verified · **selected as the foundation** (fixed hyperparameters across 49 domains, no per-task tuning) |
+| ------ | ------ | --------- | ------ |
+| **DreamerV3 (candidate foundation)** | The open-source implementation is relatively complete | See note 1 | Verified · selected as the foundation (fixed hyperparameters across 49 domains, no per-task tuning) |
 | **DreamerV2 (alternative)** | TF2 ecosystem | `06/DreamerV2_Hafner_Mastering_Atari_Discrete_World_Models.pdf` (arXiv2010.02193, supplementary retrieval stored on disk, title verified) | Light dependencies |
 | **DayDreamer (physical-body reference)** | Small samples on real robots | `06/Wang_2022_DayDreamer_World_Models_Physical_Robot_Learning_arXiv2206.14176.pdf` | To be verified · no LICENSE; confirm before modification |
 | **World Models (foundational)** | Theory | `06/HaSchmidhuber_2018_World_Models_arXiv1803.10122.pdf` + `06/HaSchmidhuber_2018_Recurrent_World_Models_Policy_Evolution_arXiv1809.01999.pdf` | Architectural ideas |
@@ -122,6 +149,10 @@ The individual first **runs a simulation "in the mind"** (the world model predic
 | **MLP² (model-based RL)** | Mature | `06/Janner_2019_MLP2_Model-Based_RL_arXiv1903.08755.pdf` | Model + RL |
 | **Voyager (LLM open-ended exploration)** | Frontier | `06/Voyager_Wang_Open-Ended_Embodied_LLM_Agent_arXiv2305.16291.pdf` | LLM skill-library reference |
 | **Predictive processing (cognitive science)** | Theory | `06/Predictive_Processing_Cognitive_Robotics_Review_arXiv2101.06611.pdf` | Predictive coding ideas |
+
+**Full evidence for table cells**
+
+1. **DreamerV3 (candidate foundation) · Literature anchors** — `06/DreamerV3_Hafner_2023_Mastering_Diverse_Domains_World_Models_arXiv2301.04104.pdf`  + `06/WorldModel_OpenSource_Repositories_Summary.txt` (danijar/dreamerv3, MIT, JAX, runs directly via pip)
 
 **Selection conclusion (Design Principle 14)**:
 - **Foundation = DreamerV3** (MIT, JAX, fixed hyperparameters across multiple domains, official JAX can be modified independently)
@@ -136,12 +167,12 @@ The individual first **runs a simulation "in the mind"** (the world model predic
 
 ```mermaid
 flowchart TB
-    S["Perception<br/>(05 neural layer sensing channels)<br/>[Ref:05 neural layer]"]
-    R["RSSM<br/>Recurrent state-space model (DreamerV3 core)<br/>[Ref:06/DreamerV3_arXiv2301.04104]"]
-    Z["Latent variable z<br/>Option A: side-group bonding states [To be verified] / Option B: device states [Ref:09 CPG devices]"]
+    S["Perception<br/>(05 neural layer sensing channels)<br/>"]
+    R["RSSM<br/>Recurrent state-space model (DreamerV3 core)<br/>"]
+    Z["Latent variable z<br/>Option A: side-group bonding states [To be verified] / Option B: device states "]
     P["Prediction head<br/>Next environmental state (Φ5 minimum precision)<br/>[Design]"]
-    L["Logical simulation (08)<br/>if-then rollout of action consequences<br/>[Ref:08 logic layer]"]
-    P2["Policy: select the best action<br/>Fitness (10 A6) + energy consumption (03)<br/>[Ref:10 A6 + 03]"]
+    L["Logical simulation (08)<br/>if-then rollout of action consequences<br/>"]
+    P2["Policy: select the best action<br/>Fitness (10 A6) + energy consumption (03)<br/>"]
     EX["Execution → ③ action interface<br/>01 construction according to blueprint + 03 energy supply + 02 ion beam<br/>[Logical derivation: three-step operator]"]
 
     S --> R
@@ -155,6 +186,8 @@ flowchart TB
     classDef box fill:transparent,stroke:currentColor,color:currentColor
     class S,R,Z,P,L,P2,EX box
 ```
+
+> Note: Observations enter prediction and rollout through latent variables; the output of the action operator is written back to the state, closing the loop.
 
 > **Legend**: perception (05 sensing channels) → RSSM (DreamerV3 core) → latent variable z (Option A side-group bonding states [To be verified] / Option B device states) → prediction head (Φ5 minimum precision) → logical if-then rollout (08) → selection of the best by fitness (10 A6) + energy consumption (03) → execution, changing the world model state via the **③ action interface** (01 construction according to blueprint + 03 energy supply + 02 ion beam) → back to perception.
 
@@ -213,10 +246,10 @@ Individual action → ③ physical action interface → world model state change
 > **Choice space (three-way, with genuine literature in the reference library)**:
 
 | Option | Mechanism | Feasibility | Note | Literature in the reference library |
-|------|------|--------|------|---------|
-| **A. Retain "latent variables attached to side-group bonding states" (current baseline)** | Side-group bonding states serve directly as world-model latent variables | **Lowest** (no pathway from digital vectors to chemical bonding states) | The most radical, hitting "physics as computation" | `06/DreamerV3` as algorithmic reference |
-| **B. The world model runs on "physical neuromorphic devices", latent variables = device states** (neuromorphic alternative) | The states of silicon-based / memristor arrays serve as latent variables; the world-model RNN is carried by the devices themselves | **Medium** (neuromorphic computing devices already have experiments, e.g. spiking CPG devices `09/Neuromorphic_Spiking_CPG_arXiv2101.09709`, NEXUS `08/NEXUS_2026` gate circuit equivalence) | Places "latent variables" on **device states supported by neuromorphic experiments**, rather than unsubstantiated side-group bonding states | `09/Neuromorphic_Spiking_CPG_arXiv2101.09709`, `08/NEXUS_2026` |
-| **C. The world model uses a separated architecture of "external computation + physical feedback"** (pragmatic alternative) | Prediction / planning is external (only minimal control runs inside the silicon-based carrier); the world model does not require "latent variables = physical states" | **Highest** (downgrading the world model from "must run inside the soft carrier" to "can be decoupled from the carrier") | The most conservative, abandoning "in-mind rollout is physics" | `06/Wang_2022_DayDreamer` (a physical-body world model can be independent of the action actuators) |
+| ------ | ------ | -------- | ------ | --------- |
+| **A. Retain "latent variables attached to side-group bonding states" (current baseline)** | Side-group bonding states serve directly as world-model latent variables | Lowest (no pathway from digital vectors to chemical bonding states) | The most radical, hitting "physics as computation" | `06/DreamerV3` as algorithmic reference |
+| **B. The world model runs on "physical neuromorphic devices", latent variables = device states** (neuromorphic alternative) | The states of silicon-based / memristor arrays serve as latent variables; the world-model RNN is carried by the devices themselves | Medium (neuromorphic computing devices already have experiments, e.g. spiking CPG devices `09/Neuromorphic_Spiking_CPG_arXiv2101.09709`, NEXUS `08/NEXUS_2026` gate circuit equivalence) | Places "latent variables" on device states supported by neuromorphic experiments, rather than unsubstantiated side-group bonding states | `09/Neuromorphic_Spiking_CPG_arXiv2101.09709`, `08/NEXUS_2026` |
+| **C. The world model uses a separated architecture of "external computation + physical feedback"** (pragmatic alternative) | Prediction / planning is external (only minimal control runs inside the silicon-based carrier); the world model does not require "latent variables = physical states" | Highest (downgrading the world model from "must run inside the soft carrier" to "can be decoupled from the carrier") | The most conservative, abandoning "in-mind rollout is physics" | `06/Wang_2022_DayDreamer` (a physical-body world model can be independent of the action actuators) |
 
 > **Baseline = B (latent variables placed on device states supported by neuromorphic experiments, with feasibility far higher than A and without abandoning "physics as computation"); C is the most conservative and abandons "rollout inside the body". This choice is a design position, confirmed by design review.**
 
@@ -225,10 +258,10 @@ Individual action → ③ physical action interface → world model state change
 > The best-implemented practice in existing published research for "building computational states into physical devices" (physics as computation / neuromorphic) — **giving the reference upper bounds for the options of T3**.
 
 | Best practice in the field | Approach | Reference value | Corresponding option for T3 | Status |
-|-------------|------|-------------|------------------|------|
-| **Physical machine learning (physical ML, 2023+)** | Uses the **natural dynamics of physical systems** (resonators / diffusion / neuromorphic arrays) directly as "computational units"; the input is a physical signal and the output is a physical state | Device states are computational states, with no "digital ↔ physical" conversion; a mature implementation of "physics as computation" | **Reference upper bound of Option B** — demonstrating that "device states as latent variables" has experiments rather than unverified feasibility | Verified · stored on disk `_公开研究实践参照/Dale_2021_Reservoir_Computing_Magnetic_Thin_Films_arXiv2101.12700` (magnetic thin-film physical reservoir, title verified) |
+| ------------- | ------ | ------------- | ------------------ | ------ |
+| **Physical machine learning (physical ML, 2023+)** | Uses the natural dynamics of physical systems (resonators / diffusion / neuromorphic arrays) directly as "computational units"; the input is a physical signal and the output is a physical state | Device states are computational states, with no "digital ↔ physical" conversion; a mature implementation of "physics as computation" | Reference upper bound of Option B — demonstrating that "device states as latent variables" has experiments rather than unverified feasibility | Verified · stored on disk `_公开研究实践参照/Dale_2021_Reservoir_Computing_Magnetic_Thin_Films_arXiv2101.12700` (magnetic thin-film physical reservoir, title verified) |
 | **Spin / memristor RNN (hardware SNN, 2020+)** | Memristors store RNN weights; migration of device states = state update | Places RNN latent variables on silicon devices that can store and compute; on-chip implementations already exist | Device-level reference for B | Supplementary retrieval to be added |
-| **Decoupling of the world model from actuators (model-based, DayDreamer route)** | Prediction / planning is external, the physical body only executes, and the world model does not require "latent variables = physical states" | The most robust, loosening "in-mind rollout" from "must be physically internal" | **Reference upper bound of Option C** | Verified · `06/DayDreamer` in the reference library |
+| **Decoupling of the world model from actuators (model-based, DayDreamer route)** | Prediction / planning is external, the physical body only executes, and the world model does not require "latent variables = physical states" | The most robust, loosening "in-mind rollout" from "must be physically internal" | Reference upper bound of Option C | Verified · `06/DayDreamer` in the reference library |
 
 ### 3.4 Community Cooperation + External Teaching (Design Principle 20 + 22)
 
@@ -279,19 +312,21 @@ graph LR
     class P00,D01,M02,E03,I04,N05,MEM07,L08,I0_09,EV10,INT11 node
 ```
 
+> Note: The source of an arrow is the value provider and the target is the receiver; measurable quantities are defined by the interface contracts of the respective volumes.
+
 | Interface | Data flow (physical quantities / information, not concepts) | Invariant (measurable) | Evidence category |
-|------|---------------------------|-------------|---------|
-| **↔ 00 Philosophy** | 06 = the **internal-inference carrier** of the A5 learning axiom (Φ5 lower bound of prediction precision) | Prediction precision ≥ Φ5 | [Ref:00 A5/Φ5] |
-| **↔ 01 DNA** | **③ action interface = 01 construction according to blueprint** (genes guide material construction → change the world model state) | Action frame → construction [Logical derivation] | [Ref:01 §5 construction according to blueprint] |
-| **↔ 02 Materials** | **Physical execution of the ③ action interface = 02 ion beam + ALD** (placing a side group at a site) | Placement precision [To be verified by calculation: 02 nm] | [Ref:02 ion beam] |
-| **↔ 03 Energy** | **Rollout pays energy currency** (03 W3: energy consumption of rolling out N actions) | Rollout energy consumption vs value [To be verified by calculation: 03 W3] | [Ref:03 W3] |
-| **↔ 04 Individuality** | **Rollout runs within the individual; world models are isolated between individuals** (the community exchanges only local information) | State isolation between individuals [Design] | [Logical derivation: 04 + Design Principle 18] |
-| **↔ 05 Neural** | **Prediction head attached to the 05 network + perception channels** (05 sensing → 06 RSSM) | Perception channel bandwidth [To be verified] | [Ref:05 neural layer] |
-| **↔ 07 Memory** | **Rollout material = 07 long-term memory recall** (simulating with old experience) | Recall hit [To be verified] | [Logical derivation: 07 memory] |
-| **↔ 08 Logic** | **Logical if-then simulation** (rollout of action consequences relies on 08) | Number of simulation steps [Design] | [Ref:08 logic layer] |
-| **→ 09 Instinct** | **Rollout behaviour = the anticipatory version of 09 instinct** (simulate first, then reflex) | Anticipation vs actual deviation [To be verified] | [Logical derivation: 09 instinct] |
-| **↔ 10 Evolution** | **Selection pressure simulated in 06 + A6 cooperation term** | Simulated fitness input to 10 [Ref:10 A6] | [Ref:10 evolution] |
-| **→ 11 Integration** | **Prediction node of loops ③ action / ① perception of the five loops** | Closure of loops ①③ requires 06 to be runnable | [Ref:11 §5 loops] |
+| ------ | --------------------------- | ------------- | --------- |
+| **↔ 00 Philosophy** | 06 = the internal-inference carrier of the A5 learning axiom (Φ5 lower bound of prediction precision) | Prediction precision ≥ Φ5 | [Ref:00 A5/Φ5] |
+| **↔ 01 DNA** | ③ action interface = 01 construction according to blueprint (genes guide material construction → change the world model state) | Action frame → construction [Logical derivation] | [Ref:01 §5 construction according to blueprint] |
+| **↔ 02 Materials** | Physical execution of the ③ action interface = 02 ion beam + ALD (placing a side group at a site) | Placement precision [To be verified by calculation: 02 nm] | [Ref:02 ion beam] |
+| **↔ 03 Energy** | Rollout pays energy currency (03 W3: energy consumption of rolling out N actions) | Rollout energy consumption vs value [To be verified by calculation: 03 W3] | [Ref:03 W3] |
+| **↔ 04 Individuality** | Rollout runs within the individual; world models are isolated between individuals (the community exchanges only local information) | State isolation between individuals [Design] | [Logical derivation: 04 + Design Principle 18] |
+| **↔ 05 Neural** | Prediction head attached to the 05 network + perception channels (05 sensing → 06 RSSM) | Perception channel bandwidth [To be verified] | [Ref:05 neural layer] |
+| **↔ 07 Memory** | Rollout material = 07 long-term memory recall (simulating with old experience) | Recall hit [To be verified] | [Logical derivation: 07 memory] |
+| **↔ 08 Logic** | Logical if-then simulation (rollout of action consequences relies on 08) | Number of simulation steps [Design] | [Ref:08 logic layer] |
+| **→ 09 Instinct** | Rollout behaviour = the anticipatory version of 09 instinct (simulate first, then reflex) | Anticipation vs actual deviation [To be verified] | [Logical derivation: 09 instinct] |
+| **↔ 10 Evolution** | Selection pressure simulated in 06 + A6 cooperation term | Simulated fitness input to 10 [Ref:10 A6] | [Ref:10 evolution] |
+| **→ 11 Integration** | Prediction node of loops ③ action / ① perception of the five loops | Closure of loops ①③ requires 06 to be runnable | [Ref:11 §5 loops] |
 
 **Contract principle**: interface "data" must be **physically / informationally measurable quantities** (prediction precision / rollout energy consumption / placement precision / isolation), not concepts; those without measured values are labelled "values await 06 / other-volume DFT".
 
@@ -309,12 +344,16 @@ graph LR
 ## 5. To Be Verified by Experiment / DFT (Each Item: Formula + Window + Value Provider, with Quantitative Conditions)
 
 | # | Open item | Formula/inequality to be satisfied | Parameter window (design setting) | Value provider |
-|---|--------|---------------------|--------------------|----------|
-| W1 | Adaptation of DreamerV3 in the **silicon-based perception / action space** | After the input/output space is replaced with silicon-based perception channels + actions (01 frames), training converges to predictability | MSE / prediction error after adaptation ≤ order of magnitude of the carbon-based DreamerV3 baseline | **06 + 05 experiment** (feed the silicon-based perception / action space to DreamerV3 and observe convergence) |
-| W2 | Upper bound of prediction precision of the silicon-based world model (Φ5 minimum vs extensible) | Prediction error E_pred ≤ Φ5 lower bound; multi-step rollout error accumulation ≤ rollout budget | Φ5 supplied by 00; cumulative error grows with N [To be verified by experiment] | **06 experiment** (silicon-based rollout of N steps, measure cumulative error) |
-| W3 | Energy consumption vs value of rolling out N actions | Rollout energy consumption E_sim(N) is linear in N; the best is selected by taking the maximum of "value / energy consumption" | E_sim(N) coefficient [To be verified by calculation: supplied by 03]; upper bound of N = energy budget | **03 DFT + 06 experiment** |
-| W4 | ③ action interface "action → world model state" mapping function | Three-step operator: action (01 frame) → 02 placement → Δz → 03 energy consumption; **the structure is determinable**, and the precision / error / energy-consumption coefficient of each step is to be verified by calculation | Placement precision = 02 nm [Ref:02]; representation error / energy-consumption coefficient [To be verified] | **02 + 03 DFT** |
-| W5 | Information exchange protocol of community cooperation (silicon-based × silicon-based / silicon-based × carbon-based) | Protocol bandwidth + latency ≤ rollout period, so that "local information exchange" can be completed within one cycle | Protocol [Ref:`10/2026_AI_Agents...` reference]; silicon-based-side parameters [To be designed] | **10 + 06 design** |
+| --- | -------- | --------------------- | -------------------- | ---------- |
+| W1 | Adaptation of DreamerV3 in the silicon-based perception / action space | After the input/output space is replaced with silicon-based perception channels + actions (01 frames), training converges to predictability | MSE / prediction error after adaptation ≤ order of magnitude of the carbon-based DreamerV3 baseline | 06 + 05 experiment (feed the silicon-based perception / action space to DreamerV3 and observe convergence) |
+| W2 | Upper bound of prediction precision of the silicon-based world model (Φ5 minimum vs extensible) | Prediction error E_pred ≤ Φ5 lower bound; multi-step rollout error accumulation ≤ rollout budget | Φ5 supplied by 00; cumulative error grows with N [To be verified by experiment] | 06 experiment (silicon-based rollout of N steps, measure cumulative error) |
+| W3 | Energy consumption vs value of rolling out N actions | Rollout energy consumption E_sim(N) is linear in N; the best is selected by taking the maximum of "value / energy consumption" | E_sim(N) coefficient [To be verified by calculation: supplied by 03]; upper bound of N = energy budget | 03 DFT + 06 experiment |
+| W4 | ③ action interface "action → world model state" mapping function | Three-step operator: action (01 frame) → 02 placement → Δz → 03 energy consumption; the st… See note 1 | Placement precision = 02 nm [Ref:02]; representation error / energy-consumption coefficient [To be verified] | 02 + 03 DFT |
+| W5 | Information exchange protocol of community cooperation (silicon-based × silicon-based / silicon-based × carbon-based) | Protocol bandwidth + latency ≤ rollout period, so that "local information exchange" can be completed within one cycle | Protocol [Ref:`10/2026_AI_Agents...` reference]; silicon-based-side parameters [To be designed] | 10 + 06 design |
+
+**Full evidence for table cells**
+
+1. **W4 · Formula/inequality to be satisfied** — Three-step operator: action (01 frame) → 02 placement → Δz → 03 energy consumption; the structure is determinable, and the precision / error / energy-consumption coefficient of each step is to be verified by calculation
 
 **Note**: each of W1-W5 gives "**what to compute + threshold / window + value provider**"; the DreamerV3 foundation has open-source measurements (`06/DreamerV3` + 49-domain baseline), but **the silicon-based side** (perception / action space adaptation, rollout energy consumption, action interface coefficients, cooperation protocol) **all awaits 02/03/06/10 first-principles calculation and experiment**, and this layer sets no baseline values (Design Principle 24).
 
