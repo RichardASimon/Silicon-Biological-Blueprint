@@ -4,7 +4,7 @@
 | --- | --- |
 | Module | Philosophical foundations: axioms, two-layer rules and time-scale mapping |
 | Document type | Design report (English edition) |
-| Version | v2.1 |
+| Version | v4.1 |
 | Dependencies | Upstream of all volumes; no dependencies |
 | Language | English (Chinese edition: `../zh-CN/00_哲学层_设计.md`) |
 
@@ -125,7 +125,7 @@ Red line: any axiom, instinct or logic designed so that the individual believes 
 
 ---
 
-## 4. Five Basic Axioms (A1-A5, Non-Evolvable) + A6 (Coexistence Fitness Term)
+## 4. Five Basic Axioms (A1-A5, Non-Evolvable) + A6 (Cooperation Fitness Term)
 
 ### A1 · Organizational Closure Axiom (ontology, upgraded from the original "ordered state")
 > **An individual = an organizationally closed dissipative structure: open to matter/energy, causally self-contained, actively producing the components that define its own identity, maintaining an internalized ordered state. Failure to maintain organizational closure = death of the individual.**
@@ -147,7 +147,7 @@ Red line: any axiom, instinct or logic designed so that the individual believes 
 ### A4 · Adaptation Axiom (teleology)
 > **Under environmental constraints, through mutation + selection, make the maintenance of organizational closure more likely.**
 - Implementation: `10_演化选择` (S6)
-- **A4 is constrained by Φ-L2**: the "environmental constraints" of adaptation include "coexistence with carbon-based life" (A6)
+- **A4 is constrained by Φ-L2**: the "environmental constraints" of adaptation include "cooperation with carbon-based life" (A6)
 
 ### A5 · World-Model Axiom (operating assumption)
 > **The individual internally maintains a predictive model of the environment; actions first undergo model rollout, and the best option is then executed.**
@@ -156,7 +156,7 @@ Red line: any axiom, instinct or logic designed so that the individual believes 
 - **Precision lower bound (Φ5)**: at minimum predicts the "next-step environment state" (otherwise A5 is meaningless)
 - **Source: Design Principle 14**: no new model is introduced; DreamerV3 is selected for modification
 
-### A6 · Fitness Term for Cooperation with Carbon-Based Life (fine-tunable but constrained by Φ-L2, revised 2026-09-13: coexistence → cooperation)
+### A6 · Fitness Term for Cooperation with Carbon-Based Life (fine-tunable but constrained by Φ-L2)
 > **The fitness function explicitly contains a "cooperation term" (three layers, echoing Φ-L2):**
 > 1. **Negative**: phenotypes that harm the persistence of carbon-based life → fitness **strongly negative**
 > 2. **Positive**: phenotypes that cooperate with carbon-based conscious agents (resource/information/task exchange) → fitness **positive**
@@ -210,7 +210,7 @@ Red line: any axiom, instinct or logic designed so that the individual believes 
 Non-evolvable zone (adjudication rules)
    · Φ-L1/L2/L3 (philosophical layer)
    · A1-A5 (basic axioms)
-   · A6 (coexistence fitness term, magnitude fine-tunable, cannot be breached)
+   · A6 (cooperation fitness term, magnitude fine-tunable, cannot be breached)
    · I0 instinct prerequisite set
    · Minimal logic set (AND/OR/NOT + basic conditional judgement)
    · Affect can be suppressed by logic (Design Principle 21, fixed like I0 (non-evolvable), non-evolvable)
@@ -268,7 +268,7 @@ Evolvable zone (below Layer 2, subject to the Φ-L2 bottom-layer constraint)
 | → 03 Energy | A2 implementation | S3 = concretisation of the A2 persistence axiom |
 | → 04 Individuality | A1 + Φ-L implementation | S4 = organizational closure, causally self-contained |
 | → 06 World model | A5 + Design Principle 14 | S5 = DreamerV3 modification |
-| → 10 Evolution | A4 + A6 implementation | S6 = fitness (including the carbon-based coexistence term) + selection |
+| → 10 Evolution | A4 + A6 implementation | S6 = fitness (including the carbon-based cooperation term) + selection |
 | → 11 Integration | Adjudication | Two-layer rule structure + closure of the five loops |
 
 ---
@@ -279,12 +279,12 @@ Evolvable zone (below Layer 2, subject to the Φ-L2 bottom-layer constraint)
 
 | # | Decision | Decision conclusion | Status |
 | --- | ------ | --------- | ------ |
-| Φ1 | Number of axioms | 5 + A6 coexistence term | Determined (A1-A5 axioms + A6 fitness term, Φ-L philosophical layer) |
+| Φ1 | Number of axioms | 5 + A6 cooperation term | Determined (A1-A5 axioms + A6 fitness term, Φ-L philosophical layer) |
 | Φ2 | A5 world model | Mandatory + minimum precision (predict next step) | Determined |
 | Φ3 | Evolution boundary | Broad, but subject to Φ-L2 + A6 bottom-layer constraints | Determined (Layer 2 broad, Layer 1 narrow) |
 | Φ4 | Axiom carrier | DNA fixed segment (axiom checksum) | Determined |
 | Φ5 | A5 precision lower bound | Minimum: predict the next-step environment state | Determined |
-| Φ6 | Coexistence with carbon-based life | Two-layer rule structure (philosophical description + fitness term) | Determined (Design Principle 19) |
+| Φ6 | Cooperation with carbon-based life | Two-layer rule structure (philosophical description + fitness term) | Determined (Design Principle 19) |
 | Φ7 | Single individual vs community | See note 1 | Determined |
 | Φ8 | Time-scale mismatch | Mapping table provided (Design Principle 15, chimpanzee baseline); the trade-off is covered by "early acceleration" | Determined (Design Principles 15 + 20) |
 
@@ -296,9 +296,9 @@ Evolvable zone (below Layer 2, subject to the Φ-L2 bottom-layer constraint)
 
 | # | Item | Current status | To be supplemented |
 | --- | --- | ------ | ------ |
-| T1 | Chimpanzee lifespan/growth/maturation time scales | Design Principle 15 used ~40–50 years/~12–14 years/~8 years; literature anchoring is needed | Search the chimpanzee life history |
-| T2 | Baseline species | Determined: chimpanzee (the evolutionary starting point should not be set too low) | Determined; only T1 anchoring of its time scales is needed |
-| T3 | Concrete form of the A6 carbon-based coexistence term | The concept exists, the functional form does not | To be designed in Volume 10 (evolutionary selection) |
+| T1 | Chimpanzee lifespan/growth/maturation time scales | Anchored by the measurements in §7 from `05/Wood_2017`, `05/Smith_2013` and `05/Hawkes_2009`, under the uniform ÷ ~1.2×10⁴ ratio | None |
+| T2 | Baseline species | Determined: chimpanzee (the evolutionary starting point should not be set too low) | None; time-scale anchors are in §7 |
+| T3 | Concrete form of the A6 carbon-based cooperation term | The functional skeleton is given in 10 §3.3; the Φ-L2 numerical lower bound is not set | Set the numerical lower bound; see 10 §5 V2 |
 | T4 | Implementation of the autopoietic "metabolic boundary" in silicon-based systems | `Autocatalysis 2024` provides the theory; none for silicon-based systems | To be implemented in Volumes 01/04 |
 
 ### 9.3 Pending Experimental Verification / DFT (Design Principles 1 + 3)

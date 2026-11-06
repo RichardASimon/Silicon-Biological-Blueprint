@@ -268,7 +268,7 @@ Individual action → ③ physical action interface → world model state change
 - The embodiment of cooperation in the world model: **information channels between individuals** (analogous to the 05 neural layer cooperation interface, silicon-based × silicon-based + silicon-based × carbon-based)
 
 **External teaching (Design Principle 22)**:
-- **What is taught (starting conditions)**: basic skills (energy seeking / locomotion / replication / cooperation) + basic logic (propositional / causal / if-then) + a world-view framework (energy conservation / entropy increase / coexistence with carbon-based life / time scale / criteria of organizational closure) + I0 instinct triggers
+- **What is taught (starting conditions)**: basic skills (energy seeking / locomotion / replication / cooperation) + basic logic (propositional / causal / if-then) + a world-view framework (energy conservation / entropy increase / cooperation with carbon-based life / time scale / criteria of organizational closure) + I0 instinct triggers
 - **What is not taught (evolved by the silicon-based system itself)**: values / positions + concrete strategies + forms of cooperation
 - **Implementation**: the external teaching list = part of the **initial environment of the world model + initial individual states** (§Design Principle 22); what enters the world model is "capabilities + framework", not "positions"
 

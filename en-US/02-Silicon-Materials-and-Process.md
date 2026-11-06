@@ -4,7 +4,7 @@
 | --- | --- |
 | Module | Silicon materials and process: carrier, fabrication and characterisation |
 | Document type | Design report (English edition) |
-| Version | v3.1 |
+| Version | v4.1 |
 | Dependencies | 01 DNA information layer |
 | Language | English (Chinese edition: `../zh-CN/02_硅基材料工艺_设计.md`) |
 

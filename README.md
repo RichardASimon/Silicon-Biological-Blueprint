@@ -1,4 +1,4 @@
-# Silicon-Based Life Blueprint / 硅基生命蓝图
+# Silicon-Biological-Blueprint
 
 > An engineering design for a silicon-based living system: the criteria that make it alive, the subsystems that implement it, and the tests that would settle each claim.
 > 一套硅基生命系统的工程设计：判定它「算不算活着」的判据、实现这些判据的子系统，以及检验每条主张的方法。
@@ -16,7 +16,7 @@ The answer is deliberately concrete. The volumes name physical carriers, energy 
 Three commitments hold the set together:
 
 - **Life is a testable condition.** An individual counts as alive only if it shows organizational closure, dissipation, an internalized goal and causal independence (Volume 00, criteria C1–C4). The point is to replace the phrase "a machine simulating life" with something that can be checked.
-- **Rules have two layers.** The philosophical layer (Φ-L1/L2/L3) is fixed; the axiomatic rule layer may evolve, but always under the cooperation constraint A6. This is how coexistence with carbon-based life is made into a selection pressure rather than a stated intention.
+- **Rules have two layers.** The philosophical layer (Φ-L1/L2/L3) is fixed; the axiomatic rule layer may evolve, but always under the cooperation constraint A6. This is how cooperation with carbon-based life is made into a selection pressure rather than a stated intention.
 - **Every claim carries its evidence class.** Statements are tagged as literature or data, project decision, logical derivation, or unverified placeholder. Unmeasured parameters are listed as verification items, never presented as design baselines.
 
 ### The 12 volumes
@@ -41,12 +41,12 @@ Volumes 00, 04, 10 and 11 also contain the framework for observing and judging e
 ### How to read
 
 - **For the overall argument**: read 00, then 11. Volume 00 states the axioms and constraints; Volume 11 shows what satisfying them requires once all subsystems are assembled.
-- **For a subsystem**: open any volume from 01 to 10 and start with its Section 5 (verification plan) and Section 10 (scope and known limitations). Those two sections say what is settled and what is still an open assumption.
+- **For a subsystem**: in volumes 03–10, Section 5 lists the pending experimental and DFT work, and Section 10 states the scope and known limitations. Volume 01 puts its verification items in Section 9; Volume 02 ends at Section 5 (pending experimental work) and has no Section 10.
 - **For a specific claim**: use the evidence tags. `[To be verified]` items are proposals, not results, and always name the source that should supply the value.
 
 ### Scope and limits
 
-The design assumes a silicon-based individual that lives far from thermodynamic equilibrium, maintains itself by a continuous energy flow, and evolves in a world model before any rule is applied to the real world. It does not claim that such a system has been built. No parameter without a measured value is treated as a baseline. The `Reference Documentation/` library is a local companion resource used for traceability; literature IDs and paths in the reference tags are not distributed with this repository.
+The design assumes a silicon-based individual that lives far from thermodynamic equilibrium, maintains itself by a continuous energy flow, and evolves in a world model before any rule is applied to the real world. It does not claim that such a system has been built. No parameter without a measured value is treated as a baseline. Reference tags carry literature IDs for locating sources; the source documents themselves are not distributed with this repository.
 
 ### Conventions
 
@@ -67,7 +67,7 @@ The design assumes a silicon-based individual that lives far from thermodynamic 
 贯穿全书的三条基本立场：
 
 - **「生命」是可检验的条件。** 个体只有同时具备组织闭合、耗散、内化目标与因果独立性，才被判定为生命（00 册 C1–C4）。这样就把「一台模拟生命的机器」这类说法换成可以逐项核对的判据。
-- **规则分两层。** 哲学层（Φ-L1/L2/L3）不可演化；公理规则层可以演化，但始终受协同适应度项 A6 约束。与碳基生命共存因此成为选择压力，而不是一句声明。
+- **规则分两层。** 哲学层（Φ-L1/L2/L3）不可演化；公理规则层可以演化，但始终受协同适应度项 A6 约束。与碳基生命协同因此成为选择压力，而不是一句声明。
 - **每条主张都标明依据类别。** 正文用标记区分文献或数据、项目设定、逻辑推导与待验证占位。没有实测值的参数一律列为验证项，不作为设计基准值。
 
 ### 12 册内容
@@ -92,12 +92,12 @@ The design assumes a silicon-based individual that lives far from thermodynamic 
 ### 怎么读
 
 - **想把握整体论证**：先读 00，再读 11。00 给出公理与约束，11 展示全部子系统装配后满足这些约束需要什么。
-- **想查某个子系统**：直接翻 01–10 中对应一册，优先看第 5 节（验证计划）和第 10 节（适用边界与已知限制）；这两节说明哪些已定、哪些仍是假设。
+- **想查某个子系统**：03–10 册的第 5 节是待实验验证／DFT，第 10 节是适用边界与已知限制；01 册的验证项在第 9 节，02 册只到第 5 节（待实验验证／DFT），没有第 10 节。
 - **想核对某条主张**：看依据标记。标 `[待验证]` 的内容是提案而非结论，并注明应由哪一方提供数值。
 
 ### 适用边界
 
-设计假定硅基个体工作在远离热力学平衡的耗散态，靠持续能量流维持自身，并在世界模型中先试错、再把规则用于真实世界。文档不主张这样的系统已经造出。未给出实测值的参数不作为基准值。文献库 `Reference Documentation/` 是本地配套资源，用于追溯，不随本版本库分发；引用标记中的文献 ID 与路径仅用于定位。
+设计假定硅基个体工作在远离热力学平衡的耗散态，靠持续能量流维持自身，并在世界模型中先试错、再把规则用于真实世界。文档不主张这样的系统已经造出。未给出实测值的参数不作为基准值。引用标记中的文献 ID 仅用于定位来源，原文不随本版本库分发。
 
 ### 文档约定
 
