@@ -193,42 +193,34 @@ Enable the individual to **perceive the environment → decide → act**, with s
 ```mermaid
 flowchart LR
     subgraph IN["Perception"]
-        S["Environmental stimuli<br/>(light / heat / force / chemical / sound + super-carbon-based)<br/>"]
+        S["Environmental stimuli<br/>（light / heat / force / chemical / sound + super-carbon-based）<br/>"]
     end
-
-    subgraph NET["Neural network (PEDOT synaptic substrate)"]
+    subgraph NET["Neural network （PEDOT synaptic substrate）"]
         T1["Synaptic self-growth<br/>PEDOT pulsed electrocrystallisation<br/>"]
         T2["Long-range connections<br/>Ga-In surface tension 250:1<br/>"]
         T3["Short-term learning<br/>Hebbian plastic bonding state<br/>"]
         T1 --> T2
         T1 --> T3
     end
-
-    subgraph EMOD["Affective modulation pathway (Design Principle 21)"]
-        E1["Affect (anxiety / HPA analogy)<br/>modulates tendency weights<br/>"]
-        E2["Prefrontal cortex → amygdala inhibition<br/>Boolean-switch hard cut-off<br/>[Design decision]"]
+    subgraph EMOD["Affective modulation pathway （Design Principle 21）"]
+        E1["Affect （anxiety / HPA analogy）<br/>modulates tendency weights<br/>"]
+        E2["Prefrontal cortex → amygdala inhibition<br/>Boolean-switch hard cut-off<br/>"]
         E1 --> E2
     end
-
     subgraph OUT["Decision-making + action"]
-        D["Decision-making (logic 08 + affective modulation)<br/>"]
-        A["Action<br/>[I0a reflex / I0b locomotion, 09]"]
+        D["Decision-making （logic 08 + affective modulation）<br/>"]
+        A["Action<br/>"]
         D --> A
     end
-
     S --> T1
     T2 --> D
     T3 --> D
     E1 -.->|Modulates tendency, does not change logical correctness| D
     E2 ==>|Suppression: modulation zeroed| D
-
     subgraph LONG["Long-term learning"]
-        L["Burn-back into the 01 DNA variable region<br/>[Design decision]"]
+        L["Burn-back into the 01 DNA variable region<br/>"]
     end
     T3 -.->|Consolidation| L
-
-    classDef box fill:transparent,stroke:currentColor,color:currentColor
-    class S,T1,T2,T3,E1,E2,D,A,L box
 ```
 
 > Note: Perception reaches decision nodes through the synaptic matrix; the affective pathway is a modulatory branch. Short- and long-range connections use different physical implementations.
@@ -285,23 +277,18 @@ flowchart LR
 
 ```mermaid
 graph LR
-    N["05 Neural layer<br/>(perception + decision-making + self-extension + affect)"]
-    N <-->|A5 axiom operational carrier| P00["00 Philosophy (A5)"]
+    N["05 Neural layer<br/>（perception + decision-making + self-extension + affect）"]
+    N <-->|A5 axiom operational carrier| P00["00 Philosophy （A5）"]
     N <-->|Long-term learning burned back into the DNA variable region| D01["01 DNA"]
     N <-->|Physical substrate / sensory substrate| M02["02 Materials"]
     N <-->|Pulses / plasticity / rollouts all pay energy currency| E03["03 Energy"]
-    N <-->|Carrier of causal closure C4 (information structure)| I04["04 Individuality"]
+    N <-->|Carrier of causal closure C4 information structure| I04["04 Individuality"]
     N -->|Prediction head attached to the 05 network; rollout of the 06 model| WM06["06 World model"]
     N <-->|Synaptic weights = physical substrate of memory| MEM07["07 Memory"]
     N <-->|08 issues suppression instruction → 05 affective pathway de-energised| L08["08 Logic"]
     N <-->|Neural implementation of I0a reflex / I0b locomotion + three manifestations of affect| I0_09["09 Instinct"]
     N <-->|C4 closure degree feeds fitness; the network can self-evolve| EV10["10 Evolution"]
     N -->|Neural node of loop ③ learning / ⑤ adaptation| INT11["11 Integration"]
-
-    classDef core fill:transparent,stroke:currentColor,stroke-width:2.2px,color:currentColor
-    classDef node fill:transparent,stroke:currentColor,stroke-width:1.2px,color:currentColor
-    class N core
-    class P00,D01,M02,E03,I04,WM06,MEM07,L08,I0_09,EV10,INT11 node
 ```
 
 > Note: The source of an arrow is the value provider and the target is the receiver; measurable quantities are defined by the interface contracts of the respective volumes.

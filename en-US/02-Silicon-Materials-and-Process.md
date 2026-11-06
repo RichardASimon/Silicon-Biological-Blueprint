@@ -186,29 +186,22 @@ Bring the "POM-based gel + heteroatom side groups" of 01 from concept to a **man
 
 ```mermaid
 flowchart TB
-    subgraph STACK["Physical carrier stack (where information states reside, top to bottom)"]
-        S1["Host · POM-based hybrid hydrogel<br/>soft / deformable / hydration-stable "]
-        S2["Encapsulation · ALD SiO₂ / DLC thin shell<br/>blocks water-mediated hydrolysis 0.5-1eV [Design decision] shielding [To be verified: pending experiment M5]"]
-        S3["Carrier · multi-defect clusters V(SiO₃)⁺/V(SiO₄)⁺<br/>locks Si-O/Si-C bonding states "]
-        S4["Symbols · base-4 side groups F/B/N/Si-C<br/>= information states 0/1/2/3 [Design decision]"]
+    subgraph STACK["Physical carrier stack （where information states reside, top to bottom）"]
+        S1["Host · POM-based hybrid hydrogel<br/>soft / deformable / hydration-stable"]
+        S2["Encapsulation · ALD SiO₂ / DLC thin shell<br/>blocks water-mediated hydrolysis 0.5-1eV shielding"]
+        S3["Carrier · multi-defect clusters V（SiO₃）⁺/V（SiO₄）⁺<br/>locks Si-O/Si-C bonding states"]
+        S4["Symbols · base-4 side groups F/B/N/Si-C<br/>= information states 0/1/2/3"]
         S1 --> S2 --> S3 --> S4
     end
-
-    subgraph PROC["Process + characterisation (how to fabricate / write / read)"]
-        P1["Fabricate · nanoimprint lattice ~20nm addressing<br/>[Ref·external survey, DOI 10.1016/S0167-9317(96)00097-4, "Chou 1997 nanoimprint sub-10nm"]"]
-        P2w["Write · ion beam single-atom placement ~nm<br/> inside soft gel [To be verified: pending experiment]"]
+    subgraph PROC["Process + characterisation （how to fabricate / write / read）"]
+        P1["Fabricate · nanoimprint lattice ~20nm addressing<br/>"]
+        P2w["Write · ion beam single-atom placement ~nm<br/>inside soft gel"]
         P3["Read · XRD→STM/qPlus→SET characterisation stack<br/>"]
     end
-
-    S2 -.->|Fabrication temperature 150-300°C| E["03 Energy supply<br/>≈ reproduction [Logical derivation]"]
+    S2 -.->|Fabrication temperature 150-300°C| E["03 Energy supply<br/>≈ reproduction"]
     P1 --> S2
     P2w --> S4
     P3 -->|non-destructive readout of 4 states| S4
-
-    classDef s fill:transparent,stroke:currentColor,stroke-width:1.4px,color:currentColor
-    classDef p fill:transparent,stroke:currentColor,stroke-dasharray:5 4,color:currentColor
-    class S1,S2,S3,S4 s
-    class P1,P2w,P3,E p
 ```
 
 > Note: From bottom to top: carrier stack, write, readout and encapsulation. Write and readout channels are separated so that readout does not disturb the bonding state.
@@ -245,23 +238,18 @@ flowchart TB
 
 ```mermaid
 graph LR
-    M["02 Materials and process<br/>(carrier + fabrication + characterisation)"]
+    M["02 Materials and process<br/>（carrier + fabrication + characterisation）"]
     M <-->|01 physical carrier of side groups / framework| D01["01 DNA"]
-    M -->|P2 stability red line: bond energy / lifetime threshold| P00["00 Philosophical (A1 ordered state)"]
+    M -->|P2 stability red line: bond energy / lifetime threshold| P00["00 Philosophical （A1 ordered state）"]
     M -->|Fabrication temperature pays energy currency| E03["03 Energy"]
-    M <-->|Physical matrix of the individual boundary (04 depends on 02 boundary materials)| I04["04 Individuality"]
+    M <-->|Physical matrix of the individual boundary 04 depends on 02 boundary materials| I04["04 Individuality"]
     M -->|05 neural matrix PEDOT/Ga-In physically separated from the DNA host| N05["05 Neural"]
     M -->|Physical substrate of world-model actuators / sensors| WM06["06 World model"]
-    M -->|Memory = synaptic physical state (bonding state / impedance), 02 supplies characterisation| MEM07["07 Memory"]
-    M -->|Physical implementation of gate circuits (08 L2 attached to 02)| L08["08 Logic"]
-    M -->|CPG / reflex actuator physical substrate (09)| I0_09["09 Instinct"]
+    M -->|Memory = synaptic physical state bonding state / impedance, 02 supplies characterisation| MEM07["07 Memory"]
+    M -->|Physical implementation of gate circuits 08 L2 attached to 02| L08["08 Logic"]
+    M -->|CPG / reflex actuator physical substrate 09| I0_09["09 Instinct"]
     M -->|Fabrication / placement physical process of intergenerational replication| EV10["10 Evolution"]
     M -->|Physical process nodes of loops ④⑤ of the five loops| INT11["11 Integration"]
-
-    classDef core fill:transparent,stroke:currentColor,stroke-width:2.2px,color:currentColor
-    classDef node fill:transparent,stroke:currentColor,stroke-width:1.2px,color:currentColor
-    class M core
-    class D01,P00,E03,I04,N05,WM06,MEM07,L08,I0_09,EV10,INT11 node
 ```
 
 > Note: The source of an arrow is the value provider and the target is the receiver; measurable quantities are defined by the interface contracts of the respective volumes.

@@ -170,30 +170,26 @@ Make the silicon-based community **variable across generations and subject to na
 
 ```mermaid
 flowchart TB
-    subgraph VAR["Mutation (random, §01)"]
+    subgraph VAR["Mutation （random, §01）"]
         V["01 Option B controllable mismatch<br/>strict fidelity in core / open variable region<br/>"]
-        VM["07 memory generation (epigenetic)<br/>[Option B epigenetic, 07 §0]"]
+        VM["07 memory generation （epigenetic）<br/>"]
     end
-
-    subgraph SIM["World-model trial-and-error (§06)"]
+    subgraph SIM["World-model trial-and-error （§06）"]
         W["individuals conduct trial-and-error in 06<br/>selection pressure = 06 environmental constraints + A6<br/>"]
     end
-
-    subgraph FIT["Fitness judge (§3.2, Option B minimal)"]
-        F["A6 cooperation lower bound (Φ-L2 fixed) + hard survival threshold<br/>"]
-        F2["six-term weighting (QD measurable descriptors, P2)<br/>"]
+    subgraph FIT["Fitness judge （§3.2, Option B minimal）"]
+        F["A6 cooperation lower bound （Φ-L2 fixed） + hard survival threshold<br/>"]
+        F2["six-term weighting （QD measurable descriptors, P2）<br/>"]
         F --> F2
     end
-
-    subgraph RET["Retention/elimination interface (§3.4, Design Principle 23)"]
-        R["automatic ranking → manual designation → Φ-L2/A6 two-layer hard validation<br/>[Design decision]"]
+    subgraph RET["Retention/elimination interface （§3.4, Design Principle 23）"]
+        R["automatic ranking → manual designation → Φ-L2/A6 two-layer hard validation<br/>"]
     end
-
     V --> W
     VM --> W
     W --> F
     F --> R
-    R -->|retention set passing validation → 01 Option B replication (paying 03 energy)| V
+    R -->|retention set passing validation → 01 Option B replication paying 03 energy| V
 ```
 
 > Note: Mutation generates phenotypes, the fitness function adjudicates retention or elimination, and intergenerational transfer closes the loop.
@@ -314,23 +310,18 @@ Retention/elimination interface = the three segments of (fitness ranking + manua
 
 ```mermaid
 graph LR
-    E["10 Evolutionary selection<br/>(mutation + selection + generation)"]
-    E <-->|A4 adaptation + A6 cooperation axioms| P00["00 Philosophy (A4/A6)"]
+    E["10 Evolutionary selection<br/>（mutation + selection + generation）"]
+    E <-->|A4 adaptation + A6 cooperation axioms| P00["00 Philosophy （A4/A6）"]
     E <-->|mutation source = 01 replication mismatch| D01["01 DNA"]
     E <-->|physical process + energy of fabrication/replication| M02["02 Materials"]
     E <-->|replication/selection energy cost; cooperation budget| N03["03 Energy"]
     E <-->|individual C1-C4 closure degree = fitness input| I04["04 Individuality"]
     E <-->|the neural network itself can self-evolve| N05["05 Neural"]
     E <-->|selection pressure simulated in the world model| WM06["06 World model"]
-    E <-->|intergenerational experience = fitness input (07 epigenetic)| MEM07["07 Memory"]
+    E <-->|intergenerational experience = fitness input 07 epigenetic| MEM07["07 Memory"]
     E -->|fitness evaluation = logical reasoning result| L08["08 Logic"]
     E <-->|peripheral instincts I1-I8 can evolve| I0_09["09 Instinct"]
-    E <-->|community cooperation (silicon-based × silicon-based / carbon-based)| INT11["11 Integration"]
-
-    classDef core fill:transparent,stroke:currentColor,stroke-width:2.2px,color:currentColor
-    classDef node fill:transparent,stroke:currentColor,stroke-width:1.2px,color:currentColor
-    class E core
-    class P00,D01,M02,N03,I04,N05,WM06,MEM07,L08,I0_09,INT11 node
+    E <-->|community cooperation silicon-based × silicon-based / carbon-based| INT11["11 Integration"]
 ```
 
 > Note: The source of an arrow is the value provider and the target is the receiver; measurable quantities are defined by the interface contracts of the respective volumes.
@@ -373,6 +364,79 @@ graph LR
 **Note**: each of V1-V5 gives "**what to compute + threshold/window + value provider**"; **for the six-term weighting, "how to measure into scalars + normalisation + weight values" is not given anywhere in the volume** (S1 key assumption), and Option B reduces it to "A6 + hard survival threshold run first, six terms as P2"; **all weights/thresholds await 10 parameter tuning + project-defined judgement values + DFT of the respective volumes**, and this layer does not set baseline values (Design Principle 24).
 
 ---
+
+
+## 9. Collective Emergence: Mechanisms, Observation and Criteria
+
+### 9.1 Mechanism Chain
+
+Collective emergence denotes a macroscopic order at the statistical scale of a many-individual system that cannot be obtained directly from the behaviour of any single individual, together with irreducible predictive power over individual behaviour or subsequent macroscopic states. Three sources are defined in this project:
+
+1. The cooperation fitness term A6 and Φ-L2 exert selection pressure on collective traits, so cooperative phenotypes are retained across generations.
+2. The mutation–fitness adjudication–intergenerational transfer loop amplifies local interactions into stable statistical structure at group scale.
+3. Threshold responses (quorum) between individuals produce consensus decisions from local information without central control. [Ref:E10]
+
+Self-driven particle models show that directional alignment plus noise alone produces a disorder–order transition as density or noise varies, with macroscopic order captured by a polarisation order parameter. [Ref:E8] Information-theoretic frameworks distinguish downward causation, where macroscopic features predict individual states, from causal decoupling, where macroscopic features predict only themselves or other macroscopic features, and provide criteria computable from data. [Ref:E3] These criteria are sufficient but not necessary: a negative result does not exclude emergence. [Ref:E3]
+
+### 9.2 Observation Methods
+
+| Method | Observable | Acquisition | Basis |
+|---|---|---|---|
+| Order parameter sweep | Polarisation φ, rotational order, aggregation | Sweep density and noise to locate the transition point | [Ref:E8] |
+| Correlation analysis | Correlation function C(r), correlation length ξ | Multi-scale sampling with finite-size scaling | [Ref:E8] |
+| Maximum-entropy inversion | Interaction strength inferred from measured correlations | Fit the minimally structured model to group trajectories | [Ref:E9] |
+| Threshold response | Quorum response curve, threshold and slope | Vary stimulus intensity and record participation fraction | [Ref:E10] |
+| Perturbation propagation | Response speed, recovery time, propagation radius | Apply a local perturbation and record group reconstruction | [Ref:E6] |
+| Information criteria | Transfer entropy, synergy, Ψ index | Build surrogate controls with time-shuffled data | [Ref:E3][Ref:E6] |
+
+The order parameter is defined as φ = |Σ v_i| / (N |v|), ranging from 0 for disorder to near 1 for coherent motion. [Ref:E8] Maximum-entropy inversion from measured trajectories requires only consistency with observed correlations and does not presuppose a specific local rule. [Ref:E9] Synergy indices require significance testing against time-shuffled surrogates so that autocorrelation is not mistaken for emergence. [Ref:E3]
+
+### 9.3 Criteria
+
+| ID | Criterion | Observable | Condition | Project mapping | Basis |
+|---|---|---|---|---|---|
+| EM-G1 | Macroscopic order | Polarisation φ | Continuous or abrupt growth as a control parameter varies | A6 phenotype | [Ref:E8] |
+| EM-G2 | Long-range correlation | Correlation length ξ | ξ grows with group size without saturation | Group scale | [Ref:E8] |
+| EM-G3 | Recoverable local rules | Maximum-entropy model residual | Model reproduces measured correlations and residual is below control | S6 interface | [Ref:E9] |
+| EM-G4 | Threshold consensus | Quorum response curve | Identifiable threshold and stable consensus branch | Retention/elimination | [Ref:E10] |
+| EM-G5 | Downward causation | Ψ downward term | Significantly above surrogate data | Macro→individual | [Ref:E3] |
+| EM-G6 | Causal decoupling | Ψ decoupling term | Significantly above surrogate data | Macro→macro | [Ref:E3] |
+| EM-G7 | Directed information flow | Transfer entropy between individuals | Direction agrees with perturbation propagation | Group loop | [Ref:E6] |
+| EM-G8 | Selectable persistence | Correlation between A6 and group phenotype | Cooperative phenotype is not eliminated across generations | S6 | [Logical derivation] |
+
+Significance levels, transition points, ξ saturation criteria and threshold intervals are supplied by the verification plan in Section 5, tagged `[To be verified]`; value providers are the group experiments of 10 and the consolidated observation protocol of 11. The full project-wide criteria table is in Volume 11, Section 9.
+
+**Figure 9-1: Observation and adjudication flow for collective emergence**
+
+```mermaid
+flowchart LR
+    S["Multi-agent trajectory capture"] --> O["Order parameters and correlation"]
+    O --> R["Maximum-entropy inversion / threshold curve"]
+    R --> I["Transfer entropy and Ψ index"]
+    I --> D["EM-G1 to EM-G8 criteria"]
+    D -.insufficient significance.-> S
+    D -.met.-> C["Collective emergence established"]
+```
+
+> Note: Solid arrows denote the data chain; the dashed arrow denotes the fallback path. Insufficient significance leads to extended sampling rather than relaxed thresholds. [Logical derivation][Ref:E3]
+
+### 9.4 Verification Plan
+
+| Stage | Item | Value provider |
+|---|---|---|
+| P0 | Multi-agent trajectories, order parameters, correlation length, perturbation propagation | 02 / 05 |
+| P1 | Quorum curve, transfer entropy, maximum-entropy inversion | 09 / 10 |
+| P2 | Ψ downward and decoupling indices, cross-generational A6 correlation | 11 consolidated |
+
+### 9.5 Literature
+
+| ID | Reference | DOI |
+|---|---|---|
+| E3 | Rosas F.E. et al. (2020) PLoS Comput Biol 16(12):e1008289. | [10.1371/journal.pcbi.1008289](https://doi.org/10.1371/journal.pcbi.1008289) |
+| E6 | Schreiber T. (2000) Phys Rev Lett 85(2):461–464. | [10.1103/PhysRevLett.85.461](https://doi.org/10.1103/PhysRevLett.85.461) |
+| E8 | Vicsek T. et al. (1995) Novel type of phase transition in a system of self-driven particles. Phys Rev Lett 75:1226–1229. | [10.1103/PhysRevLett.75.1226](https://doi.org/10.1103/PhysRevLett.75.1226) |
+| E9 | Bialek W. et al. (2012) Statistical mechanics for natural flocks of birds. PNAS 109(13):4786–4791. | [10.1073/pnas.1118633109](https://doi.org/10.1073/pnas.1118633109) |
+| E10 | Sumpter D.J.T., Pratt S.C. (2009) Quorum responses and consensus decision making. Phil Trans R Soc B 364(1518):743–753. | [10.1098/rstb.2008.0204](https://doi.org/10.1098/rstb.2008.0204) |
 
 ## 10. Scope and Known Limitations (Design Principle 24)
 

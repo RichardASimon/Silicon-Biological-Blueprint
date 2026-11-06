@@ -172,23 +172,20 @@ Endow the individual with **instinctive behavior patterns** — indispensable ev
 
 ```mermaid
 flowchart TB
-    subgraph I0["I0 prerequisite set (fixed (non-evolvable) · automatic · non-evolvable)"]
+    subgraph I0["I0 prerequisite set （fixed （non-evolvable） · automatic · non-evolvable）"]
         A["I0a reflex<br/>perception→hardwired approach/avoidance<br/>"]
-        B["I0b locomotion CPG<br/>[Option B: robot CPG + silicon-based actuator]"]
+        B["I0b locomotion CPG<br/>"]
         C["I0c conditioned reflex<br/>instinct + synaptic plasticity binding<br/>"]
         D["I0d reproduction / I0e maternal behavior<br/>time-to-divide trigger → 01 Route B replication<br/>"]
     end
-
-    subgraph I18["I1-I8 complete instincts (may adopt a minimal implementation / can emerge / can evolve)"]
+    subgraph I18["I1-I8 complete instincts （may adopt a minimal implementation / can emerge / can evolve）"]
         X["I2 benefit seeking and harm avoidance / I3 homeostasis / I4 courtship / I5 territory / I7 sleep / I8 learning<br/>"]
     end
-
-    subgraph EMOD["Affect (Design Principle 21)"]
-        E["Three manifestations of anxiety (negative / positive / indifferent)<br/>"]
-        E2["Can be suppressed by logic (08 power-off)<br/>"]
+    subgraph EMOD["Affect （Design Principle 21）"]
+        E["Three manifestations of anxiety （negative / positive / indifferent）<br/>"]
+        E2["Can be suppressed by logic （08 power-off）<br/>"]
         E --> E2
     end
-
     I0 --> I18
     I0 --> EMOD
 ```
@@ -285,23 +282,18 @@ flowchart TB
 
 ```mermaid
 graph LR
-    I["09 Instinctive behavior<br/>(I0 fixed (non-evolvable) + I1-I8 evolution)"]
-    I <-->|Instinct = projection of axioms onto the behavior layer| P00["00 Philosophy (axiom projection)"]
-    I <-->|I0 written into the DNA core fixed (non-evolvable) region + axiom checksum| D01["01 DNA"]
-    I <-->|I0b locomotion actuator (ion beam / soft actuation)| M02["02 Materials"]
+    I["09 Instinctive behavior<br/>（I0 fixed （non-evolvable） + I1-I8 evolution）"]
+    I <-->|Instinct = projection of axioms onto the behavior layer| P00["00 Philosophy （axiom projection）"]
+    I <-->|I0 written into the DNA core fixed non-evolvable region + axiom checksum| D01["01 DNA"]
+    I <-->|I0b locomotion actuator ion beam / soft actuation| M02["02 Materials"]
     I <-->|Energy-seeking instinct + energy allocation for reproduction/maternal behavior| E03["03 Energy"]
     I -->|I0/I1-I8 belong to the individual| I04["04 Individuality"]
     I <-->|Neural implementation of I0 instincts + affective pathway| N05["05 Neural"]
     I -->|Rollout behavior = predictive version of instinct| WM06["06 World model"]
     I <-->|I7 sleep/consolidation loop + I8 learning consolidation| MEM07["07 Memory"]
-    I <-->|I0 rollout vs logical simulation (reflex precedes simulation)| L08["08 Logic"]
+    I <-->|I0 rollout vs logical simulation reflex precedes simulation| L08["08 Logic"]
     I <-->|Peripheral instincts I1-I8 are evolvable| EV10["10 Evolution"]
     I -->|Behavioral node of loop ⑤ adaptation| INT11["11 Integration"]
-
-    classDef core fill:transparent,stroke:currentColor,stroke-width:2.2px,color:currentColor
-    classDef node fill:transparent,stroke:currentColor,stroke-width:1.2px,color:currentColor
-    class I core
-    class P00,D01,M02,E03,I04,N05,WM06,MEM07,L08,EV10,INT11 node
 ```
 
 > Note: The source of an arrow is the value provider and the target is the receiver; measurable quantities are defined by the interface contracts of the respective volumes.

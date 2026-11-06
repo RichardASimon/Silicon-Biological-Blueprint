@@ -177,27 +177,24 @@ To enable a silicon-based individual to **acquire energy → convert it into "en
 
 ```mermaid
 flowchart LR
-    subgraph GET["Acquisition (3 sources, priority)"]
-        G1["Thermoelectric TEG (normal state)<br/>"]
-        G2["Photocatalytic hydrogen production (peak)<br/>"]
-        G3["Community cooperation exchange (backup)<br/>"]
+    subgraph GET["Acquisition （3 sources, priority）"]
+        G1["Thermoelectric TEG （normal state）<br/>"]
+        G2["Photocatalytic hydrogen production （peak）<br/>"]
+        G3["Community cooperation exchange （backup）<br/>"]
     end
-
     subgraph CONV["Conversion + Storage"]
         C1["Drive ion pumps<br/>build ion concentration gradient<br/>"]
-        C2["Energy currency = electrochemical potential difference<br/>[Design decision] ATP-like"]
-        C3["Supercapacitor storage (Option C)<br/> decouples acquisition/allocation"]
+        C2["Energy currency = electrochemical potential difference<br/>ATP-like"]
+        C3["Supercapacitor storage （Option C）<br/>decouples acquisition/allocation"]
     end
-
-    subgraph ALLOC["Allocation (A2 order, serial degradation gating)"]
-        A1["Survival (organizational closure)"]
-        A2["Replication (Option B energy supply)"]
-        A3["Learning (05 plasticity)"]
-        A4["Rollout (06 world model)"]
+    subgraph ALLOC["Allocation （A2 order, serial degradation gating）"]
+        A1["Survival （organizational closure）"]
+        A2["Replication （Option B energy supply）"]
+        A3["Learning （05 plasticity）"]
+        A4["Rollout （06 world model）"]
         A5["Cooperative communication"]
         A1 --> A2 --> A3 --> A4 --> A5
     end
-
     G1 --> C1
     G2 --> C1
     G3 --> C1
@@ -205,14 +202,8 @@ flowchart LR
     C2 --> C3
     C3 -->|Cuts from the bottom up under deficit| A5
     C3 --> A1
-
-    P["Sensing–assessment loop §3.4<br/>dynamically computes surplus/deficit<br/>[Design]"] --> C3
-    P -.->|Persistent deficit| I0["Trigger energy-seeking instinct I0<br/>[Design · fixed (non-evolvable)]"]
-
-    classDef get fill:transparent,stroke:currentColor,color:currentColor
-    classDef alloc fill:transparent,stroke:currentColor,stroke-dasharray:5 4,color:currentColor
-    class G1,G2,G3,C1,C2,C3 get
-    class A1,A2,A3,A4,A5,I0 alloc
+    P["Sensing–assessment loop §3.4<br/>dynamically computes surplus/deficit<br/>"] --> C3
+    P -.->|Persistent deficit| I0["Trigger energy-seeking instinct I0<br/>"]
 ```
 
 > Note: Arrows indicate energy flow; multiple harvesting paths converge in storage through power management and are then allocated. Dashed arrows indicate power constraints.
@@ -315,23 +306,18 @@ Feedback: a persistent deficit → triggers the energy-seeking instinct (I0, fix
 
 ```mermaid
 graph LR
-    E["03 Energy metabolism<br/>(acquisition + conversion + allocation)"]
+    E["03 Energy metabolism<br/>（acquisition + conversion + allocation）"]
     E <-->|02 supplies energy for the temperature domain of fabrication/packaging| D02["02 Materials"]
-    E -->|Physical energy supply of the A2 persistence axiom| P00["00 Philosophy (A2)"]
+    E -->|Physical energy supply of the A2 persistence axiom| P00["00 Philosophy （A2）"]
     E <-->|Organizational closure requires continuous energy supply| I04["04 Individuality"]
     E -->|Energy currency drives 05 neural pulses/plasticity| N05["05 Neural"]
-    E -->|Rollout (world-model simulation) consumes energy| WM06["06 World model"]
+    E -->|Rollout world-model simulation consumes energy| WM06["06 World model"]
     E -->|Memory consolidation / replay low-power state consumes energy| MEM07["07 Memory"]
     E -->|Logic gate circuits / representation power consumption| L08["08 Logic"]
     E -->|Drive of the energy-seeking instinct I0 + energy-tropism behaviour consumes energy| I0_09["09 Instinct"]
     E <-->|Replication/selection consumes energy; cooperation balance enters A6| EV10["10 Evolution"]
     E -->|Physical node of loop ④ acquisition of the five loops| INT11["11 Integration"]
     E <-->|Energy supply for intergenerational replication| D01["01 DNA"]
-
-    classDef core fill:transparent,stroke:currentColor,stroke-width:2.2px,color:currentColor
-    classDef node fill:transparent,stroke:currentColor,stroke-width:1.2px,color:currentColor
-    class E core
-    class D01,D02,P00,I04,N05,WM06,MEM07,L08,I0_09,EV10,INT11 node
 ```
 
 > Note: The source of an arrow is the value provider and the target is the receiver; measurable quantities are defined by the interface contracts of the respective volumes.

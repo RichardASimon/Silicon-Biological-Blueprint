@@ -163,24 +163,20 @@ An individual can **reason** (propositional + causal + if-then), not merely reac
 
 ```mermaid
 flowchart LR
-    subgraph ENC["Propositional encoding (L1)"]
-        P["Propositional variables P/Q<br/>1 bit = 2 states of 1 side group<br/>[Design decision] which 2 states [To be verified]"]
+    subgraph ENC["Propositional encoding （L1）"]
+        P["Propositional variables P/Q<br/>1 bit = 2 states of 1 side group<br/>which 2 states"]
     end
-
-    subgraph GATE["Gate circuits (L2)"]
+    subgraph GATE["Gate circuits （L2）"]
         AND["∧ side-group combination gate<br/>02 ion beam + ALD state migration<br/>"]
         ORV["∨ / ¬<br/>gate circuit"]
         AND --> ORV
     end
-
     subgraph REAS["Reasoning"]
         R["Propositional + causal inference + if-then<br/>"]
     end
-
-    subgraph SUPP["Affect suppression switch C (Design Principle 21)"]
-        C["C-a self-determination / C-b external command<br/>Boolean hard cut-off → 05 affect pathway powered off<br/>[Design decision]"]
+    subgraph SUPP["Affect suppression switch C （Design Principle 21）"]
+        C["C-a self-determination / C-b external command<br/>Boolean hard cut-off → 05 affect pathway powered off<br/>"]
     end
-
     P --> AND
     ORV --> R
     C -.->|Suppression: affective modulation set to zero| R
@@ -270,9 +266,9 @@ Conditional (→) = ¬P ∨ Q →  NOT (¬) + OR (∨) combination
 
 ```mermaid
 graph LR
-    L["08 Logical reasoning<br/>(propositional + causal + if-then)"]
-    L <-->|Logical layer = A5 internal inference + C4 information structure| P00["00 Philosophy (A5/C4)"]
-    L <-->|Minimal logic set written into the DNA core fixed (non-evolvable) region| D01["01 DNA"]
+    L["08 Logical reasoning<br/>（propositional + causal + if-then）"]
+    L <-->|Logical layer = A5 internal inference + C4 information structure| P00["00 Philosophy （A5/C4）"]
+    L <-->|Minimal logic set written into the DNA core fixed non-evolvable region| D01["01 DNA"]
     L <-->|Physical implementation of gate circuits attached to 02 process| M02["02 Materials"]
     L <-->|Gate circuits / characterisation pay energy currency| E03["03 Energy"]
     L -->|Logical conclusions belong to the individual, independent of affect| I04["04 Individuality"]
@@ -282,11 +278,6 @@ graph LR
     L -->|Instinctive behavior = fast version of logic rollout| I0_09["09 Instinct"]
     L <-->|Fitness evaluation = result of logical reasoning| EV10["10 Evolution"]
     L -->|Rollout node of loop ③ action| INT11["11 Integration"]
-
-    classDef core fill:transparent,stroke:currentColor,stroke-width:2.2px,color:currentColor
-    classDef node fill:transparent,stroke:currentColor,stroke-width:1.2px,color:currentColor
-    class L core
-    class P00,D01,M02,E03,I04,N05,WM06,MEM07,I0_09,EV10,INT11 node
 ```
 
 > Note: The source of an arrow is the value provider and the target is the receiver; measurable quantities are defined by the interface contracts of the respective volumes.

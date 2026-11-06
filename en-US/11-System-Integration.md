@@ -146,23 +146,18 @@ Each subsystem taken alone "can be designed", but **closure of the five loops** 
 
 ```mermaid
 flowchart TB
-    L1["① Perception world model<br/>S5+S2(06+05)<br/>"]
-    L2["② Decision/behavior<br/>S2 + L + I(05+08+09)<br/>"]
-    L3["③ Action world model<br/>01 construction according to blueprint + 03 energy supply + 02 ion beam<br/>[Logical derivation: three-step operator]"]
-    L4["④ Acquisition of energy/information<br/>S3 + M(03+07)<br/>"]
-    L5["⑤ Replication + mutation<br/>S1 + S6 + M generations(01+10+07)<br/>"]
-
+    L1["① Perception world model<br/>S5+S2（06+05）<br/>"]
+    L2["② Decision/behavior<br/>S2 + L + I（05+08+09）<br/>"]
+    L3["③ Action world model<br/>01 construction according to blueprint + 03 energy supply + 02 ion beam<br/>"]
+    L4["④ Acquisition of energy/information<br/>S3 + M（03+07）<br/>"]
+    L5["⑤ Replication + mutation<br/>S1 + S6 + M generations（01+10+07）<br/>"]
     L1 --> L2
     L2 --> L3
     L3 --> L4
     L4 --> L5
     L5 -->|generations → new individual| L1
-
-    B["Boundary: S4 individuality(04)<br/>wraps the whole loop<br/>"]
+    B["Boundary: S4 individuality（04）<br/>wraps the whole loop<br/>"]
     C["Judge: 00 P + 10 fitness<br/>what counts as 'valid operation'<br/>"]
-
-    classDef loop fill:transparent,stroke:currentColor,color:currentColor
-    class L1,L2,L3,L4,L5 loop
 ```
 
 > Note: The five stages form the minimum closed loop for operation and evolution; the loop breaks if any stage is missing.
@@ -325,6 +320,86 @@ flowchart LR
 3. **P2 final assembly**: minimal prototype of five-loop closure + end-to-end fidelity + ③ action interface verification
 
 ---
+
+
+## 9. Observation Protocol and Verification Plan for Emergence
+
+### 9.1 Unified Observation Protocol
+
+Volume 04 defines individual emergence criteria and Volume 10 defines collective emergence criteria. This volume connects both sets to one observation protocol, so that the same data are not defined twice in different volumes. The protocol has four layers:
+
+| Layer | Input | Output | Constraint |
+|---|---|---|---|
+| Acquisition | Microscopic state X_t, boundary events, energy use, trajectories | Synchronised time series | Sampling rate and clock sync given in Section 5 |
+| Coarse-graining | Synchronised time series | Macroscopic feature V_t | Coarse-graining map fixed and recorded |
+| Measurement | V_t and X_t | Measured value for each criterion | Interventional and observational data kept separate |
+| Adjudication | Measured values and surrogates | Met / not met / evidence insufficient | Negative result means insufficient evidence only |
+
+Interventional data are interpreted through the maximum-entropy input of effective information; observational data are interpreted through Granger causality. Criterion values from the two regimes are not directly comparable. [Ref:E2][Ref:E3] Information-theoretic criteria require a null distribution built from time-shuffled or phase-randomised surrogates. [Ref:E3]
+
+### 9.2 Consolidated Criteria
+
+| ID | Level | Criterion | Key observable | Value provider |
+|---|---|---|---|---|
+| EM-I1 | Individual | Organisational closure | Self-producing loop, r_regen | 02 / 03 |
+| EM-I2 | Individual | Dissipative self-maintenance | Entropy production, decay time | 03 |
+| EM-I3 | Individual | Internalized goal | Approach/avoidance and replication response | 09 |
+| EM-I4 | Individual | Causal independence | Perturbation response, external prediction error | 04 |
+| EM-I5 | Individual | Macroscopic autonomy | Two G-emergence conditions | 05 / 06 |
+| EM-I6 | Individual | Dynamical independence | Granger residual | 06 |
+| EM-I7 | Individual | Low internal conflict | Conflict event rate | 04 |
+| EM-I8 | Cross-scale | Causal emergence | EI_macro − EI_micro | 11 |
+| EM-G1 | Collective | Macroscopic order | Polarisation φ | 10 |
+| EM-G2 | Collective | Long-range correlation | Correlation length ξ | 10 |
+| EM-G3 | Collective | Recoverable local rules | Maximum-entropy model residual | 10 |
+| EM-G4 | Collective | Threshold consensus | Quorum curve | 09 / 10 |
+| EM-G5 | Collective | Downward causation | Ψ downward term | 11 |
+| EM-G6 | Collective | Causal decoupling | Ψ decoupling term | 11 |
+| EM-G7 | Collective | Directed information flow | Transfer entropy between individuals | 05 |
+| EM-G8 | Collective | Selectable persistence | Correlation of A6 with group phenotype | 10 |
+
+Thresholds, significance levels and sampling windows are registered in the verification summary of Section 7 and tagged `[To be verified]`. Before measurement is complete, an outcome is recorded only as insufficient evidence, never as met or not met. [Design decision]
+
+**Figure 9-1: Cross-scale adjudication protocol for emergence**
+
+```mermaid
+flowchart TB
+    A["Synchronised capture of X_t"] --> B["Fixed coarse-graining map"]
+    B --> C{"Data type"}
+    C -.interventional.-> D["EI / do-intervention criteria"]
+    C -.observational.-> E["Granger / transfer entropy / Ψ"]
+    D --> F["Surrogate significance test"]
+    E --> F
+    F --> G["Consolidated table EM-I / EM-G"]
+    G -.insufficient evidence.-> A
+```
+
+> Note: The diamond is a data split. Interventional and observational data follow different criterion branches and converge at the significance test and the consolidated table. [Logical derivation][Ref:E2][Ref:E3]
+
+### 9.3 Link to the Implementation Sequence
+
+| Stage | Added verification items | Relation to Section 8 |
+|---|---|---|
+| P0 | Perturbation platform, synchronised capture, order parameters, correlation length | Merged into the P0 items that decide self-maintenance and the criteria of life |
+| P1 | Transfer entropy, Granger autonomy, behavioural Φ proxy, quorum curve | Merged into the P1 measurements related to world-model operability |
+| P2 | EI coarse-graining, strict Φ, dynamical independence, Ψ decomposition | Merged into P2 follow-up verification; not a precondition for first-round assembly |
+
+### 9.4 Literature
+
+| ID | Reference | DOI |
+|---|---|---|
+| E1 | Bedau M.A. (1997) Weak Emergence. Noûs 31:375–399. | [10.1111/0029-4624.31.s11.17](https://doi.org/10.1111/0029-4624.31.s11.17) |
+| E2 | Hoel E.P., Albantakis L., Tononi G. (2013) PNAS 110(49):19790–19795. | [10.1073/pnas.1314922110](https://doi.org/10.1073/pnas.1314922110) |
+| E3 | Rosas F.E. et al. (2020) PLoS Comput Biol 16(12):e1008289. | [10.1371/journal.pcbi.1008289](https://doi.org/10.1371/journal.pcbi.1008289) |
+| E4 | Seth A.K. (2010) Artif Life 16(2):179–196. | [10.1162/artl.2010.16.2.16204](https://doi.org/10.1162/artl.2010.16.2.16204) |
+| E5 | Barnett L., Seth A.K. (2023) Phys Rev E 108(1):014304. | [10.1103/PhysRevE.108.014304](https://doi.org/10.1103/PhysRevE.108.014304) |
+| E6 | Schreiber T. (2000) Phys Rev Lett 85(2):461–464. | [10.1103/PhysRevLett.85.461](https://doi.org/10.1103/PhysRevLett.85.461) |
+| E7 | Oizumi M., Albantakis L., Tononi G. (2014) PLoS Comput Biol 10(5):e1003588. | [10.1371/journal.pcbi.1003588](https://doi.org/10.1371/journal.pcbi.1003588) |
+| E8 | Vicsek T. et al. (1995) Phys Rev Lett 75:1226–1229. | [10.1103/PhysRevLett.75.1226](https://doi.org/10.1103/PhysRevLett.75.1226) |
+| E9 | Bialek W. et al. (2012) PNAS 109(13):4786–4791. | [10.1073/pnas.1118633109](https://doi.org/10.1073/pnas.1118633109) |
+| E10 | Sumpter D.J.T., Pratt S.C. (2009) Phil Trans R Soc B 364(1518):743–753. | [10.1098/rstb.2008.0204](https://doi.org/10.1098/rstb.2008.0204) |
+| E11 | Queller D.C., Strassmann J.E. (2009) Phil Trans R Soc B 364(1533):3143–3155. | [10.1098/rstb.2009.0095](https://doi.org/10.1098/rstb.2009.0095) |
+| E12 | Ruiz-Mirazo K., Peretó J., Moreno A. (2004) Orig Life Evol Biosph 34(3):323–346. | [10.1023/B:ORIG.0000016440.53346.DC](https://doi.org/10.1023/B:ORIG.0000016440.53346.DC) |
 
 ## 10. Scope and Known Limitations (Design Principle 24)
 

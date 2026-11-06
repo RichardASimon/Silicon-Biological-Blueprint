@@ -117,30 +117,23 @@
 
 ```mermaid
 flowchart TB
-    subgraph CARRIER["物理承载(信息住在哪,自上而下)"]
+    subgraph CARRIER["物理承载（信息住在哪,自上而下）"]
         L1["L1 · POMs 凝胶基底<br/>宿主:软 / 水合稳定 / 自组装<br/>"]
-        L2["L2 · 纳米压印晶格(位点)<br/>~20nm 间距,可寻址网格<br/>[引用·外部调研, DOI 10.1016/S0167-9317(96)00097-4, "Chou 1997 纳米压印 sub-10nm,奠基文献,支撑~20nm 寻址晶格"]"]
-        L3["L3 · 多缺陷簇 V(SiO₃)⁺/V(SiO₄)⁺<br/>位点的稳定壳,锁侧基键态<br/>"]
-        L4["L4 · 侧基符号 4进制 F/B/N/Si-C<br/>一位点=一符号=2bit<br/>[设计决策] 4态能否稳定[待DFT]"]
+        L2["L2 · 纳米压印晶格（位点）<br/>~20nm 间距,可寻址网格<br/>"]
+        L3["L3 · 多缺陷簇 V（SiO₃）⁺/V（SiO₄）⁺<br/>位点的稳定壳,锁侧基键态<br/>"]
+        L4["L4 · 侧基符号 4进制 F/B/N/Si-C<br/>一位点=一符号=2bit<br/>4态能否稳定"]
         L1 --> L2 --> L3 --> L4
     end
-
-    subgraph MECH["三条机制线(谁在哪层读/写/变异)"]
-        RD["读 READ<br/>qPlus 沿 L2 晶格扫 L4 4电荷峰<br/>非破坏/可并行/可放大 "]
-        WR["写/复制 WRITE<br/>离子束按 L4 指令逐位放侧基+ALD封装<br/> 软凝胶内[待实验]"]
-        MU["变异 MUTATE<br/>核心区ε→0 / 可变区留高错配→S6选择<br/>[设计] 分区[逻辑推导:00 A4]"]
+    subgraph MECH["三条机制线（谁在哪层读/写/变异）"]
+        RD["读 READ<br/>qPlus 沿 L2 晶格扫 L4 4电荷峰<br/>非破坏/可并行/可放大"]
+        WR["写/复制 WRITE<br/>离子束按 L4 指令逐位放侧基+ALD封装<br/>软凝胶内"]
+        MU["变异 MUTATE<br/>核心区ε→0 / 可变区留高错配→S6选择<br/>分区"]
     end
-
     RD -.->|扫读 4态| L2
     RD -.-> L4
     WR -.->|逐位放置| L2
     WR -.-> L4
     MU -.->|复制时错配| L4
-
-    classDef layer fill:transparent,stroke:currentColor,stroke-width:1.4px,color:currentColor
-    classDef mech fill:transparent,stroke:currentColor,stroke-dasharray:5 4,color:currentColor
-    class L1,L2,L3,L4 layer
-    class RD,WR,MU mech
 ```
 
 > 说明：自上而下为物理承载、信息编码、读取与复制四层；虚线为公理固定区的保真校验路径。
@@ -383,7 +376,6 @@ L4 侧基符号(信息) 住进  L3 缺陷簇壳(锁住键态)
 ```mermaid
 graph LR
     D["01 DNA<br/>信息层"]
-
     D -->|公理 A1-A5 写入公理区| P0["00 哲学"]
     D -->|侧基/骨架物理承载| M2["02 材料"]
     D -->|复制/构造付能量币| E3["03 能量"]
@@ -395,11 +387,6 @@ graph LR
     D <-->|I0 本能判定前提集写核心区| I0_9["09 本能"]
     D <-->|变异源+代际复制,供适应度裁判| EV10["10 演化"]
     D -->|5回路信息源| INT11["11 整合"]
-
-    classDef core fill:transparent,stroke:currentColor,stroke-width:2.2px,color:currentColor
-    classDef node fill:transparent,stroke:currentColor,stroke-width:1.3px,color:currentColor
-    class D core
-    class P0,M2,E3,I4,N5,WM6,MEM7,L8,I0_9,EV10,INT11 node
 ```
 
 > 说明：箭头起点为供值方，终点为接收方；跨分册接口的可测量量由各分册接口契约定义。

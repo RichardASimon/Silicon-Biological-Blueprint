@@ -139,30 +139,23 @@
 
 ```mermaid
 flowchart TB
-    subgraph CARRIER["Physical carrier (where information resides, top to bottom)"]
+    subgraph CARRIER["Physical carrier （where information resides, top to bottom）"]
         L1["L1 · POM-based gel substrate<br/>Host: soft / hydration-stable / self-assembling<br/>"]
-        L2["L2 · Nanoimprint lattice (sites)<br/>~20nm pitch, addressable grid<br/>[Ref·external survey, DOI 10.1016/S0167-9317(96)00097-4, "Chou 1997 nanoimprint sub-10nm, foundational reference, supporting the ~20nm addressable lattice"]"]
-        L3["L3 · Multi-defect cluster V(SiO₃)⁺/V(SiO₄)⁺<br/>Stable shell of the site, locking the side-group bonding state<br/>"]
-        L4["L4 · Side-group symbols, quaternary F/B/N/Si-C<br/>One site = one symbol = 2bit<br/>[Design decision] Whether 4 states can be stable [To be verified by DFT]"]
+        L2["L2 · Nanoimprint lattice （sites）<br/>~20nm pitch, addressable grid<br/>"]
+        L3["L3 · Multi-defect cluster V（SiO₃）⁺/V（SiO₄）⁺<br/>Stable shell of the site, locking the side-group bonding state<br/>"]
+        L4["L4 · Side-group symbols, quaternary F/B/N/Si-C<br/>One site = one symbol = 2bit<br/>Whether 4 states can be stable"]
         L1 --> L2 --> L3 --> L4
     end
-
-    subgraph MECH["Three mechanism lines (which layer reads/writes/mutates)"]
-        RD["Read READ<br/>qPlus scans the 4 charge peaks of L4 along the L2 lattice<br/>Non-destructive / parallelisable / scalable "]
-        WR["Write/replication WRITE<br/>Ion beam places side groups site by site according to L4 instructions + ALD encapsulation<br/> Inside a soft gel [To be experimentally verified]"]
-        MU["Variation MUTATE<br/>Core region ε→0 / variable region retains high mismatch → S6 selection<br/>[Design] Regional division [Logical derivation:00 A4]"]
+    subgraph MECH["Three mechanism lines （which layer reads/writes/mutates）"]
+        RD["Read READ<br/>qPlus scans the 4 charge peaks of L4 along the L2 lattice<br/>Non-destructive / parallelisable / scalable"]
+        WR["Write/replication WRITE<br/>Ion beam places side groups site by site according to L4 instructions + ALD encapsulation<br/>Inside a soft gel"]
+        MU["Variation MUTATE<br/>Core region ε→0 / variable region retains high mismatch → S6 selection<br/>Regional division"]
     end
-
     RD -.->|Scan-read 4 states| L2
     RD -.-> L4
     WR -.->|Site-by-site placement| L2
     WR -.-> L4
     MU -.->|Mismatch during replication| L4
-
-    classDef layer fill:transparent,stroke:currentColor,stroke-width:1.4px,color:currentColor
-    classDef mech fill:transparent,stroke:currentColor,stroke-dasharray:5 4,color:currentColor
-    class L1,L2,L3,L4 layer
-    class RD,WR,MU mech
 ```
 
 > Note: The top-down layers are the physical carrier, information encoding, readout and replication; the dashed path is the fidelity check of the fixed axiom region.
@@ -424,7 +417,6 @@ Step 5 [Acceptance]  qPlus scans C → compares with S' → mismatch rate ε_cop
 ```mermaid
 graph LR
     D["01 DNA<br/>Information layer"]
-
     D -->|Axioms A1-A5 written into the axiom region| P0["00 Philosophy"]
     D -->|Physical carrier of side groups/backbone| M2["02 Materials"]
     D -->|Replication/construction pays energy currency| E3["03 Energy"]
@@ -432,15 +424,10 @@ graph LR
     D -->|Construction instructions drive neural layer construction| N5["05 Neural"]
     D <-->|World model initial state/weight encoding| WM6["06 World model"]
     D <-->|Memory consolidation region: intergenerational experience burn-in| MEM7["07 Memory"]
-    D -->|Minimal logic set fixed (non-evolvable) core region| L8["08 Logic"]
+    D -->|Minimal logic set fixed non-evolvable core region| L8["08 Logic"]
     D <-->|I0 instinct prerequisite set written into the core region| I0_9["09 Instinct"]
     D <-->|Variation source + intergenerational replication, for fitness adjudication| EV10["10 Evolution"]
     D -->|Information source of the five loops| INT11["11 Integration"]
-
-    classDef core fill:transparent,stroke:currentColor,stroke-width:2.2px,color:currentColor
-    classDef node fill:transparent,stroke:currentColor,stroke-width:1.3px,color:currentColor
-    class D core
-    class P0,M2,E3,I4,N5,WM6,MEM7,L8,I0_9,EV10,INT11 node
 ```
 
 > Note: The source of an arrow is the value provider and the target is the receiver; measurable quantities are defined by the interface contracts of the respective volumes.

@@ -167,14 +167,13 @@ The individual first **runs a simulation "in the mind"** (the world model predic
 
 ```mermaid
 flowchart TB
-    S["Perception<br/>(05 neural layer sensing channels)<br/>"]
-    R["RSSM<br/>Recurrent state-space model (DreamerV3 core)<br/>"]
-    Z["Latent variable z<br/>Option A: side-group bonding states [To be verified] / Option B: device states "]
-    P["Prediction head<br/>Next environmental state (Φ5 minimum precision)<br/>[Design]"]
-    L["Logical simulation (08)<br/>if-then rollout of action consequences<br/>"]
-    P2["Policy: select the best action<br/>Fitness (10 A6) + energy consumption (03)<br/>"]
-    EX["Execution → ③ action interface<br/>01 construction according to blueprint + 03 energy supply + 02 ion beam<br/>[Logical derivation: three-step operator]"]
-
+    S["Perception<br/>（05 neural layer sensing channels）<br/>"]
+    R["RSSM<br/>Recurrent state-space model （DreamerV3 core）<br/>"]
+    Z["Latent variable z<br/>Option A: side-group bonding states / Option B: device states"]
+    P["Prediction head<br/>Next environmental state （Φ5 minimum precision）<br/>"]
+    L["Logical simulation （08）<br/>if-then rollout of action consequences<br/>"]
+    P2["Policy: select the best action<br/>Fitness （10 A6） + energy consumption （03）<br/>"]
+    EX["Execution → ③ action interface<br/>01 construction according to blueprint + 03 energy supply + 02 ion beam<br/>"]
     S --> R
     R --> Z
     Z --> P
@@ -182,9 +181,6 @@ flowchart TB
     L --> P2
     P2 --> EX
     EX -->|World model state change| S
-
-    classDef box fill:transparent,stroke:currentColor,color:currentColor
-    class S,R,Z,P,L,P2,EX box
 ```
 
 > Note: Observations enter prediction and rollout through latent variables; the output of the action operator is written back to the state, closing the loop.
@@ -293,11 +289,11 @@ Perceive the current world model state → RSSM predicts the next state → logi
 
 ```mermaid
 graph LR
-    W["06 World model<br/>(prediction + rollout + selection of the best)"]
-    W <-->|Carrier of the "internal inference" of the A5 learning axiom| P00["00 Philosophy (A5/Φ5)"]
+    W["06 World model<br/>（prediction + rollout + selection of the best）"]
+    W <-->|Carrier of the internal inference of the A5 learning axiom| P00["00 Philosophy （A5/Φ5）"]
     W <-->|③ action interface relies on 01 construction according to blueprint| D01["01 DNA"]
     W <-->|Physical execution of the ③ action interface = 02 ion beam| M02["02 Materials"]
-    W <-->|Rollout pays energy currency (03 W3)| E03["03 Energy"]
+    W <-->|Rollout pays energy currency 03 W3| E03["03 Energy"]
     W <-->|Rollout runs within the individual; world models are isolated between individuals| I04["04 Individuality"]
     W <-->|Prediction head attached to the 05 network, perception channels| N05["05 Neural"]
     W <-->|Rollout material = 07 long-term memory recall| MEM07["07 Memory"]
@@ -305,11 +301,6 @@ graph LR
     W -->|Rollout behaviour = the anticipatory version of 09 instinct| I0_09["09 Instinct"]
     W <-->|Selection pressure simulated in 06 + A6 cooperation term| EV10["10 Evolution"]
     W -->|Prediction node of loops ③ action / ① perception of the five loops| INT11["11 Integration"]
-
-    classDef core fill:transparent,stroke:currentColor,stroke-width:2.2px,color:currentColor
-    classDef node fill:transparent,stroke:currentColor,stroke-width:1.2px,color:currentColor
-    class W core
-    class P00,D01,M02,E03,I04,N05,MEM07,L08,I0_09,EV10,INT11 node
 ```
 
 > Note: The source of an arrow is the value provider and the target is the receiver; measurable quantities are defined by the interface contracts of the respective volumes.

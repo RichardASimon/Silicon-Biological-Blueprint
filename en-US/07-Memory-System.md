@@ -159,29 +159,25 @@ With reference to the carbon-based memory hierarchy (working / episodic / semant
 
 ```mermaid
 flowchart TB
-    subgraph WRITE["Writing (f:M→W)"]
-        M["Memory content M<br/>[perception / rollout experience]"]
+    subgraph WRITE["Writing （f:M→W）"]
+        M["Memory content M<br/>"]
         W["Synaptic weights W<br/>Plastic bonding state / PEDOT impedance / Ga-In diameter<br/>"]
         M -->|Co-activation Hebbian| W
     end
-
-    subgraph CONSOL["Consolidation (sleep-like replay, §09 I7)"]
+    subgraph CONSOL["Consolidation （sleep-like replay, §09 I7）"]
         R["replay low-power state<br/>"]
-        L["Long-term memory (semantic / procedural)<br/>"]
+        L["Long-term memory （semantic / procedural）<br/>"]
         R --> L
     end
-
-    subgraph READ["Reading (g:W→M)"]
-        G["Characterisation stack reads W (STM/qPlus)<br/>"]
-        MO["Inverted M content labels<br/>Precision [To be verified by calculation: G5]"]
+    subgraph READ["Reading （g:W→M）"]
+        G["Characterisation stack reads W （STM/qPlus）<br/>"]
+        MO["Inverted M content labels<br/>Precision"]
         G --> MO
     end
-
-    subgraph GENE["Intergenerational transfer (Option B epigenetics)"]
-        B["Outstanding memories → epigenetic expression state (non-sequence)<br/>[Design · baseline B] does not violate the central dogma"]
-        B -->|Replication| NEXT["Next-generation phenotype presetting<br/>[Logical derivation]"]
+    subgraph GENE["Intergenerational transfer （Option B epigenetics）"]
+        B["Outstanding memories → epigenetic expression state （non-sequence）<br/>does not violate the central dogma"]
+        B -->|Replication| NEXT["Next-generation phenotype presetting<br/>"]
     end
-
     W --> R
     L --> G
     L --> B
@@ -307,10 +303,10 @@ Outstanding memories are burned back into the 01 DNA **memory fixation region (e
 
 ```mermaid
 graph LR
-    M["07 Memory system<br/>(layering + explicit synaptic structure + intergenerational)"]
-    M <-->|Memory side of organizational closure| P00["00 Philosophy (A1)"]
-    M <-->|Intergenerational transfer written into the 01 memory fixation region (epigenetic region, 01 §7)| D01["01 DNA"]
-    M <-->|Characterisation stack reads synapses (STM/qPlus)| M02["02 Materials"]
+    M["07 Memory system<br/>（layering + explicit synaptic structure + intergenerational）"]
+    M <-->|Memory side of organizational closure| P00["00 Philosophy （A1）"]
+    M <-->|Intergenerational transfer written into the 01 memory fixation region epigenetic region, 01 §7| D01["01 DNA"]
+    M <-->|Characterisation stack reads synapses STM/qPlus| M02["02 Materials"]
     M <-->|Consolidation / replay low-power state pays energy currency| E03["03 Energy"]
     M -->|Memory belongs to the individual; isolation between individuals| I04["04 Individuality"]
     M <-->|Synaptic weights = physical substrate of memory| N05["05 Neural"]
@@ -319,11 +315,6 @@ graph LR
     M <-->|I7 sleep / consolidation circuit| I0_09["09 Instinct"]
     M <-->|Intergenerational experience = fitness input| EV10["10 Evolution"]
     M -->|Node of the 5-loop learning / consolidation| INT11["11 Integration"]
-
-    classDef core fill:transparent,stroke:currentColor,stroke-width:2.2px,color:currentColor
-    classDef node fill:transparent,stroke:currentColor,stroke-width:1.2px,color:currentColor
-    class M core
-    class P00,D01,M02,E03,I04,N05,WM06,L08,I0_09,EV10,INT11 node
 ```
 
 > Note: The source of an arrow is the value provider and the target is the receiver; measurable quantities are defined by the interface contracts of the respective volumes.

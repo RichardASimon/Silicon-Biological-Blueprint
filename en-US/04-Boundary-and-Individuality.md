@@ -159,32 +159,23 @@ Define "what counts as one silicon-based individual", comprising three things:
 
 ```mermaid
 flowchart TB
-    subgraph SEED["Step 1 · Artificial seeding (external force, Design Principle 23)"]
+    subgraph SEED["Step 1 · Artificial seeding （external force, Design Principle 23）"]
         SD["Construct candidate individual<br/>01 DNA + 05 neural + 03 energy + 04 boundary<br/>"]
     end
-
     subgraph CHECK["Viability assessment · whether C1-C4 are fully closed"]
-        C1["C1 Organizational closure<br/>01 recording + 10 replication hold<br/>[Ref]"]
-        C2["C2 Dissipation<br/>03 thermoelectric supply holds<br/>[Ref]"]
-        C3["C3 Internalized goal<br/>A2 + I0d reproduction<br/>[Logical derivation]"]
-        C4["C4 Causal independence<br/>05+07+08 information structure closure<br/>[IIT Φ to be verified by calculation: B1] or behavioural proxy [Route III]"]
+        C1["C1 Organizational closure<br/>01 recording + 10 replication hold<br/>"]
+        C2["C2 Dissipation<br/>03 thermoelectric supply holds<br/>"]
+        C3["C3 Internalized goal<br/>A2 + I0d reproduction<br/>"]
+        C4["C4 Causal independence<br/>05+07+08 information structure closure<br/>or behavioural proxy"]
     end
-
     SD --> C1
     SD --> C2
     SD --> C3
     SD --> C4
-
     C1 & C2 & C3 & C4 --> V{"Fully closed?"}
-    V -->|Yes| LIVE["Alive (individual emergence)<br/>[Design]"]
-    V -->|No| MACH["Degrades into a machine<br/>[Design]"]
-
+    V -->|Yes| LIVE["Alive （individual emergence）<br/>"]
+    V -->|No| MACH["Degrades into a machine<br/>"]
     LIVE --> REPRO["Step 3 · Self-replication+evolution<br/>10 Option B<br/>"]
-
-    classDef box fill:transparent,stroke:currentColor,color:currentColor
-    classDef ok fill:transparent,stroke:currentColor,stroke-width:2px,color:currentColor
-    class SD,C1,C2,C3,C4,REPRO box
-    class LIVE ok
 ```
 
 > Note: The left side shows the process from artificial seeding to boundary formation; the right side lists criteria C1–C4. All four criteria must hold simultaneously.
@@ -278,23 +269,18 @@ A silicon-based system is an "individual" ⟺ it simultaneously satisfies:
 
 ```mermaid
 graph LR
-    B["04 Individuality<br/>(boundary+genesis)"]
-    B -->|C1-C4 criteria derive from the 00 axioms| P00["00 Philosophy (A1/Φ-L)"]
+    B["04 Individuality<br/>（boundary+genesis）"]
+    B -->|C1-C4 criteria derive from the 00 axioms| P00["00 Philosophy （A1/Φ-L）"]
     B <-->|Individual information structure defined by DNA| D01["01 DNA"]
     B <-->|Physical boundary = 02 matrix/surface energy| M02["02 Materials"]
     B <-->|C2 dissipation requires continuous energy supply from 03| E03["03 Energy"]
     B -->|Individual = basic unit of selection, degree of closure = fitness input| N05["05 Neural"]
-    B <-->|World-model state boundary (where the individual "rolls out")| WM06["06 World model"]
-    B -->|Memory belongs to the individual (memory isolated between individuals)| MEM07["07 Memory"]
+    B <-->|World-model state boundary where the individual rolls out| WM06["06 World model"]
+    B -->|Memory belongs to the individual memory isolated between individuals| MEM07["07 Memory"]
     B -->|Logical conclusions belong to the individual| L08["08 Logic"]
-    B -->|I0 instincts belong to the individual (energy seeking/reflex/reproduction)| I0_09["09 Instinct"]
+    B -->|I0 instincts belong to the individual energy seeking/reflex/reproduction| I0_09["09 Instinct"]
     B <-->|Individual = unit of selection, C1-C4 degree of closure feeds fitness| EV10["10 Evolution"]
     B -->|Individual = boundary wrapping of the five loops| INT11["11 Integration"]
-
-    classDef core fill:transparent,stroke:currentColor,stroke-width:2.2px,color:currentColor
-    classDef node fill:transparent,stroke:currentColor,stroke-width:1.2px,color:currentColor
-    class B core
-    class P00,D01,M02,E03,N05,WM06,MEM07,L08,I0_09,EV10,INT11 node
 ```
 
 > Note: The source of an arrow is the value provider and the target is the receiver; measurable quantities are defined by the interface contracts of the respective volumes.
@@ -341,6 +327,83 @@ graph LR
 **Note**: each of B1-B5 gives "**what to compute + threshold/window + value provider**"; the C1-C3 criteria have countable/measurable form (§0.2 Option B), C4 is the key assumption — **the Option B behavioural proxy is operable now (the criterion form is fixed), the strict Φ of Option A awaits calculation verification (B1)**; all thresholds/time windows **await 02/04 first-principles calculation and experiment**, and this layer fixes no baseline values (Design Principle 24).
 
 ---
+
+
+## 9. Individual Emergence: Mechanisms, Observation and Criteria
+
+### 9.1 Mechanism Chain
+
+Individual emergence denotes the formation of a self-producing loop inside a boundary, together with causal independence that cannot be fully described by the external environment or by an external algorithm. The chain has four stages:
+
+1. Carrier and power supply provide distinguishable internal states and a continuous energy flow (02 / 03).
+2. The information layer records construction rules, and the perception–decision–action loop lets the system regenerate its own components (01 / 05 / 09).
+3. Component regeneration yields organisational closure C1, dissipation yields maintenance C2, and approach/avoidance with replication yields an internalized goal C3.
+4. Once the boundary closes, the internal causal structure determines identity, giving causal independence C4.
+
+Autopoiesis and autocatalytic sets describe the mechanism by which a system produces the components that define itself. A universal definition of life further requires individual self-production together with a historical collective organisation. [Ref:E12] From an evolutionary perspective, the degree of individuality is determined by the relative levels of cooperation and conflict among components: high cooperation and low conflict correspond to greater organismality. [Ref:E11] Individual emergence is therefore not a single event but a continuous process: closed loop appears, boundary stabilises, internal conflict is suppressed. [Logical derivation]
+
+### 9.2 Observation Methods
+
+| Method | Observable | Acquisition | Basis |
+|---|---|---|---|
+| Boundary intervention | Internal order after perturbation, recovery time, boundary integrity | Controlled perturbations of energy, information and components; record response traces | [Ref:E6] |
+| Component turnover | Internal regeneration rate r_regen, exchange rate r_exch | Label components to separate self-production from external supply | [Ref:E12] |
+| Directed information flow | In→out and out→in transfer entropy | Condition on time-lagged history to exclude shared history and common input | [Ref:E6] |
+| Macroscopic autonomy | Two G-emergence conditions | Conditional independence of V_t from X_t and Granger causality from X_t to V_{t+1} | [Ref:E4] |
+| Dynamical independence | Coarse-grained variable independent of microscopic processes | Search macro projections over multivariate time series | [Ref:E5] |
+| Integrated causal power | Φ or its behavioural proxy | Full Φ computation is costly and assigned to P2; behavioural proxy given in Section 3 | [Ref:E7] |
+
+Transfer entropy separates information actually transferred from information shared through common history. [Ref:E6] G-emergence requires both autonomy, I(V_t; V_{t+1} | X_t) > 0, and causal coupling, I(X_t; V_{t+1} | V_t) > 0. [Ref:E4] Dynamical independence further requires that the macroscopic process is not predicted by microscopic processes in the Granger sense, and provides an operational complement to C4. [Ref:E5] Under observational data, causality is interpreted in the Granger sense; under interventions, it is interpreted through the interventional distribution of effective information. The two interpretations are not interchangeable. [Ref:E2][Ref:E3]
+
+### 9.3 Criteria
+
+| ID | Criterion | Observable | Condition | Project mapping | Basis |
+|---|---|---|---|---|---|
+| EM-I1 | Organisational closure | Self-producing loop, r_regen | Closed regeneration loop exists and r_regen > 0 | C1 | [Ref:E12] |
+| EM-I2 | Dissipative self-maintenance | Entropy production σ, decay time of order | σ > 0 and order decays more slowly than control after power cut | C2 | [Ref:E12] |
+| EM-I3 | Internalized goal | Directional response of approach/avoidance and replication | Response significantly above random baseline | C3 | [Ref:E11] |
+| EM-I4 | Causal independence | Internal order after perturbation, external prediction error | Internal order maintained and external algorithm cannot predict completely | C4 | [Ref:E7] |
+| EM-I5 | Macroscopic autonomy | Two G-emergence conditions | Both conditions hold | C4 complement | [Ref:E4] |
+| EM-I6 | Dynamical independence | Granger residual of macro projection | Macro process Granger-independent of micro process | C4 complement | [Ref:E5] |
+| EM-I7 | Low internal conflict | Conflict event rate between components | Significantly below cooperation event rate | Individuality | [Ref:E11] |
+| EM-I8 | Causal emergence | EI_macro and EI_micro | EI_macro > EI_micro | Cross-scale | [Ref:E2] |
+
+All thresholds (random baseline, significance level, decay window, upper bound on conflict rate) are supplied by the verification plan in Section 5, tagged `[To be verified]`, with value providers in the measurement chains of 03 power supply and 05 neural circuits. EM-I8 requires the full microscopic transition matrix and is assigned to P2. EM-I4 already uses a behavioural proxy in Section 3; strict Φ measurement is assigned to P2. [Ref:E7]
+
+**Figure 9-1: Observation and adjudication flow for individual emergence**
+
+```mermaid
+flowchart LR
+    P["Controlled perturbation"] --> S["Microscopic state X_t"]
+    S --> C["Coarse-graining to V_t"]
+    C --> M["Transfer entropy / Granger / EI"]
+    M --> D["EM-I1 to EM-I8 criteria"]
+    D -.not met.-> P
+    D -.met.-> I["Individuality established"]
+```
+
+> Note: Solid arrows denote data flow; dashed arrows denote the adjudication loop. Failure returns to perturbation and resampling, so no conclusion is drawn from a single observation. [Logical derivation][Ref:E3]
+
+### 9.4 Verification Plan
+
+| Stage | Item | Value provider |
+|---|---|---|
+| P0 | Perturbation platform, component turnover, order parameters, recovery time | 02 / 03 |
+| P1 | Transfer entropy, Granger autonomy, behavioural Φ proxy | 05 / 06 |
+| P2 | EI coarse-graining comparison, strict Φ, dynamical independence search | 11 consolidated |
+
+### 9.5 Literature
+
+| ID | Reference | DOI |
+|---|---|---|
+| E2 | Hoel E.P., Albantakis L., Tononi G. (2013) PNAS 110(49):19790–19795. | [10.1073/pnas.1314922110](https://doi.org/10.1073/pnas.1314922110) |
+| E3 | Rosas F.E. et al. (2020) PLoS Comput Biol 16(12):e1008289. | [10.1371/journal.pcbi.1008289](https://doi.org/10.1371/journal.pcbi.1008289) |
+| E4 | Seth A.K. (2010) Measuring autonomy and emergence via Granger causality. Artif Life 16(2):179–196. | [10.1162/artl.2010.16.2.16204](https://doi.org/10.1162/artl.2010.16.2.16204) |
+| E5 | Barnett L., Seth A.K. (2023) Dynamical independence. Phys Rev E 108(1):014304. | [10.1103/PhysRevE.108.014304](https://doi.org/10.1103/PhysRevE.108.014304) |
+| E6 | Schreiber T. (2000) Measuring information transfer. Phys Rev Lett 85(2):461–464. | [10.1103/PhysRevLett.85.461](https://doi.org/10.1103/PhysRevLett.85.461) |
+| E7 | Oizumi M., Albantakis L., Tononi G. (2014) IIT 3.0. PLoS Comput Biol 10(5):e1003588. | [10.1371/journal.pcbi.1003588](https://doi.org/10.1371/journal.pcbi.1003588) |
+| E11 | Queller D.C., Strassmann J.E. (2009) Beyond society. Phil Trans R Soc B 364(1533):3143–3155. | [10.1098/rstb.2009.0095](https://doi.org/10.1098/rstb.2009.0095) |
+| E12 | Ruiz-Mirazo K., Peretó J., Moreno A. (2004) Orig Life Evol Biosph 34(3):323–346. | [10.1023/B:ORIG.0000016440.53346.DC](https://doi.org/10.1023/B:ORIG.0000016440.53346.DC) |
 
 ## 10. Scope and Known Limitations (Design Principle 24)
 
