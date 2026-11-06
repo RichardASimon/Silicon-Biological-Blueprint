@@ -14,11 +14,12 @@
 
 ## 0. Comparison of Design Options
 
-> Design question: the key question is **which physical implementation is used for the synaptic substrate + long-range connections, and at which layer "learning" resides** (self-extension + affective pathway are relatively uncontroversial). Three parallel options are given; each option provides "implementation + evidence + feasibility".
-> - **Option A (conceptual option, baseline option)**: PEDOT electrocrystallisation (self-growing synaptic substrate) + Ga-In liquid-metal microchannels (reconfigurable connections) + Hebbian short-term plasticity + long-term burn-back into the 01 DNA variable region
-> - **Option B (based on the project reference library)**: the most mature neuromorphic paradigm in the reference library (PEDOT synapses + measured Ga-In surface tension + DNA molecular neural networks + local protein synthesis as a biological reference)
-> - **Option C (based on published research practice)**: the most transferable approaches for "reconfigurable / self-extending neural networks" in the external survey (solid-state memristor arrays / liquid-metal soft neural networks / spiking neuromorphics)
-> ; they can be combined (§0.4). Key choices are given in §3 + the appendix on key assumptions and design decisions.
+> This section settles two questions: what physically implements the synaptic substrate and long-range connections, and at which layer learning takes place. Self-extension and the affective pathway are less contentious. Each option states its implementation, evidence and feasibility.
+> - **Option A (conceptual option, baseline)**: PEDOT electrocrystallisation for a self-growing synaptic substrate, Ga-In liquid-metal microchannels for reconfigurable connections, Hebbian plasticity for short-term change, and long-term results written back into the 01 DNA variable region.
+> - **Option B (project reference library)**: the most mature neuromorphic routes in the library: PEDOT synapses, measured Ga-In surface tension, DNA molecular neural networks, and local protein synthesis as a biological reference.
+> - **Option C (published research practice)**: published approaches to reconfigurable and self-extending neural networks, including solid-state memristor arrays, liquid-metal soft neural networks and spiking neuromorphic systems.
+>
+> The options can be combined; see §0.4. The final choice is recorded in §3 and in the appendix on key assumptions and design decisions.
 
 ### 0.1 Option A: Conceptual Option (PEDOT + Ga-In, Baseline Option)
 
@@ -38,7 +39,7 @@
 4. **Self-extension** — [Logical derivation: §3 growth control]; upper bound on synaptic density [To be verified]
 5. **Affective modulation** — [Ref: carbon-based `05/Denny_2015`, §Emotion regulation reduces amygdala, "Denny 2015 reappraisal reduces amygdala activation", `05/Jacob_2019`, §Reappraisal brain network, "Jacob 2019 reappraisal social-anxiety brain network", `05/Dore_2017`, §Cognitive control of emotion prediction, "Dore 2017 cognitive control of emotion prediction"]; "Boolean hard cut-off = silicon-based advantage" [Design decision]
 
-**Feasibility + risk**: PEDOT growth kinetics + Ga-In surface tension **both have measured anchors**, but **"whether synaptic self-growth in a soft gel can reach sufficient density / fidelity" has not been verified** [To be verified] — "self-extending neural network" is a key assumption. [Design decision]
+**Feasibility and risks**: PEDOT growth kinetics and Ga-In surface tension are both supported by measurements, but whether synaptic self-growth in a soft gel can reach the required density and fidelity has not been verified [To be verified]. The "self-extending neural network" therefore remains a key assumption. [Design decision]
 
 ### 0.2 Option B: Based on the Project Reference Library (Most Mature Paradigm)
 

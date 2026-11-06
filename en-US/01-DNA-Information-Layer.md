@@ -14,12 +14,12 @@
 
 ## 0. Comparison of Design Options
 
-> **** Three parallel options are given; each option gives "layout, readout and replication method, what the evidence is, feasibility/risks".
-> - **Option A (conceptual option, baseline option)**: soft carrier "construction according to a blueprint" (POM-based gel + multi-defect cluster + side-group bonding state + ion beam/ALD + qPlus)
-> - **Option B (based on the project reference library)**: the most mature, directly transferable paradigm among the existing 25 references in 01
-> - **Option C (based on Published Research Practice)**: reference practices from external surveys (DNA data storage / self-assembly replication / programmable matter)
+> This section compares three designs for the information layer. Each is examined against the same questions: how the carrier is built and addressed, how information is encoded, read out and copied, what evidence supports it, and what risks it carries.
+> - **Option A (conceptual option, baseline)**: a soft carrier built "to a blueprint" from a POM-based gel, multi-defect clusters, side-group bonding states, ion-beam/ALD writing and qPlus readout.
+> - **Option B (project reference library)**: the most mature, directly transferable approach among the 25 references catalogued for volume 01.
+> - **Option C (published research practice)**: findings from external work on DNA data storage, self-assembling replication and programmable matter.
 >
-> **Each category gives**: ① construction specifications ② encoding/readout/replication mechanisms ③ evidence (with references attached) ④ feasibility + risks. and can be combined (§0.4).
+> The options can be combined; see §0.4.
 
 ### 0.1 Option A: Conceptual Option (Soft Carrier "Construction According to a Blueprint", Baseline Option)
 
@@ -57,7 +57,7 @@
 - qPlus supports parallel readout **[Ref:02 §2.4]**
 - The ion beam is the only means of deterministic single-atom placement **[Ref:02/Holmes_2023 UNSW Morello/Simmons group]**
 
-**Feasibility + risks**: `Holmes 2023` follows a lattice/low-temperature NMR route **[Ref:02/Holmes_2023]**, while **site-by-site placement of single side groups inside a soft gel + ALD + subsequent replication has no verified implementation path** — this is the project's **heaviest key assumption** (Class C, key assumption and design decision appendix T0), hitting P1 but with the lowest feasibility. [Design decision]
+**Feasibility and risks**: `Holmes 2023` follows a lattice/low-temperature NMR route **[Ref:02/Holmes_2023]**. By contrast, placing side groups one by one inside a soft gel, encapsulating them with ALD and then copying the result has no verified implementation path. This is the project's strongest key assumption (class C, see Appendix T0 on key assumptions and design decisions). The option matches the "physics as computation" principle, but is the least feasible of the three. [Design decision]
 
 ### 0.2 Option B: Based on the Project Reference Library (the Most Mature Transferable Paradigm)
 
@@ -85,7 +85,7 @@
 
 ### 0.3 Option C: Based on Published Research Practice (External Survey)
 
-> To be verified · **The evidence in this section is a published literature survey .** Anchors that were verified have been upgraded to `[Ref:01/A_DNA_STORAGE_DEVICE_WORLD_BEST_PRACTICE_2026-09-15.md, A/B/C/D]`; those not verified remain `[Ref·external survey·DOI to be confirmed]` — per Design Principle 24, unverified values are not presented as verified. Downgraded anchors (the original "IBM PCM Chou 2005""protocell Norris/Raine 1998""Seeman 1982") were not locked to primary sources and are not to be cited.
+> To be verified · **The evidence in this section comes from a survey of published literature and is kept separate from this project's own design claims.** Verified anchors are recorded as `[Ref:01/A_DNA_STORAGE_DEVICE_WORLD_BEST_PRACTICE_2026-09-15.md, A/B/C/D]`; unverified ones remain `[Ref·external survey·DOI to be confirmed]`, and are not presented as confirmed values. Three downgraded anchors (IBM PCM Chou 2005, protocell Norris/Raine 1998, Seeman 1982) still lack primary sources.
 > **Key conclusion (external survey)**: among existing published research there is **no mature system for a "silicon-based soft-carrier information layer"**; the 4 closest categories are all at the "molecule/device" level, having separately completed the individual substeps of "information→carrier", but **none has closed the loop of "the carrier reads its own instructions → self-construction → replication to offspring"**. This is where the project is positioned and where its novelty lies (and also why Option A has the highest implementation difficulty and assumption risk).
 
 **Three categories of external paradigms + specific mechanisms transferable into 01**:

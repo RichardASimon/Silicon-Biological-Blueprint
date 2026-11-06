@@ -14,11 +14,12 @@
 
 ## 0. Comparison of Design Options
 
-> Design question: the key question is **how intergenerational experience is transferred** (written back into the DNA sequence / epigenetic expression state / not across generations), together with the "synapse → memory" mapping. Three parallel options are presented, each with "implementation + evidence + feasibility".
-> - **Option A (conceptual option; current baseline retained = original option A)**: intergenerational **Lamarckian burning-in** — outstanding memories are written directly back into the 01 DNA variable-region sequence (matching "direct inheritance of experience")
-> - **Option B (based on the project literature library = original option B, selected option)**: intergenerational **transgenerational epigenetics via phenotypic plasticity** — the sequence is not written; expression regulation is written (epigenetic marks / protein conformational states); the next generation carries "preset tendencies", not "memories"
-> - **Option C (based on published research practice, including external literature review + original option C)**: ① RNAi transgenerational epigenetics (the cleanest empirical evidence of "transgenerational inheritance of acquired traits") ② pure Darwin (experience does not cross generations; selection is relied upon)
-> The key choice is given in §3.3 + Appendix T2 on key assumptions and design decisions.
+> This section settles two questions: whether experience accumulated in one lifetime can be passed to the next generation, and how synaptic states map onto memories. Each option states its implementation, evidence and feasibility.
+> - **Option A (conceptual option, baseline)**: Lamarckian burning-in, in which successful memories are written directly into the 01 DNA variable-region sequence, so experience is inherited.
+> - **Option B (project reference library, selected)**: only expression regulation is written, not the sequence, for example through epigenetic marks or protein conformational states. The next generation inherits predispositions rather than specific memories.
+> - **Option C (published research practice)**: two bodies of evidence, namely RNAi-mediated transgenerational epigenetics as the clearest evidence that acquired traits can cross generations, and a purely Darwinian option in which experience is not inherited and only selection acts.
+>
+> The final choice is recorded in §3.3 and in Appendix T2 on key assumptions and design decisions.
 
 ### 0.1 Option A: Conceptual Option (Lamarckian Burning-in, Baseline Option)
 
@@ -36,7 +37,7 @@
 3. **Consolidation** — [Ref:`07/Rasch_Born_2013`, §Sleep and memory consolidation, "Rasch & Born 2013 Physiol Rev: sleep consolidates memory (slow waves / spindles)"]、`09/VyazovskiyHarris_2013`, §Neuronal rest during slow-wave sleep, "Vyazovskiy & Harris 2013 Nat Rev Neurosci: neuronal rest during slow-wave sleep"]
 4. **Intergenerational** — [Design decision]; "transgenerational inheritance of acquired experience" violates the central dogma [To be verified by calculation and experiment, critical]
 
-**Feasibility + risks**: matches the intuition of "direct inheritance of individual experience", but **there is no transgenerational epigenetic path and the central dogma is violated** — a key assumption that has not been achieved. [Design decision]
+**Feasibility and risks**: this option matches the intuition that individual experience is inherited directly, but no transgenerational epigenetic path is available and it conflicts with the central dogma. It therefore remains an unrealised key assumption. [Design decision]
 
 ### 0.2 Option B: Based on the Project Literature Library (Transgenerational Epigenetics via Phenotypic Plasticity, Selected Option)
 
@@ -72,11 +73,11 @@
 
 | Strategy | Content | Applicable conditions |
 | ------ | ------ | ------ |
-| **A. Pure Option A** | Lamarckian write-back into the sequence (current baseline retained) | Matches intuition; lowest feasibility; violates the central dogma |
+| **A. Pure Option A** | Lamarckian write-back into the sequence | Matches intuition, but has the lowest feasibility and conflicts with the central dogma |
 | **B. Option B (selected option)** | Intergenerational = transgenerational epigenetics via phenotypic plasticity (expression written, not sequence) | Preserves the intuition of experience transfer + scientifically tenable |
 | **C. Option C Darwin underlying constraint** | Experience does not cross generations; selection only | Most conservative |
 
-> **Baseline option = B** (transgenerational phenotypic plasticity, preserving the intuition of "experience transfer" without violating the central dogma, supported by `01/Duffy_2020`) — corresponding to §3.3 original option B + Appendix T2 on key assumptions and design decisions. **This choice is a design position confirmed by design review.**
+> **Baseline option = B**: transgenerational phenotypic plasticity preserves the intuition of "experience transfer" without violating the central dogma, and is supported by `01/Duffy_2020`. See §3.3 for the reasoning and Appendix T2 on key assumptions and design decisions for the evidence.
 
 ### 0.5 Detailed Description of the Memory Flow Structure (Textual Description)
 

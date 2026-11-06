@@ -14,11 +14,12 @@
 
 ## 0. Comparison of Design Options
 
-> Design question: the key question is **where the latent variables of the world model reside** (digital RNN numerical states / silicon-based device states / decoupling from the carrier), as well as "how the action interface is mapped". Three parallel options are given; each option provides "implementation + evidence + feasibility". The algorithmic foundation is **shared DreamerV3** across the three (MIT, JAX, fixed hyperparameters across multiple domains) [Ref:`06/DreamerV3_Hafner_2023_arXiv2301.04104`], with a divergence only on "latent-variable carrier + action mapping".
-> - **Option A (conceptual option, retaining the current = original Option A)**: latent variables = **side-group bonding states** (the semantics of digital RNN latent variables are directly attached to silicon-based side-group bonding states, hitting "physics as computation")
-> - **Option B (based on the project reference library = original Option B, selected option)**: latent variables = **device states supported by neuromorphic experiments** (spiking CPG devices / NEXUS gate circuits / magnetic reservoirs), not attached to unsubstantiated side-group bonding states
-> - **Option C (based on published research practice, including an external survey + original Option C)**: ① physical machine learning / memristor RNN (worldwide empirical evidence of device states serving as latent variables) ② decoupling of the world model from actuators (pragmatic alternative)
-> The key choice is given in §3.3 + the appendix on key assumptions and design decisions.
+> This section decides two things: where the latent variables of the world model reside (digital RNN states, silicon device states, or a representation decoupled from the carrier), and how the model passes its predictions to the action interface. All three options share one algorithmic foundation, DreamerV3 (MIT licence, JAX implementation, fixed hyperparameters across domains) [Ref:`06/DreamerV3_Hafner_2023_arXiv2301.04104`]; they differ only in the latent-variable carrier and the action mapping.
+> - **Option A (conceptual option, baseline)**: latent variables held directly in side-group bonding states, so that the semantics of a digital latent variable map onto a physical state ("physics as computation").
+> - **Option B (project reference library, selected)**: latent variables held in device states with experimental neuromorphic support, such as spiking CPG devices, NEXUS gate circuits or magnetic reservoirs; side-group bonding states are not used because they lack such support.
+> - **Option C (published research practice)**: two lines of work, namely physical machine learning and memristor RNNs that use device states as latent variables, and architectures that decouple the world model from the actuators to simplify implementation.
+>
+> The final choice is recorded in §3.3 and in the appendix on key assumptions and design decisions.
 
 ### 0.1 Option A: Concept Option (Latent Variables = Side-Group Bonding States, Baseline Option)
 
@@ -34,7 +35,7 @@
 2. **Latent variables** — [Design decision]; "digital vectors attached to chemical bonding states" has no DFT pathway [To be verified by calculation and experiment, critical]
 3. **Action mapping** — [Logical derivation: attached to 01/02/03]; precision / error / energy-consumption coefficient of each step [To be verified]
 
-**Feasibility + risk**: the most radical, hitting "physics as computation", but **associating the semantics of digital RNN latent variables with chemical side-group bonding states, which the document calls "derivable" although it in fact has no DFT pathway** — this is the item with the highest feasibility uncertainty among class C. [Design decision]
+**Feasibility and risks**: this is the most radical option and the closest to "physics as computation", but there is no derivable path and no DFT calculation linking the semantics of digital RNN latent variables to chemical side-group bonding states. Of the class C options, it carries the greatest feasibility uncertainty. [Design decision]
 
 ### 0.2 Option B: Based on the Project Reference Library (Latent Variables = Device States, Selected Option)
 
@@ -78,7 +79,7 @@
 | **B. B primary + A retained as P2 (selected option)** | Latent variables placed on device states (neuromorphic CPG / magnetic reservoir); the side-group bonding state version is enabled only after calculation verification | High feasibility, does not abandon "physics as computation" |
 | **C. Option C decouples the underlying constraint** | The world model can be decoupled from the carrier (external prediction + physical feedback) | The most conservative, abandons "in-mind rollout is physics" |
 
-> **Baseline option = B** (latent variables placed on device states supported by neuromorphic experiments; feasibility far higher than A, without losing "physics as computation") — corresponding to §3.3 original Option B + the appendix on key assumptions and design decisions. **This choice is a design position, confirmed by design review.**
+> **Baseline option = B**: latent variables are placed on device states supported by neuromorphic experiments. This is considerably more feasible than A while keeping the "physics as computation" direction. See §3.3 for the reasoning and the appendix on key assumptions and design decisions for the evidence.
 
 ### 0.5 Detailed Structure of the World Model (Textual Description)
 

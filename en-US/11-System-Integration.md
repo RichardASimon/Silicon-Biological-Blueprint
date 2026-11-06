@@ -14,11 +14,12 @@
 
 ## 0. Comparison of Design Options
 
-> Design question: 11 is the **final assembly layer** — the key question is **which part of the five loops is verified first and which part is verified afterwards** (S4: closure of the five loops = the circular-reasoning foundation). Three parallel options are given; each option provides "final assembly sequence + evidence + feasibility".
-> - **Option A (conceptual option, current retained = original Option A)**: **close all five loops at the initial stage** (① perception → ② decision-making → ③ action → ④ energy supply → ⑤ replication), complete structure
-> - **Option B (based on the project reference library = original Option C, selected option)**: **two stages** — first verify "a single individual is self-maintaining within ①②④" (minimum runnable, Avida/protocell staged in the reference library), then add ⑤③
-> - **Option C (based on published research practice, including external survey)**: ① **Avida/EvoDeN viable individuals first, evolution later** (staged digital life) ② **protocell self-maintaining minimal system** (physical side verifies the individual first) ③ **open-ended population framework** (evolution after the individual pool)
-> The key choice is given in §3 + the appendix on key assumptions and design decisions S4.
+> Volume 11 is the final assembly layer. This section decides in what order the five loops should be verified. Perception, decision-making, action, energy supply and replication depend on one another, so demanding that all five close at once risks circular reasoning. Each option states its assembly sequence, evidence and feasibility.
+> - **Option A (conceptual option, baseline)**: close all five loops at the initial stage, producing the complete structure at once.
+> - **Option B (project reference library, selected)**: work in two stages. First show that a single individual can maintain itself through perception, decision-making and energy supply, giving a minimal runnable system; then add replication and action. Staged work in Avida and on protocells provides a reference.
+> - **Option C (published research practice)**: three approaches, namely Avida / EvoDeN ("viable individuals first, evolution later"), protocell minimal self-maintaining systems (establishing the individual on the physical side first), and open-ended population frameworks (evolution after an individual pool exists).
+>
+> The final choice is recorded in §3 and in Appendix S4 on key assumptions and design decisions.
 
 ### 0.1 Option A: Conceptual Option (Close All Five Loops, Baseline Option)
 
@@ -32,7 +33,7 @@
 1. **Final assembly** — [Logical derivation: interfaces of each volume]; closure of ③④⑤ has no empirical evidence [To be verified: pending calculation and experimental verification, P2, critical]
 2. **Boundary** — [Ref:04 C1-C4]
 
-**Feasibility + risk**: "closure of the five loops = the system can run + evolve" is **circular reasoning** — ③④⑤ are all pending experimental verification at P2, there is no empirical evidence that "closure means viability", and this is the foundation of the whole project. [Design decision]
+**Feasibility and risks**: equating "closure of the five loops" with "the system can run and evolve" is circular reasoning. The action, energy-supply and replication loops are still at P2, awaiting experimental verification, and there is no empirical evidence that closure by itself implies viability — yet the whole project rests on this step. [Design decision]
 
 ### 0.2 Option B: Based on the Project Reference Library (Two Stages, Selected Option)
 
@@ -71,7 +72,7 @@
 
 1. **B. Option B staged · Applicable conditions** — Prioritise verification of individual self-maintenance, decouple "whether self-maintenance is possible" from "whether evolution is possible" (originally selected option; downgraded to an alternative option after design decision S4=C; baseline adjusted to C)
 
-> **Baseline option = C** (first verify the minimal prototype of a single individual self-maintaining within ①②④, then add ⑤③; i.e. the two stages of the original Option C in §3) — after design decision S4=C the baseline is aligned to C, and the "staged (originally selected option)" row B in §0.4 is downgraded to an alternative option; falsifiable wording has been moved forward to §3/§4 (2026-09-16). **This choice is a design position, confirmed by design review** (S4 fixed as C, 2026-09-16).
+> **Baseline option = C**: first build a minimal prototype that maintains a single individual within ①②④, then add ⑤③ in a second stage. "Closure of the five loops" is stated as a hypothesis to be tested, with the reasoning in §3 and §4. This is a design position; see Appendix S4 on key assumptions and design decisions for the evidence.
 
 ### 0.5 Detailed Structure of Final Assembly + Closure of the Five Loops (Textual Description)
 

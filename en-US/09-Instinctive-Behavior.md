@@ -14,11 +14,12 @@
 
 ## 0. Comparison of Design Options
 
-> Design question: the key question is **how I0a reflex / I0b CPG are implemented in the silicon-based gel** (the remaining instincts are relatively uncontroversial). Three parallel options are given, each with "implementation + evidence + feasibility".
-> - **Option A (conceptual option, retaining the current = original option A)**: carbon-based CPG/reflex **directly migrated to the silicon-based carrier gel** (minimal I0 = threshold for the criteria of life)
-> - **Option B (based on the project reference library = original option B, selected option)**: **robot CPG/reflex control → transplanted to the silicon-based carrier** (soft/liquid-metal robot CPG + reflex control already has experiments, `09/Schiller_2020(soft walking CPG closed loop, gold-OA, PDF in library)`, `09/Stance_Control_HyQ`, `09/Neuromorphic_Spiking_CPG`)
-> - **Option C (based on published research practice, including external survey + original option C)**: ① soft-robot CPG (2020+) ② spiking CPG device (hardware, closest to silicon-based) ③ reflexive control (without thinking, engineering form) ④ lowering I0 to the "minimal approach/avoidance circuit"
-> The key choice is given in §3.1 + Appendix T4 on key assumptions and design decisions.
+> This section decides how the I0a reflex and the I0b central pattern generator (CPG) are implemented in a silicon-based gel; the remaining instincts are less contentious. Each option states its implementation, evidence and feasibility.
+> - **Option A (conceptual option, baseline)**: carbon-based CPG and reflex mechanisms migrated directly to the silicon carrier, using the smallest I0 set that satisfies the criteria of life.
+> - **Option B (project reference library, selected)**: CPG and reflex control already developed for robots, transplanted to the silicon carrier. Relevant experiments cover soft and liquid-metal robots: `09/Schiller_2020` (closed-loop walking CPG, open access, PDF in library), `09/Stance_Control_HyQ` and `09/Neuromorphic_Spiking_CPG`.
+> - **Option C (published research practice)**: four routes, namely soft-robot CPG work since 2020, spiking CPG devices (the hardware closest to silicon), reflexive control that bypasses deliberation, and reducing I0 to a minimal approach/avoidance circuit.
+>
+> The final choice is recorded in §3.1 and in Appendix T4 on key assumptions and design decisions.
 
 ### 0.1 Option A: Conceptual Option (Carbon-Based CPG/Reflex Migrated to the Silicon-Based Carrier, Baseline Option)
 
@@ -32,7 +33,7 @@
 1. **I0a reflex** — [Ref:`09/Withdrawal_Reflex_Nociceptive_Neuromorphic_Model_arXiv2505.17724`, §nociceptive reflex neuromorphic model, "2025 nociceptive reflex neuromorphic model (arXiv2505.17724)"], `09/Reflexive_BrainInspired_Guo_2026(preprint · pending peer review)`, §reflexive brain-inspired architecture, "Guo 2026 reflexive brain-inspired (preprint, pending peer review)"]] (carbon-based/robot mechanism); "implementable in silicon-based gel" [To be verified by calculation and experiment, key]
 2. **I0b locomotion** — [Ref:`09/CPG_Rhythm_Generation_Stick_Insect_arXiv2504.11494`, §insect CPG rhythm generation, "2024 insect CPG rhythm generation (arXiv2504.11494)"], `09/Neuromorphic_Spiking_CPG_arXiv2101.09709`, §spiking CPG device state, "2015/2021 spiking CPG hardware rhythm"]]; gel CPG frequency [To be verified]
 
-**Feasibility + risk**: the CPG/reflex literature is **entirely carbon-based organisms/robots**; treating it directly as the **critical silicon-based gel I0 threshold** is a Class C transplantation, with feasibility unproven — "spontaneous emergence of CPG/reflex in the gel" is an original result not previously demonstrated anywhere. [Design decision]
+**Feasibility and risks**: the CPG and reflex literature comes entirely from carbon-based organisms and robots. Using it directly as the critical I0 threshold for a silicon-based gel is a class C transplantation whose feasibility is unproven, and the spontaneous emergence of CPG and reflex behaviour in a gel has no precedent. [Design decision]
 
 ### 0.2 Option B: Based on the Project Reference Library (Robot CPG/Reflex Transplantation, Selected Option)
 
@@ -68,11 +69,11 @@
 
 | Strategy | Content | Applicable conditions |
 | ------ | ------ | ------ |
-| **A. Pure Option A** | Carbon-based CPG/reflex migrated to the silicon-based carrier gel (retaining the current baseline) | Matches "minimal I0", key assumption, not currently operable |
+| **A. Pure Option A** | Carbon-based CPG/reflex migrated to the silicon-based carrier gel | Matches "minimal I0", but rests on a key assumption and is not currently operable |
 | **B. Option B (selected option)** | I0 lands on robot CPG/reflex + silicon-based actuator, high feasibility without removing the threshold | Supported by empirical control experiments |
 | **C. Option C threshold-lowering underlying constraint** | I0 lowered to a minimal approach/avoidance circuit, CPG assigned to evolvable items | Most conservative |
 
-> **Baseline option = B** (I0 lands on CPG/reflex + silicon-based actuator supported by robot control experiments; feasibility far higher than A, without removing the I0 threshold) — corresponding to original option B in §3.1 + Appendix T4 on key assumptions and design decisions. **This choice is a design stance, confirmed by design review**.
+> **Baseline option = B**: I0 rests on CPG/reflex mechanisms supported by robot control experiments, paired with silicon-based actuators. This is considerably more feasible than A and does not lower the I0 threshold. See §3.1 for the reasoning and Appendix T4 on key assumptions and design decisions for the evidence.
 > **Design decision (T4): I0 adopts the robot CPG/reflex mechanism with silicon-based actuators; Options A/C serve as alternatives.**
 
 ### 0.5 Detailed Structure of the Instinct Layer (Textual Description)

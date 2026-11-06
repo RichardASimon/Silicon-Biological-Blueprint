@@ -14,11 +14,12 @@
 
 ## 0. Comparison of Design Options
 
-> Design question: the key question is **how the fitness judge can be "measurable and runnable"** (the six-term weighting has no measurement path + it is self-contradictory with the evaluation volume's two factors, i.e. S1). Three parallel options are given, each providing "judge form + evidence + feasibility".
-> - **Option A (conceptual option, retaining the current = original Option A)**: **six-term weighting** (organizational closure / energy surplus / replication rate / learning degree / world-model accuracy / cooperation + A6) as the judge, with priority to critical integrity
-> - **Option B (based on the project reference library = original Option C, selected option)**: **phased minimal judge** — A6 cooperation-term lower bound (Φ-L2 fixed, with axiomatic basis) + hard survival threshold, priority on obtaining a runnable prototype, six terms as P2
-> - **Option C (based on published research practice, including external investigation + original Option B)**: ① **Quality-Diversity / MAP-Elites** (multiple measurable descriptors, forcing each of the "six terms" to be measurable) ② **Reward shaping + prevention of reward hacking** (measurable sub-terms + adversarial validation) ③ **two-factor scalar** (survival duration × resource efficiency, aligned with the evaluation volume)
-> For the key selection, see §3.2 + Appendix S1 on key assumptions and design decisions.
+> This section decides how the fitness judge can be made measurable and runnable. The original six-term weighting has no corresponding measurement path and conflicts with the two-factor formulation used in the evaluation volume; this conflict is recorded as S1. Each option states its form of judge, evidence and feasibility.
+> - **Option A (conceptual option, baseline)**: a six-term weighted judge covering organizational closure, energy surplus, replication rate, learning, world-model accuracy and cooperation, with A6 included; completeness of the structure takes priority.
+> - **Option B (project reference library, selected)**: a phased minimal judge that keeps only the Φ-L2 lower bound on the A6 cooperation term and a hard survival threshold, so a runnable prototype arrives earlier; the full six-term judge is deferred.
+> - **Option C (published research practice)**: three routes, namely Quality-Diversity / MAP-Elites, which uses several measurable descriptors to force each term to be measurable; reward shaping with protection against reward hacking, using measurable sub-terms and adversarial validation; and a two-factor scalar (survival duration × resource efficiency) aligned with the evaluation volume.
+>
+> The final choice is recorded in §3.2 and in Appendix S1 on key assumptions and design decisions.
 
 ### 0.1 Option A: Conceptual Option (Six-Term Weighting, Baseline Option)
 
@@ -27,7 +28,7 @@
 | Judge | F = Σwᵢ·[closure/energy/replication/learning/world model/cooperation] − w_penalty | [Design decision]; values of each wᵢ + measurement methods not given anywhere in the volume [To be computed and experimentally verified, critical] |
 | Cooperation | A6 lower bound fixed (Φ-L2) + upper bound free | [Ref:00 Φ-L2 + 10 §3.3] |
 
-**Feasibility + risks**: for the six terms, "how to measure them into scalars + normalisation + weight values" has no path; treating it as a "directly runnable judge" is a key assumption; moreover it contradicts the evaluation volume's two factors. [Design decision]
+**Feasibility and risks**: there is no path yet for turning the six terms into measured scalars, normalising them and assigning weights. Treating the result as a directly runnable judge is therefore a key assumption, and it also conflicts with the two factors used in the evaluation volume. [Design decision]
 
 ### 0.2 Option B: Based on the Project Reference Library (Phased Minimal Judge, Selected Option)
 

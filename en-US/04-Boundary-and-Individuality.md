@@ -14,11 +14,12 @@
 
 ## 0. Comparison of Design Options
 
-> Design question: the key question is **how C4 causal independence is defined** (C1-C3 are relatively uncontroversial). Three parallel options are given; each option states "criterion form + evidence + operability".
-> - **Option A (conceptual option, baseline option)**: C4 = strict IIT Φ (causal closure not measurable = key)
-> - **Option B (based on the project reference library)**: C4 uses the most measurable criterion of individuality in the reference library (closed-loop self-maintenance / minimal autopoiesis components)
-> - **Option C (based on published research practice)**: the most operable practice for "defining a system boundary" in the external survey (closed-loop self-maintenance behavioural proxy / minimal self-produced material set)
-> and can be combined (§0.4). Key choices are given in §3.1 + Appendix S2 on key assumptions and design decisions.
+> This section decides how C4 (causal independence) is to be judged; the criteria C1–C3 are comparatively uncontroversial. Each option states the form of the criterion, its evidence, and how it could be applied.
+> - **Option A (conceptual option, baseline)**: strict IIT Φ as the measure of C4. The difficulty is measuring causal closure at all.
+> - **Option B (project reference library)**: the most measurable criterion of individuality available in the library, such as closed-loop self-maintenance or a minimal set of autopoietic components.
+> - **Option C (published research practice)**: workable ways of drawing a system boundary, such as self-maintenance behaviour as a proxy or a minimal set of self-produced materials.
+>
+> The options can be combined; see §0.4. The final choice is recorded in §3.1 and in Appendix S2 on key assumptions and design decisions.
 
 ### 0.1 Option A: Concept Option (Strict IIT Φ, Baseline Option)
 
@@ -30,7 +31,7 @@
 
 1. **C4** — [Ref:`04/Integrated_Information_Autonomy_1805.00393`, §IIT framework, "arXiv1805.00393 integrated information theory IIT, Φ measures causal closure (To be verified · how to measure it on heterogeneous silicon-based carriers is not implemented)"] IIT framework]; how Φ is measured on heterogeneous silicon-based carriers is not implemented [To be verified by calculation and experiment: B1]
 
-**Feasibility + risk**: the computational complexity of Φ grows exponentially with dimension; measuring Φ on heterogeneous carriers (PEDOT+Ga-In+ion gradient) is unsolved anywhere — **key assumption, not currently operable**. [Design decision]
+**Feasibility and risks**: the computational complexity of Φ grows exponentially with dimension, and no published method exists for measuring Φ on heterogeneous carriers such as PEDOT, Ga-In and ion gradients. This is a key assumption that cannot yet be put into practice. [Design decision]
 
 ### 0.2 Option B: Based on the Project Reference Library (Most Measurable Criterion)
 

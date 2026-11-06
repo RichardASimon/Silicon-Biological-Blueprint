@@ -14,11 +14,12 @@
 
 ## 0. Comparison of Design Options
 
-> Design question: three parallel options are given; each option provides "how to arrange / how to fabricate / how to read + evidence + feasibility".
-> - **Option A (conceptual option, baseline option)**: soft carrier "multi-defect cluster bonding state stores base-4 + ion beam placement + ALD encapsulation + qPlus readout"
-> - **Option B (based on the project reference library)**: the most mature physical information storage paradigm in the reference library (single silicon atoms / colour centres / defect states)
-> - **Option C (based on published research practice)**: transferable approaches given by an external survey (silicon defect storage / physical writing and characterisation / soft-matrix information states)
-> ; they can be combined (§0.4).
+> This section compares three carrier designs. Each states how information is arranged, fabricated and read out, what evidence supports it, and whether it is feasible.
+> - **Option A (conceptual option, baseline)**: a soft carrier that stores base-4 symbols in multi-defect cluster bonding states, written by ion-beam placement, encapsulated by ALD and read out with qPlus.
+> - **Option B (project reference library)**: the most mature physical storage paradigms in the library, such as single silicon atoms, colour centres and defect states.
+> - **Option C (published research practice)**: external work on silicon defect storage, physical writing and non-destructive characterisation, and soft-matrix information states.
+>
+> The options can be combined; see §0.4.
 
 ### 0.1 Option A: Conceptual Option (Soft-Carrier Multi-Defect Cluster, Baseline Option)
 
@@ -31,7 +32,7 @@
 | Read | qPlus non-destructive electrical readout of 4 states | [Ref:02 §2.4 characterisation stack] |
 | Encapsulation | ALD SiO₂/DLC blocks water-mediated hydrolysis | [Design decision]; water-shielding efficiency [To be verified: pending experiment M2/M5] |
 
-**Feasibility + risk**: `Holmes_2023` is a lattice/low-temperature route [Ref]; **bit-by-bit placement of single side groups in a soft gel + storing 4 states in bonding states + subsequent replication have no verified path** — the heaviest key assumption (appendix on key assumptions and design decisions T0), hits P1 but has the lowest feasibility. [Design decision]
+**Feasibility and risks**: `Holmes_2023` follows a lattice/low-temperature route [Ref]. By contrast, placing side groups one by one in a soft gel, storing four states in their bonding states and then copying the result has no verified path. This is the strongest key assumption (see Appendix T0 on key assumptions and design decisions). The option matches P1, but is the least feasible of the three. [Design decision]
 
 ### 0.2 Option B: Based on the Project Reference Library (Most Mature Physical Information Storage Paradigm)
 
@@ -55,7 +56,7 @@
 
 ### 0.3 Option C: Based on Published Research Practice (External Survey, References Added After the Retrieval Workflow Report)
 
-> To be verified · **The evidence in this section is the result of a survey of public literature, distinguished from the design claims of this project.** Verified anchors are upgraded to `[Ref:02/C_SOFT_MEMRISTOR_MULTI_LEVEL_2026-09-15.md]`; those not verified retain `[Ref·external survey·DOI to be verified]` — in accordance with Design Principle 24, unverified values are not presented as verified values.
+> To be verified · **The evidence in this section comes from a survey of published literature and is kept separate from this project's own design claims.** Verified anchors are recorded as `[Ref:02/C_SOFT_MEMRISTOR_MULTI_LEVEL_2026-09-15.md]`; unverified ones remain `[Ref·external survey·DOI to be verified]`, and are not presented as confirmed values.
 > **Key conclusion (survey direction)**: the three most mature classes worldwide for "building information states into physical carriers": ① silicon defect / colour-centre storage ② physical writing + non-destructive characterisation ③ soft-matrix memristors. The most isomorphic to **storing 4 states in a soft matrix** is **gel memristors / resistive multi-level storage**.
 
 | External paradigm | Mechanism transferable into 02 |
@@ -70,7 +71,7 @@
 2. **Physical writing + non-destructive electrical readout** — [Ref:`02/WRITING_READOUT_WORLD_BEST_PRACTICE_2026-09-14.md`(W1-W5 writing + R1-R6 non-destructive readout); writing representative = single-atom transistor `Fuchsle_2012`[Ref·:02/Fuchsle_2012_Nature_single-atom_transistor, §single-atom transistor, "Fuchsle 2012 Nature Nanotechnology: single-atom transistor, empirical demonstration of deterministic single-atom placement (DOI 10.1038/nnano.2012.21; DOI to be verified; (restricted access), may serve as a critical external authoritative anchor for T0)"] + molecular ion beam `Holmes_2023`[Ref:02/Holmes_2023, §single-atom placement, "UNSW ion beam deterministic placement of single atoms (preprint)"]/`Morello_2015`[Ref·:02/Morello_2015_Nature_single_P_donor, §single-donor coherence, "Morello Nature: single ³⁰P donor nuclear spin coherence (DOI to be verified: nature11449/2012 retrieved, volume labelled nature16462/2015, year and DOI inconsistent and to be verified; (restricted access), may serve as a critical external authoritative anchor for T0)"]]
 3. **Soft-matrix memristor / resistive multi-level storage** — [Ref:`02/C_SOFT_MEMRISTOR_MULTI_LEVEL_2026-09-15.md` M1 silk fibroin gel soft multi-level resistive memory / M2 polymer film ≥16 states + STDP + retention ≥10⁴ s (all values read back, OA) / M4 protein film conductive filaments / M5 hydrogel (same matrix as 02 POMs)]; M3 review of soft ionics mechanisms. "4-state bonding state" is the generalisation target of this option; external evidence shows "multi-level ≥2-16 states"
 
-> **Landing point of published research practice (verified, not a placeholder)**: `02/WRITING_READOUT_WORLD_BEST_PRACTICE_2026-09-14.md` upgrades the two rows "physical writing + non-destructive readout" in the table above from "to be checked" to **checked in the reference library** (W3/W4 molecular ion beam deterministic 3D placement of single dopant atoms = writing; R4 Hogg 2023 SET single-shot >95% / R5 Elzerman 2004 Pauli spin-charge QND / R1 Adachi 2026 force readout of single atoms = non-destructive readout; B1 ALD encapsulation + B2 template addressing = carrier locking + address lattice). The writing fidelity bottleneck = **single-atom incorporation / activation yield**, not aiming precision. The soft-matrix memristor row was upgraded on 2026-09-15 by `C_SOFT_MEMRISTOR_MULTI_LEVEL_2026-09-15.md` (M2 polymer multi-level ≥16 states with all values citable + M1 silk fibroin gel soft multi-level, literal evidence from the title).
+> **Verifiable findings from published research**: `02/WRITING_READOUT_WORLD_BEST_PRACTICE_2026-09-14.md` provides literature anchors for "physical writing" and "non-destructive readout" in the table above. On the writing side, W3/W4 cover deterministic three-dimensional placement of single dopant atoms with a molecular ion beam. On the readout side, R4 is Hogg 2023 SET single-shot readout (>95%), R5 is Elzerman 2004 Pauli spin–charge quantum non-demolition readout, and R1 is Adachi 2026 force readout of single atoms. B1 ALD encapsulation and B2 template addressing handle carrier locking and the address lattice respectively. The bottleneck for writing fidelity is the incorporation and activation yield of single atoms, not aiming precision. Evidence for the soft-matrix memristor row is in `C_SOFT_MEMRISTOR_MULTI_LEVEL_2026-09-15.md`, where M2 gives ≥16 polymer states with all values and M1 provides title-level evidence for multi-level resistive memory in a silk fibroin gel.
 
 ### 0.4 Option Combination and Baseline Configuration
 
@@ -121,7 +122,7 @@ Bring the "POM-based gel + heteroatom side groups" of 01 from concept to a **man
 
 | Option | Status | Trade-off | Evidence category |
 | ------ | ------ | ------ | ------ |
-| **POM-based hybrid hydrogel** (main host of this option) | See note 1 | Verified · soft, deformable, P1 | [Design decision] select B soft host (P1); hitting P1 = [Logical derivation] |
+| **POM-based hybrid hydrogel** (main host of this option) | See note 1 | Verified · soft, deformable, P1 | [Design decision] soft host B selected (P1); P1 compliance follows by [Logical derivation] |
 | Crystalline SiO₂/SiC host (Option A benchmark) | [Ref:`02/Schofield_2025` roadmap (multi-institution atomic-scale semiconductor)] | Serves as verification benchmark | [Design decision] benchmark role under the Option A/II combination |
 | Liquid metal / conducting polymer matrix | [Ref:`05/Khan_2014` (EGaIn), `05/Eickenscheidt_2019` (PEDOT)] | Neural-layer matrix, not used for DNA | [Logical derivation: matrix division of labour, physical separation of the 02 DNA host vs the 05 neural matrix to avoid crosstalk] |
 

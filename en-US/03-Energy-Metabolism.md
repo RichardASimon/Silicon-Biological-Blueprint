@@ -14,11 +14,12 @@
 
 ## 0. Comparison of Design Options
 
-> Design question: three parallel options are given; each option states "how to harvest / how to convert / how to allocate + evidence + feasibility".
-> - **Option A (conceptual option)**: thermoelectric TEG as the primary energy source + ATP-like electrochemical-gradient energy currency + A2-order dynamic allocation (current §2/§3)
-> - **Option B (based on the project reference library)**: the most mature energy acquisition paradigm in the reference library (thermoelectric / photocatalytic / artificial-cell metabolism measurements)
-> - **Option C (based on published research practice)**: transferable practices from an external survey (soft/wearable energy harvesting + energy storage + dynamic allocation)
-> and can be combined (§0.4).
+> This section compares three energy designs. Each states how energy is harvested, converted and allocated, what evidence supports it, and whether it is feasible.
+> - **Option A (conceptual option)**: thermoelectric TEG as the primary source, an ATP-like electrochemical gradient as the energy currency, and allocation priorities derived from axiom A2 (see §2 and §3).
+> - **Option B (project reference library)**: the best-measured routes in the reference library, covering thermoelectrics, photocatalysis and artificial-cell metabolism.
+> - **Option C (published research practice)**: energy harvesting, storage and dynamic allocation as developed for soft and wearable systems.
+>
+> The options can be combined; see §0.4.
 
 ### 0.1 Option A: Concept Option (Thermoelectric Primary Energy Source + Electrochemical Gradient, Baseline Option)
 
@@ -36,7 +37,7 @@
 3. **Allocation** — [Logical derivation: corollary of the A2 persistence axiom]; thresholds of each layer [To be verified]
 4. **Ceiling** — [Ref:03/2018_Network_Thermoelectric_arXiv1811.08729, §measurements, "0.03µW/cm²"], [Ref:03/2026_Hybrid_TEG_PMMA_Ink_40nW_cm2_arXiv2607.02793, §measurements, "40nW/cm²"], [Ref:03/Moradi_2025_Wearable_Thermo_plasma_0.15mW_cm2_arXiv2512.08103, §measurements, "0.15mW/cm²"]; power inside the gel [To be verified by experiment: E1]
 
-**Feasibility + risk**: solid-state thermoelectric devices have been measured, but **the actual power density inside the soft gel (POMs) will drop** [To be verified by experiment: E1] — "whether thermoelectrics can supply energy in a soft matrix" is the key assumption. [Design decision]
+**Feasibility and risks**: solid-state thermoelectric devices have been measured, but the actual power density inside the soft gel (POMs) is expected to fall [To be verified by experiment: E1]. Whether thermoelectrics can supply energy in a soft matrix remains the key assumption. [Design decision]
 
 ### 0.2 Option B: Based on the Project Reference Library (Most Mature Paradigm)
 

@@ -14,11 +14,12 @@
 
 ## 0. Comparison of Design Options
 
-> Design question: the key question is **what physical implementation is used for Boolean gates** (side-group bonding state / memristor device / DNA strand displacement). Three parallel options are given; each option provides "implementation + evidence + feasibility".
-> - **Option A (conceptual option, current retained = original Option A)**: soft-gel **side-group bonding-state migration + ion-beam/ALD site-by-site drive** as Boolean gates (best match to P1, most critical)
-> - **Option B (based on the project reference library = original Option B)**: **memristor/neuromorphic gates** (device-level experiments exist, in-memory computing, `08/NEXUS_2026` ANN↔SNN equivalence + `05/Khacef_2022` spike plasticity)
-> - **Option C (based on published research practice, including external survey + original Option C)**: ① memristor neuromorphic logic gates (in-memory computing, avoiding site-by-site drive) ② DNA strand-displacement gates (molecular level, no wiring, `05/Qianlab_2011`) ③ spin-crossover switches (close relative of silicon semiconductors)
-> The key choice is given in §3.1 + appendix T1 of key assumptions and design decisions.
+> This section decides how Boolean gates are implemented physically. Each option states its implementation, evidence and feasibility.
+> - **Option A (conceptual option, baseline)**: logic states represented by side-group bonding-state migration in a soft gel, driven site by site with an ion beam and ALD. This is closest to the "physics as computation" principle, but site-by-site operation makes it the hardest to build.
+> - **Option B (project reference library)**: memristor or neuromorphic gates, already demonstrated at device level and able to compute where data is stored; supported by the ANN↔SNN equivalence result in `08/NEXUS_2026` and the spike-plasticity work in `05/Khacef_2022`.
+> - **Option C (published research practice)**: three routes, namely memristor neuromorphic logic gates that avoid site-by-site drive, DNA strand-displacement gates that need no wiring at the molecular level (`05/Qianlab_2011`), and spin-crossover switches that are closest to silicon semiconductor processes.
+>
+> The final choice is recorded in §3.1 and in Appendix T1 on key assumptions and design decisions.
 
 ### 0.1 Option A: Conceptual Option (Side-Group Bonding-State Gates, Baseline Option)
 
@@ -34,7 +35,7 @@
 2. **Gate circuit** — [Logical derivation: attached to 02 process]; in-gate bond energy/migration threshold [To be verified by calculation and experiment, critical]
 3. **Equivalence reference** — [Ref:`08/NEXUS_2026_Neuromorphic_Gate_Circuits_arXiv2601.21279`, §bit-exact ANN↔SNN equivalence, "NEXUS 2026 neuromorphic gate circuits ANN↔SNN bit-exact equivalence"]
 
-**Feasibility + risks**: "site-by-site drive of bonding-state migration in a soft gel used as a gate" **has no feasibility path and no DFT** — it is the heaviest item of class C (carbon-based mechanisms transferred to silicon-based carriers), a key assumption. [Design decision]
+**Feasibility and risks**: driving bonding-state migration site by site in a soft gel to act as a gate has no demonstrated feasibility path and no supporting DFT calculation. It is the most demanding item in class C (carbon-based mechanisms transferred to silicon-based carriers) and remains a key assumption. [Design decision]
 
 ### 0.2 Option B: Based on the Project Reference Library (Memristor/Neuromorphic Gates, for Reducing Implementation Risk)
 
@@ -70,11 +71,11 @@
 
 | Strategy | Content | Applicable conditions |
 | ------ | ------ | ------ |
-| **A. Pure Option A** | Side-group bonding-state gates (current baseline retained) | Best match to P1, key assumption, not yet operable |
+| **A. Pure Option A** | Side-group bonding-state gates | Best match to P1, but rests on a key assumption and is not yet operable |
 | **B. II risk reduction (if robustness is prioritised)** | Gates switched to memristor/neuromorphic devices, soft memristive matrix compensating for P1 | High feasibility, compromises P1, requires a soft matrix |
 | **C. Option C DNA gate underlying constraint** | Gates use DNA strand displacement (hits 05 DNA neural networks) | Closest to the soft carrier, retreats to carbon-based and slow |
 
-> **Baseline option = maintain A (best match to P1), but make the key risk explicit**; if risk reduction is required, choose B (devices with empirical evidence); for the closest match to the soft carrier, choose C. **This choice is a design position, confirmed by design review** (corresponding to appendix T1 of key assumptions and design decisions).
+> **Baseline option = A**: A is kept as the baseline because it best matches P1, but its key risks must be stated explicitly. Choose B if reducing implementation risk matters more (devices with empirical evidence), or C if matching the soft carrier matters more. See Appendix T1 on key assumptions and design decisions for the evidence.
 
 ### 0.5 Detailed Structure of the Logic Subsystem (Textual Description)
 
@@ -217,7 +218,7 @@ Conditional (→) = ¬P ∨ Q →  NOT (¬) + OR (∨) combination
 | ------ | --------- | ---------------------- | ------ | ------ | ------------------ |
 | **A. Retain side-group bonding-state gates (current baseline)** | Multi-defect cluster bonding-state migration as a gate | `08/NEXUS_2026` as mechanistic reference | Pure silicon-based, single carrier | Lowest feasibility (site-by-site drive of bonding-state migration in a gel has no path) | Verified · best match to P1 morphological freedom |
 | **B. Switch to memristor/neuromorphic gates** (off-the-shelf devices exist) | Resistance-state migration as a gate, experiments exist | Retrieval needed (no dedicated memristor entry in the reference library yet; `05/Khacef_2022` spike-plasticity review covers the same class of neuromorphic approach) | High feasibility (memristor logic gates have mature experiments) | Devices are rigid/thin-film, in tension with the soft carrier P1 | To be verified · compromises P1, requires a soft memristive matrix |
-| **C. Switch to DNA strand-displacement gates** (hits 05 DNA neural networks) | DNA gate circuits (Boolean logic realised by DNA reactions) | `05/Qianlab_2011_DNA_Seeseesaw_Neural_Networks` (Nature, DNA molecular computing) + `05/teVrugt_2024_DNA_Neural_Networks` | Naturally consistent with 05 Option C (XNA/DNA), mature literature on molecular-level logic gates exists | It is a carbon-based skeleton (not pure silicon), and slow (molecular reactions on the ms–s scale) | To be verified · hits P1 but retreats to carbon-based |
+| **C. Switch to DNA strand-displacement gates** (consistent with the DNA neural networks in volume 05) | DNA gate circuits (Boolean logic realised by DNA reactions) | `05/Qianlab_2011_DNA_Seeseesaw_Neural_Networks` (Nature, DNA molecular computing) + `05/teVrugt_2024_DNA_Neural_Networks` | Naturally consistent with 05 Option C (XNA/DNA), mature literature on molecular-level logic gates exists | It is a carbon-based skeleton (not pure silicon), and slow (molecular reactions on the ms–s scale) | To be verified · matches P1, but the carrier returns to a carbon-based skeleton |
 
 > **Baseline = A (retain the present design, best match to P1); if "logic gates switched to existing devices/DNA gates" is accepted, choosing B or C reduces the feasibility risk (replacing a high-uncertainty assumption with a technology that has an empirical basis).**
 > **This choice is a design position, confirmed by design review** (principle: key choices retain a selection space, and are marked as a design decision afterwards).
